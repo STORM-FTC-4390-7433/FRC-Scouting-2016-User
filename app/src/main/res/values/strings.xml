@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Storm Scouter 2015-16</string>
+    <string name="teamName">Team Number</string>
+    <string name="matchNum">Match Number</string>
+    <string name="red">Red</string>
+    <string name="blue">Blue</string>
+    <string name="begin">Begin Match</string>
+    <string name="gen">Generate QR code</string>
+    <string name="tweet">Twitter: @stormroboticsnj</string>
+    <string name="website">Website: www.stormrobticsnj.org</string>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF9800</color>
+    <color name="colorPrimaryDark">#E65100</color>
+    <color name="colorAccent">#D50000</color>
+    <color name="bg">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="red_reg">#ff3333</color>
+    <color name="red_chk">#dd2222</color>
+    <color name="blue_reg">#5c85ff</color>
+    <color name="blue_chk">#3a63dd</color>
+    <color name="twitter">#00aced</color>
+    <color name="chkBox_off">#88FF7519</color>
+</resources>
