@@ -86,18 +86,10 @@
         android:textColor="@android:color/black"
         android:textStyle="bold" />
 
-    <ImageView
-        android:layout_width="369dp"
-        android:layout_height="350dp"
-        android:id="@+id/imageView"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/logo" />
-
     <Button
         android:id="@+id/twit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
         android:layout_marginBottom="30dp"
         android:background="@color/twitter"
         android:stateListAnimator="@null"
@@ -110,7 +102,6 @@
         android:id="@+id/web"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
         android:layout_marginBottom="30dp"
         android:background="@android:color/background_light"
         android:onClick="webOpen"
@@ -118,4 +109,12 @@
         android:text="@string/website"
         android:textColor="@android:color/black"
         android:textStyle="bold" />
-    </LinearLayout>
+
+    <ImageView
+        android:layout_width="369dp"
+        android:layout_height="350dp"
+        android:id="@+id/imageView"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/logo" />
+
+</LinearLayout>

@@ -8,4 +8,13 @@
     <string name="gen">Generate QR code</string>
     <string name="tweet">Twitter: @stormroboticsnj</string>
     <string name="website">Website: www.stormrobticsnj.org</string>
+    <string name="git">Github: 2729StormRobotics</string>
+    <string name="facebook">Facebook: frc2729ftc4390</string>
+    <string name="storm">Storm Robotics</string>
+    <string name="title_activity_match">MatchActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
