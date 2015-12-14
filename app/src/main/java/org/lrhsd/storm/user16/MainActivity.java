@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Toast;
 import org.lrhsd.storm.user16.TeamNumbers;
@@ -22,6 +23,35 @@ public class MainActivity extends AppCompatActivity {
                     blue = (RadioButton)findViewById(R.id.radBlue);
         red.setButtonDrawable(R.drawable.chkbox_off);
         blue.setButtonDrawable(R.drawable.chkbox_off);
+        LinearLayout twitter = (LinearLayout)findViewById(R.id.twitter),
+                     git = (LinearLayout)findViewById(R.id.git),
+                     web = (LinearLayout)findViewById(R.id.web);
+
+        twitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("http://www.twitter.com/stormroboticsnj"));
+                startActivity(intent);
+            }
+        });
+        git.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("http://www.github.com/2729StormRobotics"));
+                startActivity(intent);
+            }
+        });
+        web.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("http://stormroboticsnj.org"));
+                startActivity(intent);
+            }
+        });
+
 
         red.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -82,15 +112,5 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    }
-    public void twitterOpen(View v){
-        Intent intent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://www.twitter.com/stormroboticsnj"));
-        startActivity(intent);
-    }
-    public void webOpen(View v){
-        Intent intent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://www.stormroboticsnj.org"));
-        startActivity(intent);
     }
 }
