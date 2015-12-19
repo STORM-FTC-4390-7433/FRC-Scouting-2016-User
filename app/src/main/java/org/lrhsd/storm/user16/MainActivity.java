@@ -13,6 +13,8 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 import org.lrhsd.storm.user16.TeamNumbers;
 
+import de.greenrobot.event.EventBus;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -112,5 +114,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+    public void startQR(View v){
+        EventBus.getDefault().postSticky("Insert Team Data");
+        Intent qrIntent = new Intent(this, QrActivity.class);
+        startActivity(qrIntent);
     }
 }

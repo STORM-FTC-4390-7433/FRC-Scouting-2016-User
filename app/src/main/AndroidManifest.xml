@@ -18,7 +18,8 @@
         <activity
             android:name=".MatchActivity"
             android:label="@string/title_activity_match"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".QrActivity"></activity>
     </application>
 
 </manifest>

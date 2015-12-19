@@ -21,10 +21,7 @@ public class MatchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match);
         //For when data is passed
-        String matchNum = "";
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Match " + matchNum);
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mViewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
@@ -39,6 +36,7 @@ public class MatchActivity extends AppCompatActivity {
 
 
     }
+
 
 
     @Override
