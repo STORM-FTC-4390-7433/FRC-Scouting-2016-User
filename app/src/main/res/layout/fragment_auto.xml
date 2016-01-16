@@ -1,7 +1,97 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fragments.AutoFragment"
+    android:fillViewport="true">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@android:color/black">
-</FrameLayout>
+
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reached Defenses"
+        android:id="@+id/chkAutoDef"
+        android:textColor="#ffffff"
+        android:button="@drawable/box"
+        android:textSize="25sp"
+        android:paddingLeft="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="30dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="High goal scored"
+        android:id="@+id/chkAutoHigh"
+        android:textColor="#ffffff"
+        android:button="@drawable/box"
+        android:textSize="25sp"
+        android:paddingLeft="20dp"
+        android:layout_below="@+id/chkAutoDef"
+        android:layout_alignLeft="@+id/chkAutoDef"
+        android:layout_alignStart="@+id/chkAutoDef"
+        android:layout_marginBottom="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Choose Defense"
+        android:id="@+id/textView"
+        android:textColor="#ffffff"
+        android:textIsSelectable="false"
+        android:textSize="35sp"
+        android:layout_below="@+id/chkAutoLow"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="25dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Low goal Scored"
+        android:id="@+id/chkAutoLow"
+        android:textColor="#ffffff"
+        android:button="@drawable/box"
+        android:textSize="25sp"
+        android:checked="false"
+        android:paddingLeft="20dp"
+        android:layout_below="@+id/chkAutoHigh"
+        android:layout_alignLeft="@+id/chkAutoHigh"
+        android:layout_alignStart="@+id/chkAutoHigh"
+        android:layout_marginBottom="30dp" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinAuto"
+            android:popupBackground="#000"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="20dp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Low goal Scored"
+            android:id="@+id/chkAutoCross"
+            android:textColor="#ffffff"
+            android:button="@drawable/box"
+            android:textSize="25sp"
+            android:checked="false"
+            android:paddingLeft="20dp"
+            android:layout_below="@+id/spinAuto"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    </LinearLayout>
+</ScrollView>
