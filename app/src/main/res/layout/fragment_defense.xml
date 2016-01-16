@@ -1,0 +1,304 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="2000dp"
+    tools:context="fragments.DefenseFragment"
+    android:background="#000">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Defense #1"
+            android:id="@+id/textView2"
+            android:textSize="35sp"
+            android:textColor="#fff"
+            android:layout_marginBottom="20sp" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinDef1"
+            android:popupBackground="#000"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="20dp"
+            android:spinnerMode="dialog"
+            android:background="@drawable/spinner"
+            android:layout_gravity="center_horizontal" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Able to Cross the def"
+            android:id="@+id/chkDef1"
+            android:textColor="#ffffff"
+            android:button="@drawable/box"
+            android:textSize="25sp"
+            android:paddingLeft="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:checked="false" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cross and Weakened"
+            android:id="@+id/chkWeak1"
+            android:textColor="#ffffff"
+            android:button="@drawable/box"
+            android:textSize="25sp"
+            android:paddingLeft="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:checked="false" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Defense #2"
+            android:id="@+id/textView3"
+            android:textSize="35sp"
+            android:textColor="#fff"
+            android:layout_marginBottom="20sp" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinDef2"
+            android:popupBackground="#000"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="20dp"
+            android:spinnerMode="dialog"
+            android:background="@drawable/spinner"
+            android:layout_gravity="center_horizontal" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Able to Cross the def"
+            android:id="@+id/chkDef2"
+            android:textColor="#ffffff"
+            android:button="@drawable/box"
+            android:textSize="25sp"
+            android:paddingLeft="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:checked="false" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cross and Weakened"
+            android:id="@+id/chkWeak2"
+            android:textColor="#ffffff"
+            android:button="@drawable/box"
+            android:textSize="25sp"
+            android:paddingLeft="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:checked="false" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Defense #3"
+            android:id="@+id/textView4"
+            android:textSize="35sp"
+            android:textColor="#fff"
+            android:layout_marginBottom="20sp" />
+
+        <ScrollView
+            tools:context="fragments.DefenseFragment"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#000"
+            android:id="@+id/scrollView">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinDef3"
+                    android:popupBackground="#000"
+                    android:layout_below="@+id/textView"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="20dp"
+                    android:spinnerMode="dialog"
+                    android:background="@drawable/spinner" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Able to Cross the def"
+                    android:id="@+id/chkDef3"
+                    android:textColor="#ffffff"
+                    android:button="@drawable/box"
+                    android:textSize="25sp"
+                    android:paddingLeft="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:checked="false" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cross and Weakened"
+                    android:id="@+id/chkWeak3"
+                    android:textColor="#ffffff"
+                    android:button="@drawable/box"
+                    android:textSize="25sp"
+                    android:paddingLeft="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:checked="false" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Defense #4"
+                    android:id="@+id/textView5"
+                    android:textSize="35sp"
+                    android:textColor="#fff"
+                    android:layout_marginBottom="20sp" />
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinDef4"
+                    android:popupBackground="#000"
+                    android:layout_below="@+id/textView"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="20dp"
+                    android:spinnerMode="dialog"
+                    android:background="@drawable/spinner"
+                    android:layout_gravity="center_horizontal" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Able to Cross the def"
+                    android:id="@+id/chkDef4"
+                    android:textColor="#ffffff"
+                    android:button="@drawable/box"
+                    android:textSize="25sp"
+                    android:paddingLeft="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:checked="false" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cross and Weakened"
+                    android:id="@+id/chkWeak4"
+                    android:textColor="#ffffff"
+                    android:button="@drawable/box"
+                    android:textSize="25sp"
+                    android:paddingLeft="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:checked="false" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Defense #5"
+                    android:id="@+id/textView6"
+                    android:textSize="35sp"
+                    android:textColor="#fff"
+                    android:layout_marginBottom="20sp" />
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinDef5"
+                    android:popupBackground="#000"
+                    android:layout_below="@+id/textView"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="20dp"
+                    android:spinnerMode="dialog"
+                    android:background="@drawable/spinner" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Able to Cross the def"
+                    android:id="@+id/checkBox6"
+                    android:textColor="#ffffff"
+                    android:button="@drawable/box"
+                    android:textSize="25sp"
+                    android:paddingLeft="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:checked="false" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cross and Weakened"
+                    android:id="@+id/checkBox5"
+                    android:textColor="#ffffff"
+                    android:button="@drawable/box"
+                    android:textSize="25sp"
+                    android:paddingLeft="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:checked="false" />
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</ScrollView>

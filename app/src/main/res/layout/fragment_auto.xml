@@ -45,15 +45,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Choose Defense"
+        android:text="Starting Position"
         android:id="@+id/textView"
         android:textColor="#ffffff"
         android:textIsSelectable="false"
         android:textSize="35sp"
         android:layout_below="@+id/chkAutoLow"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="25dp" />
+        android:layout_alignRight="@+id/chkAutoDef"
+        android:layout_alignEnd="@+id/chkAutoDef"
+        android:layout_marginBottom="40dp" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -71,19 +71,21 @@
         android:layout_marginBottom="30dp" />
 
         <Spinner
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/spinAuto"
             android:popupBackground="#000"
             android:layout_below="@+id/textView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="20dp"
+            android:spinnerMode="dialog"
+            android:background="@drawable/spinner"/>
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Low goal Scored"
+            android:text="Crossed Defense"
             android:id="@+id/chkAutoCross"
             android:textColor="#ffffff"
             android:button="@drawable/box"
@@ -91,7 +93,10 @@
             android:checked="false"
             android:paddingLeft="20dp"
             android:layout_below="@+id/spinAuto"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp" />
+
+
     </RelativeLayout>
     </LinearLayout>
 </ScrollView>

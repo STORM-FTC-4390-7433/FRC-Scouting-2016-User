@@ -15,6 +15,17 @@
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="exit">Return to Main Screen</string>
+    <string-array name="autoDefenses">
+        <item name="ptc">Portcullis</item>
+        <item name="cdf">Cheval de Frise</item>
+        <item name="rmp">Ramparts</item>
+        <item name="mt">Moat</item>
+        <item name="db">DrawBridge</item>
+        <item name="sp">Sally Port</item>
+        <item name="rw">Rock Wall</item>
+        <item name="rt">Rough Terrain</item>
+        <item name="lb">Low Bar</item>
+    </string-array>
     <string-array name="defenses">
         <item name="ptc">Portcullis</item>
         <item name="cdf">Cheval de Frise</item>
@@ -26,5 +37,7 @@
         <item name="rt">Rough Terrain</item>
         <item name="lb">Low Bar</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

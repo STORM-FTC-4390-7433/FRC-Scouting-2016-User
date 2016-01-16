@@ -30,7 +30,7 @@ public class AutoFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_auto, container, false);
         Spinner spinner = (Spinner)view.findViewById(R.id.spinAuto);
-        ArrayAdapter<CharSequence> adapt = ArrayAdapter.createFromResource(getActivity().getBaseContext(), R.array.defenses, R.layout.spinner_item);
+        ArrayAdapter<CharSequence> adapt = ArrayAdapter.createFromResource(getActivity().getBaseContext(), R.array.autoDefenses, R.layout.spinner_item);
         adapt.setDropDownViewResource(R.layout.spinner_dropdown_item);
         spinner.setAdapter(adapt);
         return view;

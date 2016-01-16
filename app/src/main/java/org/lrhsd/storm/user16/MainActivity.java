@@ -13,6 +13,7 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 import org.lrhsd.storm.user16.TeamNumbers;
 
+import database.Stronghold;
 import de.greenrobot.event.EventBus;
 
 public class MainActivity extends AppCompatActivity {
@@ -101,10 +102,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else{
                     Intent start = new Intent(this, MatchActivity.class);
+                    Stronghold stronghold = new Stronghold(team, match, boolToInt(isRed));
+                    EventBus.getDefault().postSticky(stronghold);
                     startActivity(start);
-                    Log.d("Team", String.valueOf(team));
-                    Log.d("Match", String.valueOf(match));
-                    Log.d("Alliance", String.valueOf(isRed));
                 }
 
         }
@@ -119,5 +119,11 @@ public class MainActivity extends AppCompatActivity {
         EventBus.getDefault().postSticky("Insert Team Data");
         Intent qrIntent = new Intent(this, QrActivity.class);
         startActivity(qrIntent);
+    }
+    public int boolToInt(boolean a){
+        if(a){
+            return 1;
+        }
+        return 0;
     }
 }

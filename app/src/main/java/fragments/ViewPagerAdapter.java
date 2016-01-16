@@ -27,8 +27,11 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
                 TeleFragment fragment2 = new TeleFragment();
                 return fragment2;
             case 2:
-                SubmitFragment fragment3 = new SubmitFragment();
+                DefenseFragment fragment3 = new DefenseFragment();
                 return fragment3;
+            case 3:
+                SubmitFragment fragment4 = new SubmitFragment();
+                return fragment4;
         }
         return null;
     }
@@ -36,7 +39,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         // Show 3 total pages.
-        return 3;
+        return 4;
     }
 
     @Override
@@ -47,6 +50,8 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             case 1:
                 return "Tele";
             case 2:
+                return "Defense";
+            case 3:
                 return "Submit";
         }
         return null;
