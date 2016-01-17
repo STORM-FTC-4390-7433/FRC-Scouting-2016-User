@@ -102,8 +102,9 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Team Number does not exist", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Intent start = new Intent(this, MatchActivity.class);
+                    Intent start = new Intent(this, MainActivity.class);
                     Stronghold stronghold = new Stronghold(team, match, boolToInt(isRed));
+                    DatabaseHandler.getInstance(getApplicationContext()).addData(stronghold);
                     EventBus.getDefault().postSticky(stronghold);
                     startActivity(start);
                 }
@@ -124,9 +125,10 @@ public class MainActivity extends AppCompatActivity {
     public String makeString(){
         String data = "@stormscouting";
         for(Stronghold strong : DatabaseHandler.getInstance(getApplicationContext()).getAllTeams()){
-            data += strong.getTeamNum() + "," + strong.getMatchNum() + "," + strong.getAlliance() +
-                    strong.getAutoDef() + "," + strong.getAutoHigh() + "," + strong.getAutoLow() +
-                    strong.getStartingPos() + "," + strong.getAutoCross() + "," + strong.getHighGoal() +
+            if(strong.getNotes().equals("")){strong.setNotes("No Notes");}
+            data += strong.getTeamNum() + "," + strong.getMatchNum() + "," + strong.getAlliance() + "," +
+                    strong.getAutoDef() + "," + strong.getAutoHigh() + "," + strong.getAutoLow() + "," +
+                    strong.getStartingPos() + "," + strong.getAutoCross() + "," + strong.getHighGoal() +  "," +
                     strong.getLowGoal() + "," + strong.getRamp() + "," + strong.getScale() + "," +
                     strong.getCapture() + "," + strong.getBreach() + "," + strong.getD1() +
                     "," + strong.getD2() + "," + strong.getD3()  + "," + strong.getD4() +

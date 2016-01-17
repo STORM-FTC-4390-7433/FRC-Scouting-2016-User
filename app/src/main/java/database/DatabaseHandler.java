@@ -5,16 +5,16 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.List;
 
-/**
- * Created by tom on 1/16/16.
- */
+
 public class DatabaseHandler extends SQLiteOpenHelper {
     private static String DB_name = "strongholdDB";
     private static String DB_Table = "strongholdData";
-    private static int DB_VERSION = 1;
+    private static int DB_VERSION = 4;
 
     private static String KEY_TEAM = "teamNum";
     private static String KEY_MATCH = "matchNum";
@@ -77,9 +77,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                               KEY_CAPTURE + " INTEGER," +
                               KEY_RAMP + " INTEGER," +
                               KEY_D1 + " TEXT," +
-                              KEY_D2 + " TEXT" +
+                              KEY_D2 + " TEXT," +
                               KEY_D3 + " TEXT," +
-                              KEY_D4 + " TEXT" +
+                              KEY_D4 + " TEXT," +
                               KEY_D5 + " TEXT," +
                               KEY_DC1 + " INTEGER," +
                               KEY_DC2 + " INTEGER," +
@@ -120,6 +120,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_D2, strong.getD2());
         values.put(KEY_D3, strong.getD3());
         values.put(KEY_D4, strong.getD4());
+        values.put(KEY_D5, strong.getD5());
         values.put(KEY_DC1, strong.getdCross1());
         values.put(KEY_DC2, strong.getdCross2());
         values.put(KEY_DC3, strong.getdCross3());
@@ -129,56 +130,56 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_DW2, strong.getdWeak2());
         values.put(KEY_DW3, strong.getdWeak3());
         values.put(KEY_DW4, strong.getdWeak4());
-        values.put(KEY_DW4, strong.getdWeak5());
+        values.put(KEY_DW5, strong.getdWeak5());
         values.put(KEY_NOTES, strong.getNotes());
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(DB_Table, null, values);
+        Log.d("DB", "Data added");
         db.close();
     }
-    public ArrayList<Stronghold> getAllTeams(){
-        ArrayList<Stronghold> list = new ArrayList<Stronghold>();
+    public List<Stronghold> getAllTeams(){
+        List<Stronghold> list = new ArrayList<Stronghold>();
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM " + DB_Table;
         Cursor cursor = db.rawQuery(query, null);
 
-        if(cursor.moveToFirst()){
-            do{
+        if(cursor.moveToFirst()) {
+            do {
                 Stronghold tmp = new Stronghold();
-                tmp.setTeamNum(cursor.getInt(0));
-                tmp.setMatchNum(cursor.getInt(1));
-                tmp.setAlliance(cursor.getInt(2));
-                tmp.setAutoDef(cursor.getInt(3));
-                tmp.setAutoHigh(cursor.getInt(4));
-                tmp.setAutoLow(cursor.getInt(5));
-                tmp.setStartingPos(cursor.getString(6));
-                tmp.setAutoCross(cursor.getInt(7));
-                tmp.setHighGoal(cursor.getInt(8));
-                tmp.setLowGoal(cursor.getInt(9));
-                tmp.setScale(cursor.getInt(10));
-                tmp.setBreach(cursor.getInt(11));
-                tmp.setCapture(cursor.getInt(12));
-                tmp.setRamp(cursor.getInt(13));
-                tmp.setD1(cursor.getString(14));
-                tmp.setD2(cursor.getString(15));
-                tmp.setD3(cursor.getString(16));
-                tmp.setD4(cursor.getString(17));
-                tmp.setD5(cursor.getString(18));
-                tmp.setdCross1(cursor.getInt(19));
-                tmp.setdCross2(cursor.getInt(20));
-                tmp.setdCross3(cursor.getInt(21));
-                tmp.setdCross4(cursor.getInt(22));
-                tmp.setdCross5(cursor.getInt(23));
-                tmp.setdWeak1(cursor.getInt(24));
-                tmp.setdWeak2(cursor.getInt(25));
-                tmp.setdWeak3(cursor.getInt(26));
-                tmp.setdWeak4(cursor.getInt(27));
-                tmp.setdWeak5(cursor.getInt(28));
-                tmp.setNotes(cursor.getString(29));
+                tmp.setTeamNum(cursor.getInt(cursor.getColumnIndex(KEY_TEAM)));
+                tmp.setMatchNum(cursor.getInt(cursor.getColumnIndex(KEY_MATCH)));
+                tmp.setAlliance(cursor.getInt(cursor.getColumnIndex(KEY_Alliance)));
+                tmp.setAutoDef(cursor.getInt(cursor.getColumnIndex(KEY_AUTODEF)));
+                tmp.setAutoHigh(cursor.getInt(cursor.getColumnIndex(KEY_AUTOHIGH)));
+                tmp.setAutoLow(cursor.getInt(cursor.getColumnIndex(KEY_AUTOLOW)));
+                tmp.setStartingPos(cursor.getString(cursor.getColumnIndex(KEY_STARTPOS)));
+                tmp.setAutoCross(cursor.getInt(cursor.getColumnIndex(KEY_AUTOCROSS)));
+                tmp.setHighGoal(cursor.getInt(cursor.getColumnIndex(KEY_HIGHGOAL)));
+                tmp.setLowGoal(cursor.getInt(cursor.getColumnIndex(KEY_LOWGOAL)));
+                tmp.setScale(cursor.getInt(cursor.getColumnIndex(KEY_SCALE)));
+                tmp.setBreach(cursor.getInt(cursor.getColumnIndex(KEY_BREACH)));
+                tmp.setCapture(cursor.getInt(cursor.getColumnIndex(KEY_CAPTURE)));
+                tmp.setRamp(cursor.getInt(cursor.getColumnIndex(KEY_RAMP)));
+                tmp.setD1(cursor.getString(cursor.getColumnIndex(KEY_D1)));
+                tmp.setD2(cursor.getString(cursor.getColumnIndex(KEY_D2)));
+                tmp.setD3(cursor.getString(cursor.getColumnIndex(KEY_D3)));
+                tmp.setD4(cursor.getString(cursor.getColumnIndex(KEY_D4)));
+                tmp.setD5(cursor.getString(cursor.getColumnIndex(KEY_D5)));
+                tmp.setdCross1(cursor.getInt(cursor.getColumnIndex(KEY_DC1)));
+                tmp.setdCross2(cursor.getInt(cursor.getColumnIndex(KEY_DC2)));
+                tmp.setdCross3(cursor.getInt(cursor.getColumnIndex(KEY_DC3)));
+                tmp.setdCross4(cursor.getInt(cursor.getColumnIndex(KEY_DC4)));
+                tmp.setdCross5(cursor.getInt(cursor.getColumnIndex(KEY_DC5)));
+                tmp.setdWeak1(cursor.getInt(cursor.getColumnIndex(KEY_DW1)));
+                tmp.setdWeak2(cursor.getInt(cursor.getColumnIndex(KEY_DW2)));
+                tmp.setdWeak3(cursor.getInt(cursor.getColumnIndex(KEY_DW3)));
+                tmp.setdWeak4(cursor.getInt(cursor.getColumnIndex(KEY_DW4)));
+                tmp.setdWeak5(cursor.getInt(cursor.getColumnIndex(KEY_DW5)));
+                tmp.setNotes(cursor.getString(cursor.getColumnIndex(KEY_NOTES)));
                 list.add(tmp);
 
-            }while(cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
-        db.close();
         return list;
     }
 }

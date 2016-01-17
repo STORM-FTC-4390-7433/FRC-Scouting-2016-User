@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -97,15 +98,14 @@ public class MatchActivity extends FragmentActivity {
         spinDef4 = (Spinner)DefenseFragment.view.findViewById(R.id.spinDef4);
         spinDef5 = (Spinner)DefenseFragment.view.findViewById(R.id.spinDef5);
 
-       autoPos = spinAuto.getSelectedItem().toString();
-       def1 = spinDef1.getSelectedItem().toString();
-       def2 = spinDef2.getSelectedItem().toString();
-       def3 = spinDef3.getSelectedItem().toString();
+       autoPos = textToSymbol(spinAuto.getSelectedItem().toString());
+       def1 = textToSymbol(spinDef1.getSelectedItem().toString());
+       def2 = textToSymbol(spinDef2.getSelectedItem().toString());
+       def3 = textToSymbol(spinDef3.getSelectedItem().toString());
        def4 = spinDef4.getSelectedItem().toString();
        def5 = spinDef5.getSelectedItem().toString();
 
-       String teamNotes = "";
-       if(notes.getText().toString().matches("")){ teamNotes = "No Notes"}
+
         new AlertDialog.Builder(getApplicationContext())
                 .setTitle("Are you sure?")
                 .setMessage("Are you ready to submit this data? This action cannot be undone")
