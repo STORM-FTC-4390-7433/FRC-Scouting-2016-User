@@ -8,24 +8,48 @@ public class Stronghold {
     private int autoHigh = 0;
     private int autoLow = 0;
     private int autoCross = 0;
+    private int autoDef = 0;
+    private int highGoal = 0;
+    private int lowGoal = 0;
 
-
+    private int ramp = 0;
     private int scale = 0;
     private int breach = 0;
     private int capture = 0;
-    private String startingPos = "", d1 = "", d2 = "", d3 = "", d4 = "", d5 = "",
-            dCross1 = "", dCross2 = "", dCross3 = "", dCross4 = "", dCross5 = "", dWeak1 = "", dWeak2 = "", dWeak3 = "", dWeak4 = "", dWeak5 = "";
+    private int
+    dCross1 = 0, dCross2 = 0, dCross3 = 0, dCross4 = 0, dCross5 = 0, dWeak1 = 0, dWeak2 = 0, dWeak3 = 0, dWeak4 = 0, dWeak5 = 0;
+    private String startingPos = "", d1 = "", d2 = "", d3 = "", d4 = "", d5 = "", notes = "";
 
-    public Stronghold(int teamNum, int matchNum, int alliance, int autoHigh, int autoLow, int scale, int breach, int capture, String startingPos, String d1, String d2, String d3, String d4, String d5, String dCross1, String dCross2, String dCross3, String dCross4, String dCross5, String dWeak1, String dWeak2, String dWeak3, String dWeak4, String dWeak5) {
+
+    public Stronghold(){}
+    public Stronghold(int teamNum, int matchNum, int alliance) {
         this.teamNum = teamNum;
         this.matchNum = matchNum;
         this.alliance = alliance;
+    }
+
+    public Stronghold(int teamNum, int matchNum, int alliance,
+                      int autoDef, int autoHigh, int autoLow,
+                      String startingPos, int autoCross,
+                      int highGoal, int lowGoal, int scale, int breach,
+                      int capture, int ramp,
+                      String d1, String d2, String d3, String d4, String d5,
+                      int dCross1, int dCross2, int dCross3, int dCross4, int dCross5,
+                      int dWeak1, int dWeak2, int dWeak3, int dWeak4, int dWeak5, String notes) {
+        this.teamNum = teamNum;
+        this.matchNum = matchNum;
+        this.alliance = alliance;
+        this.autoDef = autoDef;
         this.autoHigh = autoHigh;
         this.autoLow = autoLow;
+        this.autoCross = autoCross;
         this.scale = scale;
         this.breach = breach;
         this.capture = capture;
         this.startingPos = startingPos;
+        this.highGoal = highGoal;
+        this.lowGoal = lowGoal;
+        this.ramp = ramp;
         this.d1 = d1;
         this.d2 = d2;
         this.d3 = d3;
@@ -39,20 +63,36 @@ public class Stronghold {
         this.dWeak1 = dWeak1;
         this.dWeak2 = dWeak2;
         this.dWeak3 = dWeak3;
-
         this.dWeak4 = dWeak4;
         this.dWeak5 = dWeak5;
+        this.notes = notes;
+
+    }
+    public int getAutoDef() {
+        return autoDef;
     }
 
-    public Stronghold(int teamNum, int matchNum, int alliance) {
-        this.teamNum = teamNum;
-        this.matchNum = matchNum;
-        this.alliance = alliance;
+    public void setAutoDef(int autoDef) {
+        this.autoDef = autoDef;
     }
     public int getAutoCross() {
         return autoCross;
     }
+    public int getHighGoal() {
+        return highGoal;
+    }
 
+    public void setHighGoal(int highGoal) {
+        this.highGoal = highGoal;
+    }
+
+    public int getLowGoal() {
+        return lowGoal;
+    }
+
+    public void setLowGoal(int lowGoal) {
+        this.lowGoal = lowGoal;
+    }
     public void setAutoCross(int autoCross) {
         this.autoCross = autoCross;
     }
@@ -100,43 +140,43 @@ public class Stronghold {
         this.d5 = d5;
     }
 
-    public void setdCross1(String dCross1) {
+    public void setdCross1(int dCross1) {
         this.dCross1 = dCross1;
     }
 
-    public void setdCross2(String dCross2) {
+    public void setdCross2(int dCross2) {
         this.dCross2 = dCross2;
     }
 
-    public void setdCross3(String dCross3) {
+    public void setdCross3(int dCross3) {
         this.dCross3 = dCross3;
     }
 
-    public void setdCross4(String dCross4) {
+    public void setdCross4(int dCross4) {
         this.dCross4 = dCross4;
     }
 
-    public void setdCross5(String dCross5) {
+    public void setdCross5(int dCross5) {
         this.dCross5 = dCross5;
     }
 
-    public void setdWeak1(String dWeak1) {
+    public void setdWeak1(int dWeak1) {
         this.dWeak1 = dWeak1;
     }
 
-    public void setdWeak2(String dWeak2) {
+    public void setdWeak2(int dWeak2) {
         this.dWeak2 = dWeak2;
     }
 
-    public void setdWeak3(String dWeak3) {
+    public void setdWeak3(int dWeak3) {
         this.dWeak3 = dWeak3;
     }
 
-    public void setdWeak4(String dWeak4) {
+    public void setdWeak4(int dWeak4) {
         this.dWeak4 = dWeak4;
     }
 
-    public void setdWeak5(String dWeak5) {
+    public void setdWeak5(int dWeak5) {
         this.dWeak5 = dWeak5;
     }
 
@@ -209,43 +249,58 @@ public class Stronghold {
         return d5;
     }
 
-    public String getdCross1() {
+    public int getdCross1() {
         return dCross1;
     }
 
-    public String getdCross2() {
+    public int getdCross2() {
         return dCross2;
     }
 
-    public String getdCross3() {
+    public int getdCross3() {
         return dCross3;
     }
 
-    public String getdCross4() {
+    public int getdCross4() {
         return dCross4;
     }
 
-    public String getdCross5() {
+    public int getdCross5() {
         return dCross5;
     }
 
-    public String getdWeak1() {
+    public int getdWeak1() {
         return dWeak1;
     }
 
-    public String getdWeak2() {
+    public int getdWeak2() {
         return dWeak2;
     }
 
-    public String getdWeak3() {
+    public int getdWeak3() {
         return dWeak3;
     }
 
-    public String getdWeak4() {
+    public int getdWeak4() {
         return dWeak4;
     }
 
-    public String getdWeak5() {
+    public int getdWeak5() {
         return dWeak5;
+    }
+    public int getRamp() {
+        return ramp;
+    }
+
+    public void setRamp(int ramp) {
+        this.ramp = ramp;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }

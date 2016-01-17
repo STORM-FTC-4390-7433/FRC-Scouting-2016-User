@@ -3,6 +3,7 @@ package org.lrhsd.storm.user16;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
@@ -12,18 +13,22 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import database.DatabaseHandler;
 import database.Stronghold;
 import de.greenrobot.event.EventBus;
 import fragments.AutoFragment;
 import fragments.DefenseFragment;
+import fragments.SubmitFragment;
 import fragments.TeleFragment;
 import fragments.ViewPagerAdapter;
 
@@ -36,6 +41,7 @@ public class MatchActivity extends FragmentActivity {
     Stronghold strong;
     CheckBox autoDef, autoHigh, autoLow, autoCross, ramp, scale, cap, breach, chkCross1, chkCross2, chkCross3, chkCross4, chkCross5, chkWeak1, chkWeak2, chkWeak3, chkWeak4, chkWeak5;
     Spinner spinAuto, spinDef1, spinDef2, spinDef3, spinDef4, spinDef5;
+    String autoPos = "", def1 = "", def2 = "", def3 = "", def4 = "", def5 = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +89,7 @@ public class MatchActivity extends FragmentActivity {
         scale = (CheckBox)TeleFragment.view.findViewById(R.id.scale);
         cap = (CheckBox)TeleFragment.view.findViewById(R.id.capture);
         breach = (CheckBox)TeleFragment.view.findViewById(R.id.breach);
-
+        final EditText notes = (EditText) SubmitFragment.view.findViewById(R.id.editText);
         spinAuto = (Spinner)AutoFragment.view.findViewById(R.id.spinAuto);
         spinDef1 = (Spinner)DefenseFragment.view.findViewById(R.id.spinDef1);
         spinDef2 = (Spinner)DefenseFragment.view.findViewById(R.id.spinDef2);
@@ -91,7 +97,16 @@ public class MatchActivity extends FragmentActivity {
         spinDef4 = (Spinner)DefenseFragment.view.findViewById(R.id.spinDef4);
         spinDef5 = (Spinner)DefenseFragment.view.findViewById(R.id.spinDef5);
 
-        AlertDialog.Builder build = new AlertDialog.Builder(getApplicationContext())
+       autoPos = spinAuto.getSelectedItem().toString();
+       def1 = spinDef1.getSelectedItem().toString();
+       def2 = spinDef2.getSelectedItem().toString();
+       def3 = spinDef3.getSelectedItem().toString();
+       def4 = spinDef4.getSelectedItem().toString();
+       def5 = spinDef5.getSelectedItem().toString();
+
+       String teamNotes = "";
+       if(notes.getText().toString().matches("")){ teamNotes = "No Notes"}
+        new AlertDialog.Builder(getApplicationContext())
                 .setTitle("Are you sure?")
                 .setMessage("Are you ready to submit this data? This action cannot be undone")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -100,9 +115,43 @@ public class MatchActivity extends FragmentActivity {
                         strong = EventBus.getDefault().removeStickyEvent(Stronghold.class);
                         strong.setAutoHigh(boolToInt(autoHigh.isChecked()));
                         strong.setAutoLow(boolToInt(autoLow.isChecked()));
-                        //set rest
+                        strong.setAutoCross(boolToInt(autoCross.isChecked()));
+                        strong.setStartingPos(autoPos);
+                        strong.setAutoDef(boolToInt(autoDef.isChecked()));
+                        strong.setHighGoal(highGoal);
+                        strong.setLowGoal(lowGoal);
+                        strong.setScale(boolToInt(scale.isChecked()));
+                        strong.setRamp(boolToInt(ramp.isChecked()));
+                        strong.setCapture(boolToInt(cap.isChecked()));
+                        strong.setBreach(boolToInt(breach.isChecked()));
+                        strong.setD1(def1);
+                        strong.setD2(def2);
+                        strong.setD3(def3);
+                        strong.setD4(def4);
+                        strong.setD5(def5);
+                        strong.setdCross1(boolToInt(chkCross1.isChecked()));
+                        strong.setdCross2(boolToInt(chkCross2.isChecked()));
+                        strong.setdCross3(boolToInt(chkCross3.isChecked()));
+                        strong.setdCross4(boolToInt(chkCross4.isChecked()));
+                        strong.setdCross5(boolToInt(chkCross5.isChecked()));
+                        strong.setdWeak1(boolToInt(chkWeak1.isChecked()));
+                        strong.setdWeak2(boolToInt(chkWeak2.isChecked()));
+                        strong.setdWeak3(boolToInt(chkWeak3.isChecked()));
+                        strong.setdWeak4(boolToInt(chkWeak4.isChecked()));
+                        strong.setdWeak5(boolToInt(chkWeak5.isChecked()));
+                        strong.setNotes(notes.getText().toString());
+                        DatabaseHandler.getInstance(getApplicationContext()).addData(strong);
+                        Intent returnAction = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(returnAction);
                     }
-                });
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .show();
 
     }
     public String textToSymbol(String text){

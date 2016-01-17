@@ -13,6 +13,7 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 import org.lrhsd.storm.user16.TeamNumbers;
 
+import database.DatabaseHandler;
 import database.Stronghold;
 import de.greenrobot.event.EventBus;
 
@@ -116,9 +117,26 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void startQR(View v){
-        EventBus.getDefault().postSticky("Insert Team Data");
+        EventBus.getDefault().postSticky(makeString());
         Intent qrIntent = new Intent(this, QrActivity.class);
         startActivity(qrIntent);
+    }
+    public String makeString(){
+        String data = "@stormscouting";
+        for(Stronghold strong : DatabaseHandler.getInstance(getApplicationContext()).getAllTeams()){
+            data += strong.getTeamNum() + "," + strong.getMatchNum() + "," + strong.getAlliance() +
+                    strong.getAutoDef() + "," + strong.getAutoHigh() + "," + strong.getAutoLow() +
+                    strong.getStartingPos() + "," + strong.getAutoCross() + "," + strong.getHighGoal() +
+                    strong.getLowGoal() + "," + strong.getRamp() + "," + strong.getScale() + "," +
+                    strong.getCapture() + "," + strong.getBreach() + "," + strong.getD1() +
+                    "," + strong.getD2() + "," + strong.getD3()  + "," + strong.getD4() +
+                    "," + strong.getD5() + "," + strong.getdCross1() + "," + strong.getdCross2() +
+                    "," + strong.getdCross3() + "," + strong.getdCross3() + "," + strong.getdCross4() +
+                    "," + strong.getdCross5() + "," + strong.getdWeak1() + "," + strong.getdWeak2() +
+                    "," + strong.getdWeak2() + "," + strong.getdWeak3() + "," + strong.getdWeak4() +
+                    "," + strong.getdWeak5() + "," + strong.getNotes() + ":";
+        }
+        return data;
     }
     public int boolToInt(boolean a){
         if(a){
