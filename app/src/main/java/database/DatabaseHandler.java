@@ -100,7 +100,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + DB_Table);
         onCreate(db);
     }
-    public void addData(Stronghold strong){
+    public void clearTable(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(DB_Table, null, null);
+    }
+    public ContentValues addData(Stronghold strong){
         ContentValues values = new ContentValues();
         values.put(KEY_TEAM, strong.getTeamNum());
         values.put(KEY_MATCH, strong.getMatchNum());
@@ -132,7 +136,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_DW4, strong.getdWeak4());
         values.put(KEY_DW5, strong.getdWeak5());
         values.put(KEY_NOTES, strong.getNotes());
+        return values;
+
+    }
+    public void addAllData(Stronghold strong){
         SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = addData(strong);
         db.insert(DB_Table, null, values);
         Log.d("DB", "Data added");
         db.close();

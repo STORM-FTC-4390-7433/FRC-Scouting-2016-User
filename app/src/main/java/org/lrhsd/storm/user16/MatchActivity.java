@@ -58,6 +58,7 @@ public class MatchActivity extends FragmentActivity {
 
         TabLayout tabs = (TabLayout)findViewById(R.id.tabs);
         tabs.setupWithViewPager(mViewPager);
+        strong = EventBus.getDefault().removeStickyEvent(Stronghold.class);
 
     }
 
@@ -90,6 +91,19 @@ public class MatchActivity extends FragmentActivity {
         scale = (CheckBox)TeleFragment.view.findViewById(R.id.scale);
         cap = (CheckBox)TeleFragment.view.findViewById(R.id.capture);
         breach = (CheckBox)TeleFragment.view.findViewById(R.id.breach);
+
+        chkCross1 = (CheckBox)DefenseFragment.view.findViewById(R.id.chkDef1);
+        chkCross2 = (CheckBox)DefenseFragment.view.findViewById(R.id.chkDef2);
+        chkCross3 = (CheckBox)DefenseFragment.view.findViewById(R.id.chkDef3);
+        chkCross4 = (CheckBox)DefenseFragment.view.findViewById(R.id.chkDef4);
+        chkCross5 = (CheckBox)DefenseFragment.view.findViewById(R.id.chkDef5);
+
+        chkWeak1 = (CheckBox)DefenseFragment.view.findViewById(R.id.chkWeak1);
+        chkWeak2 = (CheckBox)DefenseFragment.view.findViewById(R.id.chkWeak2);
+        chkWeak3 = (CheckBox)DefenseFragment.view.findViewById(R.id.chkWeak3);
+        chkWeak4 = (CheckBox)DefenseFragment.view.findViewById(R.id.chkWeak4);
+        chkWeak5 = (CheckBox)DefenseFragment.view.findViewById(R.id.chkWeak5);
+
         final EditText notes = (EditText) SubmitFragment.view.findViewById(R.id.editText);
         spinAuto = (Spinner)AutoFragment.view.findViewById(R.id.spinAuto);
         spinDef1 = (Spinner)DefenseFragment.view.findViewById(R.id.spinDef1);
@@ -97,22 +111,20 @@ public class MatchActivity extends FragmentActivity {
         spinDef3 = (Spinner)DefenseFragment.view.findViewById(R.id.spinDef3);
         spinDef4 = (Spinner)DefenseFragment.view.findViewById(R.id.spinDef4);
         spinDef5 = (Spinner)DefenseFragment.view.findViewById(R.id.spinDef5);
-
-       autoPos = textToSymbol(spinAuto.getSelectedItem().toString());
-       def1 = textToSymbol(spinDef1.getSelectedItem().toString());
-       def2 = textToSymbol(spinDef2.getSelectedItem().toString());
-       def3 = textToSymbol(spinDef3.getSelectedItem().toString());
-       def4 = spinDef4.getSelectedItem().toString();
-       def5 = spinDef5.getSelectedItem().toString();
-
-
-        new AlertDialog.Builder(getApplicationContext())
-                .setTitle("Are you sure?")
-                .setMessage("Are you ready to submit this data? This action cannot be undone")
+        Log.d("Spinner", textToSymbol(spinAuto.getSelectedItem().toString()));
+        autoPos = textToSymbol(spinAuto.getSelectedItem().toString());
+        def1 = textToSymbol(spinDef1.getSelectedItem().toString());
+        def2 = textToSymbol(spinDef2.getSelectedItem().toString());
+        def3 = textToSymbol(spinDef3.getSelectedItem().toString());
+        def4 = textToSymbol(spinDef4.getSelectedItem().toString());
+        def5 = textToSymbol(spinDef5.getSelectedItem().toString());
+        Log.d("Submit", "Alert dialog start");
+        new AlertDialog.Builder(this)
+                .setTitle("Return to main Screen")
+                .setMessage("Are you sure? This action cannot be undone")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        strong = EventBus.getDefault().removeStickyEvent(Stronghold.class);
                         strong.setAutoHigh(boolToInt(autoHigh.isChecked()));
                         strong.setAutoLow(boolToInt(autoLow.isChecked()));
                         strong.setAutoCross(boolToInt(autoCross.isChecked()));
@@ -140,7 +152,7 @@ public class MatchActivity extends FragmentActivity {
                         strong.setdWeak4(boolToInt(chkWeak4.isChecked()));
                         strong.setdWeak5(boolToInt(chkWeak5.isChecked()));
                         strong.setNotes(notes.getText().toString());
-                        DatabaseHandler.getInstance(getApplicationContext()).addData(strong);
+                        DatabaseHandler.getInstance(getApplicationContext()).addAllData(strong);
                         Intent returnAction = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(returnAction);
                     }

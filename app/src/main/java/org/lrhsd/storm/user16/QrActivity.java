@@ -1,9 +1,13 @@
 package org.lrhsd.storm.user16;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Display;
@@ -14,6 +18,7 @@ import net.glxn.qrgen.android.QRCode;
 
 import java.io.ByteArrayOutputStream;
 
+import database.DatabaseHandler;
 import de.greenrobot.event.EventBus;
 
 public class QrActivity extends AppCompatActivity {
@@ -39,6 +44,24 @@ public class QrActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
     public void deleteAndExit(View v){
-        //Back to main screen code
+        new AlertDialog.Builder(this)
+                .setTitle("Return to Main screen")
+                .setMessage("Are you sure?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        DatabaseHandler.getInstance(getApplicationContext()).clearTable();
+                        Intent back = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(back);
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 }

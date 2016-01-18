@@ -102,9 +102,8 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Team Number does not exist", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Intent start = new Intent(this, MainActivity.class);
+                    Intent start = new Intent(this, MatchActivity.class);
                     Stronghold stronghold = new Stronghold(team, match, boolToInt(isRed));
-                    DatabaseHandler.getInstance(getApplicationContext()).addData(stronghold);
                     EventBus.getDefault().postSticky(stronghold);
                     startActivity(start);
                 }
