@@ -25,6 +25,7 @@
         <item name="rw">Rock Wall</item>
         <item name="rt">Rough Terrain</item>
         <item name="lb">Low Bar</item>
+        <item name="na">None(Spy position)</item>
     </string-array>
     <string-array name="defenses">
         <item name="ptc">Portcullis</item>

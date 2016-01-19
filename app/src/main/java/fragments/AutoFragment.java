@@ -34,6 +34,7 @@ public class AutoFragment extends Fragment {
         Spinner spinner = (Spinner)view.findViewById(R.id.spinAuto);
         ArrayAdapter<CharSequence> adapt = ArrayAdapter.createFromResource(getActivity().getBaseContext(), R.array.autoDefenses, R.layout.spinner_item);
         adapt.setDropDownViewResource(R.layout.spinner_dropdown_item);
+
         spinner.setAdapter(adapt);
         return view;
     }

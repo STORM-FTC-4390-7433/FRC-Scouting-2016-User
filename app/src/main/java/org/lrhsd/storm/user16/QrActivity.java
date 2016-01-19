@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.Display;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import net.glxn.qrgen.android.QRCode;
 
@@ -46,11 +47,12 @@ public class QrActivity extends AppCompatActivity {
     public void deleteAndExit(View v){
         new AlertDialog.Builder(this)
                 .setTitle("Return to Main screen")
-                .setMessage("Are you sure?")
+                .setMessage("Are you sure? Doing this will delete the current database and this action cannot be undone")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         DatabaseHandler.getInstance(getApplicationContext()).clearTable();
+                        Toast.makeText(getApplicationContext(), "Database cleared", Toast.LENGTH_SHORT).show();
                         Intent back = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(back);
                     }

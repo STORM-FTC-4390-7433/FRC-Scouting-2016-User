@@ -132,10 +132,10 @@ public class MainActivity extends AppCompatActivity {
                     strong.getCapture() + "," + strong.getBreach() + "," + strong.getD1() +
                     "," + strong.getD2() + "," + strong.getD3()  + "," + strong.getD4() +
                     "," + strong.getD5() + "," + strong.getdCross1() + "," + strong.getdCross2() +
-                    "," + strong.getdCross3() + "," + strong.getdCross3() + "," + strong.getdCross4() +
-                    "," + strong.getdCross5() + "," + strong.getdWeak1() + "," + strong.getdWeak2() +
-                    "," + strong.getdWeak2() + "," + strong.getdWeak3() + "," + strong.getdWeak4() +
-                    "," + strong.getdWeak5() + "," + strong.getNotes() + ":";
+                    "," + strong.getdCross3() + "," + strong.getdCross4() + "," + strong.getdCross5() +
+                    "," + strong.getdWeak1() + "," + strong.getdWeak2() +
+                    "," + strong.getdWeak3() + "," + strong.getdWeak4() + "," + strong.getdWeak5() +
+                    "," + strong.getNotes() + ":";
         }
         return data;
     }

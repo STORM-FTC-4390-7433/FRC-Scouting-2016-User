@@ -153,8 +153,10 @@ public class MatchActivity extends FragmentActivity {
                         strong.setdWeak5(boolToInt(chkWeak5.isChecked()));
                         strong.setNotes(notes.getText().toString());
                         DatabaseHandler.getInstance(getApplicationContext()).addAllData(strong);
+                        Toast.makeText(getApplicationContext(), "Data added", Toast.LENGTH_SHORT).show();
                         Intent returnAction = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(returnAction);
+
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -193,6 +195,9 @@ public class MatchActivity extends FragmentActivity {
         }
         else if(text.equals("Low Bar")){
             return "lb";
+        }
+        else if(text.equals("None(Spy Position)")){
+            return "nA";
         }
         return null;
     }

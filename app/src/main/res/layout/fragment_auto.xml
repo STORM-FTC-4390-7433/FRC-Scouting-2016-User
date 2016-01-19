@@ -6,10 +6,11 @@
     android:fillViewport="true">
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:background="@android:color/black">
     <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="781dp"
     android:background="@android:color/black">
 
 
@@ -80,7 +81,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginBottom="20dp"
             android:spinnerMode="dialog"
-            android:background="@drawable/spinner"/>
+            />
 
         <CheckBox
             android:layout_width="wrap_content"
@@ -93,8 +94,16 @@
             android:checked="false"
             android:paddingLeft="20dp"
             android:layout_below="@+id/spinAuto"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp" />
+            android:layout_alignRight="@+id/textView"
+            android:layout_alignEnd="@+id/textView"
+            android:layout_marginBottom="30dp" />
+
+        <ImageView
+            android:layout_width="800dp"
+            android:layout_height="800dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/def"
+            android:layout_below="@+id/chkAutoCross" />
 
 
     </RelativeLayout>
