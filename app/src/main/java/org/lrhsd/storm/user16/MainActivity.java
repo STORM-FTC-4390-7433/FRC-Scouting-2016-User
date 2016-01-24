@@ -135,7 +135,10 @@ public class MainActivity extends AppCompatActivity {
                     "," + strong.getdCross3() + "," + strong.getdCross4() + "," + strong.getdCross5() +
                     "," + strong.getdWeak1() + "," + strong.getdWeak2() +
                     "," + strong.getdWeak3() + "," + strong.getdWeak4() + "," + strong.getdWeak5() +
-                    "," + strong.getNotes() + ":";
+                    "," + strong.getNotes() + "," + strong.getPt() + "," + strong.getCdf() +
+                    "," + strong.getRmp() + "," + strong.getMt() + "," + strong.getDb() +
+                    "," + strong.getSp() + "," + strong.getRw() + "," + strong.getRt() +
+                    "," + strong.getLb() +":";
         }
         return data;
     }

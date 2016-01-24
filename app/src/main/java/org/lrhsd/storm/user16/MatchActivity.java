@@ -118,6 +118,14 @@ public class MatchActivity extends FragmentActivity {
         def3 = textToSymbol(spinDef3.getSelectedItem().toString());
         def4 = textToSymbol(spinDef4.getSelectedItem().toString());
         def5 = textToSymbol(spinDef5.getSelectedItem().toString());
+
+        defense(autoPos, autoCross);
+        defense(def1, chkCross1, chkWeak1);
+        defense(def2, chkCross2, chkWeak2);
+        defense(def3, chkCross3, chkWeak3);
+        defense(def4, chkCross4, chkWeak4);
+        defense(def5, chkCross5, chkWeak5);
+
         Log.d("Submit", "Alert dialog start");
         new AlertDialog.Builder(this)
                 .setTitle("Return to main Screen")
@@ -197,7 +205,7 @@ public class MatchActivity extends FragmentActivity {
             return "lb";
         }
         else if(text.equals("None(Spy Position)")){
-            return "nA";
+            return "spy";
         }
         return null;
     }
@@ -206,6 +214,68 @@ public class MatchActivity extends FragmentActivity {
             return 1;
         }
         return 0;
+    }
+    public void defense(String str, CheckBox box1, CheckBox box2){
+        switch (str){
+            case "pt":
+                strong.setPt(strong.getPt() + boolToInt(box1.isChecked()) + boolToInt(box2.isChecked()));
+                break;
+            case "cdf":
+                strong.setCdf(strong.getCdf() + boolToInt(box1.isChecked()) + boolToInt(box2.isChecked()));
+                break;
+            case "rmp":
+                strong.setRmp(strong.getRmp() + boolToInt(box1.isChecked()) + boolToInt(box2.isChecked()));
+                break;
+            case "mt":
+                strong.setMt(strong.getMt() + boolToInt(box1.isChecked()) + boolToInt(box2.isChecked()));
+                break;
+            case "db":
+                strong.setDb(strong.getDb() + boolToInt(box1.isChecked()) + boolToInt(box2.isChecked()));
+                break;
+            case "sp":
+                strong.setSp(strong.getSp() + boolToInt(box1.isChecked()) + boolToInt(box2.isChecked()));
+                break;
+            case "rw":
+                strong.setRw(strong.getRw() + boolToInt(box1.isChecked()) + boolToInt(box2.isChecked()));
+                break;
+            case "rt":
+                strong.setRt(strong.getRt() + boolToInt(box1.isChecked()) + boolToInt(box2.isChecked()));
+                break;
+            case "lb":
+                strong.setLb(strong.getLb() + boolToInt(box1.isChecked()) + boolToInt(box2.isChecked()));
+                break;
+        }
+    }
+    public void defense(String str, CheckBox box){
+        switch (str){
+            case "pt":
+                strong.setPt(strong.getPt() + boolToInt(box.isChecked()));
+                break;
+            case "cdf":
+                strong.setCdf(strong.getCdf() + boolToInt(box.isChecked()));
+                break;
+            case "rmp":
+                strong.setRmp(strong.getRmp() + boolToInt(box.isChecked()));
+                break;
+            case "mt":
+                strong.setMt(strong.getMt() + boolToInt(box.isChecked()));
+                break;
+            case "db":
+                strong.setDb(strong.getDb() + boolToInt(box.isChecked()));
+                break;
+            case "sp":
+                strong.setSp(strong.getSp() + boolToInt(box.isChecked()));
+                break;
+            case "rw":
+                strong.setRw(strong.getRw() + boolToInt(box.isChecked()));
+                break;
+            case "rt":
+                strong.setRt(strong.getRt() + boolToInt(box.isChecked()));
+                break;
+            case "lb":
+                strong.setLb(strong.getLb() + boolToInt(box.isChecked()));
+                break;
+        }
     }
 
     }

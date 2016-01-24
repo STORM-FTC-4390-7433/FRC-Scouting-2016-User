@@ -20,53 +20,12 @@ public class Stronghold {
     dCross1 = 0, dCross2 = 0, dCross3 = 0, dCross4 = 0, dCross5 = 0, dWeak1 = 0, dWeak2 = 0, dWeak3 = 0, dWeak4 = 0, dWeak5 = 0;
     private String startingPos = "", d1 = "", d2 = "", d3 = "", d4 = "", d5 = "", notes = "";
 
-
+    private int pt = 0, cdf = 0, rt = 0, sp = 0, lb = 0, rmp = 0, mt = 0, db = 0, rw = 0;
     public Stronghold(){}
     public Stronghold(int teamNum, int matchNum, int alliance) {
         this.teamNum = teamNum;
         this.matchNum = matchNum;
         this.alliance = alliance;
-    }
-
-    public Stronghold(int teamNum, int matchNum, int alliance,
-                      int autoDef, int autoHigh, int autoLow,
-                      String startingPos, int autoCross,
-                      int highGoal, int lowGoal, int scale, int breach,
-                      int capture, int ramp,
-                      String d1, String d2, String d3, String d4, String d5,
-                      int dCross1, int dCross2, int dCross3, int dCross4, int dCross5,
-                      int dWeak1, int dWeak2, int dWeak3, int dWeak4, int dWeak5, String notes) {
-        this.teamNum = teamNum;
-        this.matchNum = matchNum;
-        this.alliance = alliance;
-        this.autoDef = autoDef;
-        this.autoHigh = autoHigh;
-        this.autoLow = autoLow;
-        this.autoCross = autoCross;
-        this.scale = scale;
-        this.breach = breach;
-        this.capture = capture;
-        this.startingPos = startingPos;
-        this.highGoal = highGoal;
-        this.lowGoal = lowGoal;
-        this.ramp = ramp;
-        this.d1 = d1;
-        this.d2 = d2;
-        this.d3 = d3;
-        this.d4 = d4;
-        this.d5 = d5;
-        this.dCross1 = dCross1;
-        this.dCross2 = dCross2;
-        this.dCross3 = dCross3;
-        this.dCross4 = dCross4;
-        this.dCross5 = dCross5;
-        this.dWeak1 = dWeak1;
-        this.dWeak2 = dWeak2;
-        this.dWeak3 = dWeak3;
-        this.dWeak4 = dWeak4;
-        this.dWeak5 = dWeak5;
-        this.notes = notes;
-
     }
     public int getAutoDef() {
         return autoDef;
@@ -302,5 +261,77 @@ public class Stronghold {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public int getPt() {
+        return pt;
+    }
+
+    public void setPt(int pt) {
+        this.pt = pt;
+    }
+
+    public int getCdf() {
+        return cdf;
+    }
+
+    public void setCdf(int cdf) {
+        this.cdf = cdf;
+    }
+
+    public int getRt() {
+        return rt;
+    }
+
+    public void setRt(int rt) {
+        this.rt = rt;
+    }
+
+    public int getSp() {
+        return sp;
+    }
+
+    public void setSp(int sp) {
+        this.sp = sp;
+    }
+
+    public int getLb() {
+        return lb;
+    }
+
+    public void setLb(int lb) {
+        this.lb = lb;
+    }
+
+    public int getRmp() {
+        return rmp;
+    }
+
+    public void setRmp(int rmp) {
+        this.rmp = rmp;
+    }
+
+    public int getMt() {
+        return mt;
+    }
+
+    public void setMt(int mt) {
+        this.mt = mt;
+    }
+
+    public int getDb() {
+        return db;
+    }
+
+    public void setDb(int db) {
+        this.db = db;
+    }
+
+    public int getRw() {
+        return rw;
+    }
+
+    public void setRw(int rw) {
+        this.rw = rw;
     }
 }

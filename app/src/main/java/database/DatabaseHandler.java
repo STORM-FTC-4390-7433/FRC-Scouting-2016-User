@@ -46,6 +46,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static String KEY_DW4 = "defWeakFour";
     private static String KEY_DW5 = "defWeakFive";
     private static String KEY_NOTES = "notes";
+    private static String KEY_PT = "portcullis";
+    private static String KEY_CDF = "cheval";
+    private static String KEY_RMP = "ramparts";
+    private static String KEY_MT = "moat";
+    private static String KEY_DRB = "drawbridge";
+    private static String KEY_SP = "sally";
+    private static String KEY_RW = "rockwall";
+    private static String KEY_RT = "roughtTerrain";
+    private static String KEY_LB = "lowBar";
     private static DatabaseHandler dbH = null;
     private Context ctx;
 
@@ -91,7 +100,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                               KEY_DW3 + " INTEGER," +
                               KEY_DW4 + " INTEGER," +
                               KEY_DW5 + " INTEGER," +
-                              KEY_NOTES + " TEXT" +
+                              KEY_NOTES + " TEXT," +
+                              KEY_PT + " INTEGER," +
+                              KEY_CDF + " INTEGER," +
+                              KEY_RMP + " INTEGER," +
+                              KEY_MT + " INTEGER," +
+                              KEY_DRB + " INTEGER," +
+                              KEY_SP + " INTEGER," +
+                              KEY_RW + " INTEGER," +
+                              KEY_RT + " INTEGER," +
+                              KEY_LB + " INTEGER" +
                               ")";
         db.execSQL(CREATE_TEAM);
     }
@@ -136,6 +154,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_DW4, strong.getdWeak4());
         values.put(KEY_DW5, strong.getdWeak5());
         values.put(KEY_NOTES, strong.getNotes());
+        values.put(KEY_PT, strong.getPt());
+        values.put(KEY_CDF, strong.getCdf());
+        values.put(KEY_RMP, strong.getRmp());
+        values.put(KEY_MT, strong.getMt());
+        values.put(KEY_DRB, strong.getDb());
+        values.put(KEY_SP, strong.getSp());
+        values.put(KEY_RW, strong.getRw());
+        values.put(KEY_RT, strong.getRt());
+        values.put(KEY_LB, strong.getLb());
         return values;
 
     }
@@ -185,6 +212,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 tmp.setdWeak4(cursor.getInt(cursor.getColumnIndex(KEY_DW4)));
                 tmp.setdWeak5(cursor.getInt(cursor.getColumnIndex(KEY_DW5)));
                 tmp.setNotes(cursor.getString(cursor.getColumnIndex(KEY_NOTES)));
+                tmp.setPt(cursor.getInt(cursor.getColumnIndex(KEY_PT)));
+                tmp.setCdf(cursor.getInt(cursor.getColumnIndex(KEY_CDF)));
+                tmp.setRmp(cursor.getInt(cursor.getColumnIndex(KEY_RMP)));
+                tmp.setMt(cursor.getInt(cursor.getColumnIndex(KEY_MT)));
+                tmp.setDb(cursor.getInt(cursor.getColumnIndex(KEY_DRB)));
+                tmp.setSp(cursor.getInt(cursor.getColumnIndex(KEY_SP)));
+                tmp.setRw(cursor.getInt(cursor.getColumnIndex(KEY_RW)));
+                tmp.setRt(cursor.getInt(cursor.getColumnIndex(KEY_RT)));
+                tmp.setLb(cursor.getInt(cursor.getColumnIndex(KEY_LB)));
                 list.add(tmp);
 
             } while (cursor.moveToNext());
