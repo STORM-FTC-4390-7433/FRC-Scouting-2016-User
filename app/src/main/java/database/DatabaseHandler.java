@@ -14,7 +14,7 @@ import java.util.List;
 public class DatabaseHandler extends SQLiteOpenHelper {
     private static String DB_name = "strongholdDB";
     private static String DB_Table = "strongholdData";
-    private static int DB_VERSION = 4;
+    private static int DB_VERSION = 5;
 
     private static String KEY_TEAM = "teamNum";
     private static String KEY_MATCH = "matchNum";

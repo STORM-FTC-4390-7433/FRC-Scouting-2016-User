@@ -205,7 +205,7 @@ public class MatchActivity extends FragmentActivity {
             return "lb";
         }
         else if(text.equals("None(Spy Position)")){
-            return "spy";
+            return "nA";
         }
         return null;
     }
