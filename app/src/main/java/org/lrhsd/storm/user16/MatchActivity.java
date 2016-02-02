@@ -68,9 +68,11 @@ public class MatchActivity extends FragmentActivity {
         btnHighGoal.setText("High Goal: " + String.valueOf(highGoal));
     }
     public void decHighScore(View v){
-        btnHighGoal = (Button)findViewById(R.id.btnHigh);
-        --highGoal;
-        btnHighGoal.setText("High Goal: " + String.valueOf(highGoal));
+        if(highGoal  > 0) {
+            btnHighGoal = (Button) findViewById(R.id.btnHigh);
+            --highGoal;
+            btnHighGoal.setText("High Goal: " + String.valueOf(highGoal));
+        }
     }
     public void lowScrore(View v){
         btnLowGoal = (Button)findViewById(R.id.btnLow);
@@ -78,12 +80,22 @@ public class MatchActivity extends FragmentActivity {
         btnLowGoal.setText("Low Goal: " + String.valueOf(lowGoal));
     }
     public void decLowScrore(View v){
-        btnLowGoal = (Button)findViewById(R.id.btnLow);
-        --lowGoal;
-        btnLowGoal.setText("Low Goal: " + String.valueOf(lowGoal));
+        if(lowGoal > 0) {
+            btnLowGoal = (Button) findViewById(R.id.btnLow);
+            --lowGoal;
+            btnLowGoal.setText("Low Goal: " + String.valueOf(lowGoal));
+        }
     }
     public void submitData(View v){
-        autoCross = (CheckBox)AutoFragment.view.findViewById(R.id.chkAutoCross);
+        final CheckBox port = (CheckBox)AutoFragment.view.findViewById(R.id.chkPort),
+        cdf = (CheckBox)AutoFragment.view.findViewById(R.id.chkCdf),
+        rt = (CheckBox)AutoFragment.view.findViewById(R.id.chkRt),
+        rw = (CheckBox)AutoFragment.view.findViewById(R.id.chkRw),
+        db = (CheckBox)AutoFragment.view.findViewById(R.id.chkDb),
+        sp = (CheckBox)AutoFragment.view.findViewById(R.id.chkSp),
+        mt = (CheckBox)AutoFragment.view.findViewById(R.id.chkMt),
+        rmp = (CheckBox)AutoFragment.view.findViewById(R.id.chkRmp),
+        lb = (CheckBox)AutoFragment.view.findViewById(R.id.chkLb);
         autoDef = (CheckBox)AutoFragment.view.findViewById(R.id.chkAutoDef);
         autoHigh = (CheckBox)AutoFragment.view.findViewById(R.id.chkAutoHigh);
         autoLow = (CheckBox)AutoFragment.view.findViewById(R.id.chkAutoLow);
@@ -119,7 +131,7 @@ public class MatchActivity extends FragmentActivity {
         def4 = textToSymbol(spinDef4.getSelectedItem().toString());
         def5 = textToSymbol(spinDef5.getSelectedItem().toString());
 
-        defense(autoPos, autoCross);
+
         defense(def1, chkCross1, chkWeak1);
         defense(def2, chkCross2, chkWeak2);
         defense(def3, chkCross3, chkWeak3);
@@ -135,7 +147,7 @@ public class MatchActivity extends FragmentActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         strong.setAutoHigh(boolToInt(autoHigh.isChecked()));
                         strong.setAutoLow(boolToInt(autoLow.isChecked()));
-                        strong.setAutoCross(boolToInt(autoCross.isChecked()));
+                        strong.setAutoCross(defense(port, cdf, rw, rt, db, sp, mt, rmp,lb));
                         strong.setStartingPos(autoPos);
                         strong.setAutoDef(boolToInt(autoDef.isChecked()));
                         strong.setHighGoal(highGoal);
@@ -160,6 +172,15 @@ public class MatchActivity extends FragmentActivity {
                         strong.setdWeak4(boolToInt(chkWeak4.isChecked()));
                         strong.setdWeak5(boolToInt(chkWeak5.isChecked()));
                         strong.setNotes(notes.getText().toString());
+                        strong.setPt(strong.getPt() + boolToInt(port.isChecked()));
+                        strong.setCdf(strong.getCdf() + boolToInt(cdf.isChecked()));
+                        strong.setRt(strong.getRt() + boolToInt(rt.isChecked()));
+                        strong.setRw(strong.getRw() + boolToInt(rw.isChecked()));
+                        strong.setLb(strong.getLb() + boolToInt(lb.isChecked()));
+                        strong.setMt(strong.getMt() + boolToInt(mt.isChecked()));
+                        strong.setRmp(strong.getRmp() + boolToInt(rmp.isChecked()));
+                        strong.setSp(strong.getSp() + boolToInt(sp.isChecked()));
+                        strong.setDb(strong.getDb() + boolToInt(db.isChecked()));
                         DatabaseHandler.getInstance(getApplicationContext()).addAllData(strong);
                         Toast.makeText(getApplicationContext(), "Data added", Toast.LENGTH_SHORT).show();
                         Intent returnAction = new Intent(getApplicationContext(), MainActivity.class);
@@ -246,36 +267,11 @@ public class MatchActivity extends FragmentActivity {
                 break;
         }
     }
-    public void defense(String str, CheckBox box){
-        switch (str){
-            case "pt":
-                strong.setPt(strong.getPt() + boolToInt(box.isChecked()));
-                break;
-            case "cdf":
-                strong.setCdf(strong.getCdf() + boolToInt(box.isChecked()));
-                break;
-            case "rmp":
-                strong.setRmp(strong.getRmp() + boolToInt(box.isChecked()));
-                break;
-            case "mt":
-                strong.setMt(strong.getMt() + boolToInt(box.isChecked()));
-                break;
-            case "db":
-                strong.setDb(strong.getDb() + boolToInt(box.isChecked()));
-                break;
-            case "sp":
-                strong.setSp(strong.getSp() + boolToInt(box.isChecked()));
-                break;
-            case "rw":
-                strong.setRw(strong.getRw() + boolToInt(box.isChecked()));
-                break;
-            case "rt":
-                strong.setRt(strong.getRt() + boolToInt(box.isChecked()));
-                break;
-            case "lb":
-                strong.setLb(strong.getLb() + boolToInt(box.isChecked()));
-                break;
+    public int defense(CheckBox b1, CheckBox b2, CheckBox b3, CheckBox b4, CheckBox b5, CheckBox b6, CheckBox b7, CheckBox b8, CheckBox b9){
+        if(b1.isChecked() || b2.isChecked() || b3.isChecked() || b4.isChecked() || b5.isChecked() || b6.isChecked() || b7.isChecked() || b8.isChecked() || b9.isChecked()){
+            return 1;
         }
+        return 0;
     }
 
     }

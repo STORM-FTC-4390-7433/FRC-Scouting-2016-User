@@ -10,7 +10,7 @@
         android:background="@android:color/black">
     <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="781dp"
+    android:layout_height="match_parent"
     android:background="@android:color/black">
 
 
@@ -83,27 +83,149 @@
             android:spinnerMode="dialog"
             />
 
+        <ImageView
+            android:layout_width="800dp"
+            android:layout_height="800dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/def"
+            android:layout_alignTop="@+id/chkRw"
+            android:layout_alignLeft="@+id/chkRw"
+            android:layout_alignStart="@+id/chkRw"
+            android:layout_marginRight="20dp" />
+
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Crossed Defense"
-            android:id="@+id/chkAutoCross"
+            android:text="Crossed Portcullis"
+            android:id="@+id/chkPort"
             android:textColor="#ffffff"
             android:button="@drawable/box"
             android:textSize="25sp"
             android:checked="false"
             android:paddingLeft="20dp"
             android:layout_below="@+id/spinAuto"
-            android:layout_alignRight="@+id/textView"
-            android:layout_alignEnd="@+id/textView"
-            android:layout_marginBottom="30dp" />
+            android:layout_alignLeft="@+id/chkAutoLow"
+            android:layout_alignStart="@+id/chkAutoLow" />
 
-        <ImageView
-            android:layout_width="800dp"
-            android:layout_height="800dp"
-            android:id="@+id/imageView"
-            android:src="@drawable/def"
-            android:layout_below="@+id/chkAutoCross" />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crossed Cheval de Frise"
+            android:id="@+id/chkCdf"
+            android:textColor="#ffffff"
+            android:button="@drawable/box"
+            android:textSize="25sp"
+            android:checked="false"
+            android:paddingLeft="20dp"
+            android:layout_below="@+id/chkPort"
+            android:layout_alignLeft="@+id/chkPort"
+            android:layout_alignStart="@+id/chkPort"
+            android:layout_marginTop="20dp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crossed Ramparts"
+            android:id="@+id/chkRmp"
+            android:textColor="#ffffff"
+            android:button="@drawable/box"
+            android:textSize="25sp"
+            android:checked="false"
+            android:paddingLeft="20dp"
+            android:layout_below="@+id/chkCdf"
+            android:layout_alignLeft="@+id/chkCdf"
+            android:layout_alignStart="@+id/chkCdf"
+            android:layout_marginTop="20dp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crossed DrawBridge"
+            android:id="@+id/chkDb"
+            android:textColor="#ffffff"
+            android:button="@drawable/box"
+            android:textSize="25sp"
+            android:checked="false"
+            android:paddingLeft="20dp"
+            android:layout_below="@+id/chkRmp"
+            android:layout_alignLeft="@+id/chkRmp"
+            android:layout_alignStart="@+id/chkRmp"
+            android:layout_marginTop="20dp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crossed Rough Terrain"
+            android:id="@+id/chkRt"
+            android:textColor="#ffffff"
+            android:button="@drawable/box"
+            android:textSize="25sp"
+            android:checked="false"
+            android:paddingLeft="20dp"
+            android:layout_below="@+id/chkDb"
+            android:layout_alignLeft="@+id/chkDb"
+            android:layout_alignStart="@+id/chkDb"
+            android:layout_marginTop="20dp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crossed Rock Wall"
+            android:id="@+id/chkRw"
+            android:textColor="#ffffff"
+            android:button="@drawable/box"
+            android:textSize="25sp"
+            android:checked="false"
+            android:paddingLeft="20dp"
+            android:layout_below="@+id/chkRt"
+            android:layout_alignLeft="@+id/chkRt"
+            android:layout_alignStart="@+id/chkRt"
+            android:layout_marginTop="20dp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crossed Low Bar"
+            android:id="@+id/chkLb"
+            android:textColor="#ffffff"
+            android:button="@drawable/box"
+            android:textSize="25sp"
+            android:checked="false"
+            android:paddingLeft="20dp"
+            android:layout_below="@+id/chkRw"
+            android:layout_alignLeft="@+id/chkRw"
+            android:layout_alignStart="@+id/chkRw"
+            android:layout_marginTop="20dp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crossed Sally Port"
+            android:id="@+id/chkSp"
+            android:textColor="#ffffff"
+            android:button="@drawable/box"
+            android:textSize="25sp"
+            android:checked="false"
+            android:paddingLeft="20dp"
+            android:layout_below="@+id/chkLb"
+            android:layout_alignLeft="@+id/chkLb"
+            android:layout_alignStart="@+id/chkLb"
+            android:layout_marginTop="20dp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crossed Moat"
+            android:id="@+id/chkMt"
+            android:textColor="#ffffff"
+            android:button="@drawable/box"
+            android:textSize="25sp"
+            android:checked="false"
+            android:paddingLeft="20dp"
+            android:layout_below="@+id/chkSp"
+            android:layout_alignLeft="@+id/chkSp"
+            android:layout_alignStart="@+id/chkSp"
+            android:layout_marginTop="20dp" />
 
 
     </RelativeLayout>
