@@ -130,7 +130,7 @@ public class MatchActivity extends FragmentActivity {
         def3 = textToSymbol(spinDef3.getSelectedItem().toString());
         def4 = textToSymbol(spinDef4.getSelectedItem().toString());
         def5 = textToSymbol(spinDef5.getSelectedItem().toString());
-
+        Log.d("DEF", def1);
 
         defense(def1, chkCross1, chkWeak1);
         defense(def2, chkCross2, chkWeak2);
@@ -210,7 +210,7 @@ public class MatchActivity extends FragmentActivity {
         else if(text.equals("Moat")){
             return "mt";
         }
-        else if(text.equals("Drawbridge")){
+        else if(text.equals("DrawBridge")){
             return "db";
         }
         else if(text.equals("Sally Port")){
