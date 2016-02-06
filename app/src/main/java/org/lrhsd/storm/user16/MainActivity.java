@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
                     "," + strong.getNotes() + "," + strong.getPt() + "," + strong.getCdf() +
                     "," + strong.getRmp() + "," + strong.getMt() + "," + strong.getDb() +
                     "," + strong.getSp() + "," + strong.getRw() + "," + strong.getRt() +
-                    "," + strong.getLb() +":";
+                    "," + strong.getLb() + "," + strong.getHuman() + ":";
         }
         return data;
     }

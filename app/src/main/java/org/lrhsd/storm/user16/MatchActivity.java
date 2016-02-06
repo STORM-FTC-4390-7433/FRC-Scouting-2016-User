@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -96,6 +97,7 @@ public class MatchActivity extends FragmentActivity {
         mt = (CheckBox)AutoFragment.view.findViewById(R.id.chkMt),
         rmp = (CheckBox)AutoFragment.view.findViewById(R.id.chkRmp),
         lb = (CheckBox)AutoFragment.view.findViewById(R.id.chkLb);
+        final CompoundButton orange = (CompoundButton)TeleFragment.view.findViewById(R.id.yes);
         autoDef = (CheckBox)AutoFragment.view.findViewById(R.id.chkAutoDef);
         autoHigh = (CheckBox)AutoFragment.view.findViewById(R.id.chkAutoHigh);
         autoLow = (CheckBox)AutoFragment.view.findViewById(R.id.chkAutoLow);
@@ -181,6 +183,7 @@ public class MatchActivity extends FragmentActivity {
                         strong.setRmp(strong.getRmp() + boolToInt(rmp.isChecked()));
                         strong.setSp(strong.getSp() + boolToInt(sp.isChecked()));
                         strong.setDb(strong.getDb() + boolToInt(db.isChecked()));
+                        strong.setHuman(boolToInt(orange.isChecked()));
                         DatabaseHandler.getInstance(getApplicationContext()).addAllData(strong);
                         Toast.makeText(getApplicationContext(), "Data added", Toast.LENGTH_SHORT).show();
                         Intent returnAction = new Intent(getApplicationContext(), MainActivity.class);

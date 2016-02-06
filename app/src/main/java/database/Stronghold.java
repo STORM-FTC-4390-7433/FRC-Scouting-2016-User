@@ -19,7 +19,7 @@ public class Stronghold {
     private int
     dCross1 = 0, dCross2 = 0, dCross3 = 0, dCross4 = 0, dCross5 = 0, dWeak1 = 0, dWeak2 = 0, dWeak3 = 0, dWeak4 = 0, dWeak5 = 0;
     private String startingPos = "", d1 = "", d2 = "", d3 = "", d4 = "", d5 = "", notes = "";
-
+    private int human = 0;
     private int pt = 0, cdf = 0, rt = 0, sp = 0, lb = 0, rmp = 0, mt = 0, db = 0, rw = 0;
     public Stronghold(){}
     public Stronghold(int teamNum, int matchNum, int alliance) {
@@ -333,5 +333,13 @@ public class Stronghold {
 
     public void setRw(int rw) {
         this.rw = rw;
+    }
+
+    public int getHuman() {
+        return human;
+    }
+
+    public void setHuman(int human) {
+        this.human = human;
     }
 }

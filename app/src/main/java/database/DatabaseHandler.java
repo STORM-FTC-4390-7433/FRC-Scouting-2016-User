@@ -14,9 +14,9 @@ import java.util.List;
 public class DatabaseHandler extends SQLiteOpenHelper {
     private static String DB_name = "strongholdDB";
     private static String DB_Table = "strongholdData";
-    private static int DB_VERSION = 5;
+    private static int DB_VERSION = 8;
 
-    private static String KEY_TEAM = "teamNum";
+    private static String KEY_TEAM ="teamNum";
     private static String KEY_MATCH = "matchNum";
     private static String KEY_Alliance = "alliance";
     private static String KEY_AUTODEF = "autoDef";
@@ -55,6 +55,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static String KEY_RW = "rockwall";
     private static String KEY_RT = "roughtTerrain";
     private static String KEY_LB = "lowBar";
+    private static String KEY_HUM = "human";
     private static DatabaseHandler dbH = null;
     private Context ctx;
 
@@ -109,7 +110,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                               KEY_SP + " INTEGER," +
                               KEY_RW + " INTEGER," +
                               KEY_RT + " INTEGER," +
-                              KEY_LB + " INTEGER" +
+                              KEY_LB + " INTEGER," +
+                              KEY_HUM + " INTEGER" +
                               ")";
         db.execSQL(CREATE_TEAM);
     }
@@ -163,6 +165,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_RW, strong.getRw());
         values.put(KEY_RT, strong.getRt());
         values.put(KEY_LB, strong.getLb());
+        values.put(KEY_HUM, strong.getHuman());
         return values;
 
     }
@@ -221,6 +224,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 tmp.setRw(cursor.getInt(cursor.getColumnIndex(KEY_RW)));
                 tmp.setRt(cursor.getInt(cursor.getColumnIndex(KEY_RT)));
                 tmp.setLb(cursor.getInt(cursor.getColumnIndex(KEY_LB)));
+                tmp.setHuman(cursor.getInt(cursor.getColumnIndex(KEY_HUM)));
                 list.add(tmp);
 
             } while (cursor.moveToNext());
