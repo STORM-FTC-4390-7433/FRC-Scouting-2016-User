@@ -27,29 +27,6 @@ public class TeleFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_tele, container, false);
-        final CompoundButton yes = (CompoundButton)view.findViewById(R.id.yes),
-                 no = (RadioButton)view.findViewById(R.id.no);
-        yes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(yes.isChecked()){
-                    yes.setBackgroundResource(R.drawable.orange_chk);
-                }
-                else{
-                    yes.setBackgroundResource(R.drawable.orange_reg);
-                }
-            }
-        });
-        no.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (no.isChecked()) {
-                    no.setBackgroundResource(R.drawable.red_chk);
-                } else {
-                    no.setBackgroundResource(R.drawable.red_reg);
-                }
-            }
-        });
         return view;
     }
 

@@ -4,6 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -11,7 +14,8 @@
     <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black">
+    android:background="@android:color/black"
+        android:layout_gravity="center_horizontal">
 
 
     <CheckBox
@@ -23,10 +27,10 @@
         android:button="@drawable/box"
         android:textSize="25sp"
         android:paddingLeft="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="false"
         android:layout_marginBottom="40dp"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="200dp" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -91,7 +95,9 @@
             android:layout_alignTop="@+id/chkRw"
             android:layout_alignLeft="@+id/chkRw"
             android:layout_alignStart="@+id/chkRw"
-            android:layout_marginRight="20dp" />
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="100dp" />
 
         <CheckBox
             android:layout_width="wrap_content"
@@ -230,4 +236,5 @@
 
     </RelativeLayout>
     </LinearLayout>
+    </HorizontalScrollView>
 </ScrollView>

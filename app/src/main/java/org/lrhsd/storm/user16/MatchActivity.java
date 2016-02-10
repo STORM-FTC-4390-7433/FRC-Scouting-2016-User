@@ -38,7 +38,7 @@ public class MatchActivity extends FragmentActivity {
 
     private ViewPagerAdapter mViewPagerAdapter;
     ViewPager mViewPager;
-    int highGoal = 0, lowGoal = 0;
+    int highGoal = 0, lowGoal = 0, humanYes = 0, humanNo = 0;
     Button btnHighGoal, btnLowGoal;
     Stronghold strong;
     CheckBox autoDef, autoHigh, autoLow, autoCross, ramp, scale, cap, breach, chkCross1, chkCross2, chkCross3, chkCross4, chkCross5, chkWeak1, chkWeak2, chkWeak3, chkWeak4, chkWeak5;
@@ -87,6 +87,30 @@ public class MatchActivity extends FragmentActivity {
             btnLowGoal.setText("Low Goal: " + String.valueOf(lowGoal));
         }
     }
+    public void humanYes(View v){
+        Button humanY = (Button)findViewById(R.id.btnYes);
+        ++humanYes;
+        humanY.setText("Yes: " + String.valueOf(humanYes));
+    }
+    public void humanYesSub(View v){
+        if(humanYes > 0){
+            Button humanY = (Button)findViewById(R.id.btnYes);
+            --humanYes;
+            humanY.setText("Yes: " + String.valueOf(humanYes));
+        }
+    }
+    public void humanNo(View v){
+        Button humanN = (Button)findViewById(R.id.btnNo);
+        ++humanNo;
+        humanN.setText("No: " + String.valueOf(humanNo));
+    }
+    public void humanNoSub(View v){
+        if(humanNo > 0){
+            Button humanN = (Button)findViewById(R.id.btnNo);
+            --humanNo;
+            humanN.setText("No: " + String.valueOf(humanNo));
+        }
+    }
     public void submitData(View v){
         final CheckBox port = (CheckBox)AutoFragment.view.findViewById(R.id.chkPort),
         cdf = (CheckBox)AutoFragment.view.findViewById(R.id.chkCdf),
@@ -97,7 +121,6 @@ public class MatchActivity extends FragmentActivity {
         mt = (CheckBox)AutoFragment.view.findViewById(R.id.chkMt),
         rmp = (CheckBox)AutoFragment.view.findViewById(R.id.chkRmp),
         lb = (CheckBox)AutoFragment.view.findViewById(R.id.chkLb);
-        final CompoundButton orange = (CompoundButton)TeleFragment.view.findViewById(R.id.yes);
         autoDef = (CheckBox)AutoFragment.view.findViewById(R.id.chkAutoDef);
         autoHigh = (CheckBox)AutoFragment.view.findViewById(R.id.chkAutoHigh);
         autoLow = (CheckBox)AutoFragment.view.findViewById(R.id.chkAutoLow);
@@ -183,7 +206,8 @@ public class MatchActivity extends FragmentActivity {
                         strong.setRmp(strong.getRmp() + boolToInt(rmp.isChecked()));
                         strong.setSp(strong.getSp() + boolToInt(sp.isChecked()));
                         strong.setDb(strong.getDb() + boolToInt(db.isChecked()));
-                        strong.setHuman(boolToInt(orange.isChecked()));
+                        strong.setHuman(humanYes);
+                        strong.setHumanNo(humanNo);
                         DatabaseHandler.getInstance(getApplicationContext()).addAllData(strong);
                         Toast.makeText(getApplicationContext(), "Data added", Toast.LENGTH_SHORT).show();
                         Intent returnAction = new Intent(getApplicationContext(), MainActivity.class);

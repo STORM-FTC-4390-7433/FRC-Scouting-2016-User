@@ -1,6 +1,11 @@
 package org.lrhsd.storm.user16;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,9 +13,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
+
 import org.lrhsd.storm.user16.TeamNumbers;
 
 import database.DatabaseHandler;
@@ -18,15 +27,20 @@ import database.Stronghold;
 import de.greenrobot.event.EventBus;
 
 public class MainActivity extends AppCompatActivity {
-
+    Bitmap bStorm, bTwit, bGit, bWeb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         final RadioButton red = (RadioButton)findViewById(R.id.radRed),
                     blue = (RadioButton)findViewById(R.id.radBlue);
         red.setButtonDrawable(R.drawable.chkbox_off);
         blue.setButtonDrawable(R.drawable.chkbox_off);
+        bStorm = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.logo);
+                bTwit = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.twitterimg);
+                bGit = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.github);
+                bWeb = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.web);
         LinearLayout twitter = (LinearLayout)findViewById(R.id.twitter),
                      git = (LinearLayout)findViewById(R.id.git),
                      web = (LinearLayout)findViewById(R.id.web);
@@ -78,6 +92,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
       new TeamNumbers(this);
+    }
+    @Override
+    public void onResume(){
+        super.onResume();
+        ImageView imgStorm = (ImageView)findViewById(R.id.imgStorm),
+                  imgTwit = (ImageView)findViewById(R.id.imgTwit),
+                  imgGit = (ImageView)findViewById(R.id.imgGit),
+                  imgWeb = (ImageView)findViewById(R.id.imgWeb);
+
+        Picasso.with(MainActivity.this)
+                .load(R.drawable.logo)
+                .into(imgStorm);
+        Picasso.with(MainActivity.this)
+                .load(R.drawable.twitterimg)
+                .into(imgTwit);
+        Picasso.with(MainActivity.this)
+                .load(R.drawable.github)
+                .into(imgGit);
+        Picasso.with(MainActivity.this)
+                .load(R.drawable.web)
+                .into(imgWeb);
     }
     public boolean dataEntered(){
         RadioButton red = (RadioButton)findViewById(R.id.radRed),
@@ -138,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
                     "," + strong.getNotes() + "," + strong.getPt() + "," + strong.getCdf() +
                     "," + strong.getRmp() + "," + strong.getMt() + "," + strong.getDb() +
                     "," + strong.getSp() + "," + strong.getRw() + "," + strong.getRt() +
-                    "," + strong.getLb() + "," + strong.getHuman() + ":";
+                    "," + strong.getLb() + "," + strong.getHumanYes() + "," + strong.getHumanNo() + ":";
         }
         return data;
     }

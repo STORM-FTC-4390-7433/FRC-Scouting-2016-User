@@ -14,7 +14,7 @@ import java.util.List;
 public class DatabaseHandler extends SQLiteOpenHelper {
     private static String DB_name = "strongholdDB";
     private static String DB_Table = "strongholdData";
-    private static int DB_VERSION = 8;
+    private static int DB_VERSION = 9;
 
     private static String KEY_TEAM ="teamNum";
     private static String KEY_MATCH = "matchNum";
@@ -56,6 +56,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static String KEY_RT = "roughtTerrain";
     private static String KEY_LB = "lowBar";
     private static String KEY_HUM = "human";
+    private static String KEY_HUMNO = "humanNo";
     private static DatabaseHandler dbH = null;
     private Context ctx;
 
@@ -111,7 +112,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                               KEY_RW + " INTEGER," +
                               KEY_RT + " INTEGER," +
                               KEY_LB + " INTEGER," +
-                              KEY_HUM + " INTEGER" +
+                              KEY_HUM + " INTEGER," +
+                              KEY_HUMNO + " INTEGER" +
                               ")";
         db.execSQL(CREATE_TEAM);
     }
@@ -165,7 +167,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_RW, strong.getRw());
         values.put(KEY_RT, strong.getRt());
         values.put(KEY_LB, strong.getLb());
-        values.put(KEY_HUM, strong.getHuman());
+        values.put(KEY_HUM, strong.getHumanYes());
+        values.put(KEY_HUMNO, strong.getHumanNo());
         return values;
 
     }
@@ -225,6 +228,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 tmp.setRt(cursor.getInt(cursor.getColumnIndex(KEY_RT)));
                 tmp.setLb(cursor.getInt(cursor.getColumnIndex(KEY_LB)));
                 tmp.setHuman(cursor.getInt(cursor.getColumnIndex(KEY_HUM)));
+                tmp.setHumanNo(cursor.getInt(cursor.getColumnIndex(KEY_HUMNO)));
                 list.add(tmp);
 
             } while (cursor.moveToNext());
