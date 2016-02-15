@@ -27,9 +27,8 @@
        <ImageView
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:id="@+id/image"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/logo" />
+        android:id="@+id/imgLogo"
+        android:layout_gravity="center_horizontal" />
         <EditText
             android:id="@+id/txtTeam"
             android:layout_width="match_parent"
@@ -126,11 +125,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/storm"
-                android:textSize="20sp"
+                android:textSize="40dp"
                 android:textColor="@android:color/white"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="10dp"
-                />
+                android:id="@+id/stormTxt" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -149,7 +148,7 @@
                 android:textColor="@android:color/white"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="10dp"
-                />
+                android:id="@+id/twitTxt" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -168,7 +167,7 @@
                 android:textColor="@android:color/white"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="10dp"
-                />
+                android:id="@+id/gitTxt" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -187,7 +186,7 @@
                 android:textColor="@android:color/white"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="10dp"
-                />
+                android:id="@+id/webTxt" />
         </LinearLayout>
     </LinearLayout>
 

@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Submit"
-        android:id="@+id/button2"
+        android:id="@+id/submit"
         android:textSize="50dp"
         android:layout_above="@+id/btnDecHigh"
         android:layout_centerHorizontal="true"

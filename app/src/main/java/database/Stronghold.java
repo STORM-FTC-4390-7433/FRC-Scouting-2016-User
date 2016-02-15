@@ -67,10 +67,6 @@ public class Stronghold {
         this.scale = scale;
     }
 
-    public void setBreach(int breach) {
-        this.breach = breach;
-    }
-
     public void setCapture(int capture) {
         this.capture = capture;
     }
@@ -99,25 +95,6 @@ public class Stronghold {
         this.d5 = d5;
     }
 
-    public void setdCross1(int dCross1) {
-        this.dCross1 = dCross1;
-    }
-
-    public void setdCross2(int dCross2) {
-        this.dCross2 = dCross2;
-    }
-
-    public void setdCross3(int dCross3) {
-        this.dCross3 = dCross3;
-    }
-
-    public void setdCross4(int dCross4) {
-        this.dCross4 = dCross4;
-    }
-
-    public void setdCross5(int dCross5) {
-        this.dCross5 = dCross5;
-    }
 
     public void setdWeak1(int dWeak1) {
         this.dWeak1 = dWeak1;
@@ -176,10 +153,6 @@ public class Stronghold {
         return scale;
     }
 
-    public int getBreach() {
-        return breach;
-    }
-
     public int getCapture() {
         return capture;
     }
@@ -206,26 +179,6 @@ public class Stronghold {
 
     public String getD5() {
         return d5;
-    }
-
-    public int getdCross1() {
-        return dCross1;
-    }
-
-    public int getdCross2() {
-        return dCross2;
-    }
-
-    public int getdCross3() {
-        return dCross3;
-    }
-
-    public int getdCross4() {
-        return dCross4;
-    }
-
-    public int getdCross5() {
-        return dCross5;
     }
 
     public int getdWeak1() {
@@ -257,6 +210,46 @@ public class Stronghold {
 
     public String getNotes() {
         return notes;
+    }
+
+    public void setdCross1(int dCross1) {
+        this.dCross1 = dCross1;
+    }
+
+    public void setdCross2(int dCross2) {
+        this.dCross2 = dCross2;
+    }
+
+    public void setdCross3(int dCross3) {
+        this.dCross3 = dCross3;
+    }
+
+    public void setdCross4(int dCross4) {
+        this.dCross4 = dCross4;
+    }
+
+    public void setdCross5(int dCross5) {
+        this.dCross5 = dCross5;
+    }
+
+    public int getdCross1() {
+        return dCross1;
+    }
+
+    public int getdCross2() {
+        return dCross2;
+    }
+
+    public int getdCross3() {
+        return dCross3;
+    }
+
+    public int getdCross4() {
+        return dCross4;
+    }
+
+    public int getdCross5() {
+        return dCross5;
     }
 
     public void setNotes(String notes) {

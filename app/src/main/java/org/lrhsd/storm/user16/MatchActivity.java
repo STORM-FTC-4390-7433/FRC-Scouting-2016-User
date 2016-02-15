@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,7 +39,7 @@ public class MatchActivity extends FragmentActivity {
 
     private ViewPagerAdapter mViewPagerAdapter;
     ViewPager mViewPager;
-    int highGoal = 0, lowGoal = 0, humanYes = 0, humanNo = 0;
+    int highGoal = 0, lowGoal = 0, humanYes = 0, humanNo = 0, d1 = 0, d2 = 0, d3 = 0, d4 = 0, d5 = 0;
     Button btnHighGoal, btnLowGoal;
     Stronghold strong;
     CheckBox autoDef, autoHigh, autoLow, autoCross, ramp, scale, cap, breach, chkCross1, chkCross2, chkCross3, chkCross4, chkCross5, chkWeak1, chkWeak2, chkWeak3, chkWeak4, chkWeak5;
@@ -48,6 +49,7 @@ public class MatchActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match);
+
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -60,55 +62,116 @@ public class MatchActivity extends FragmentActivity {
         TabLayout tabs = (TabLayout)findViewById(R.id.tabs);
         tabs.setupWithViewPager(mViewPager);
         strong = EventBus.getDefault().removeStickyEvent(Stronghold.class);
-
     }
 
     public void highScore(View v){
         btnHighGoal = (Button)findViewById(R.id.btnHigh);
         ++highGoal;
-        btnHighGoal.setText("High Goal: " + String.valueOf(highGoal));
+        btnHighGoal.setText("(+)High Goal: " + String.valueOf(highGoal));
     }
     public void decHighScore(View v){
         if(highGoal  > 0) {
             btnHighGoal = (Button) findViewById(R.id.btnHigh);
             --highGoal;
-            btnHighGoal.setText("High Goal: " + String.valueOf(highGoal));
+            btnHighGoal.setText("(+)High Goal: " + String.valueOf(highGoal));
         }
     }
     public void lowScrore(View v){
         btnLowGoal = (Button)findViewById(R.id.btnLow);
         ++lowGoal;
-        btnLowGoal.setText("Low Goal: " + String.valueOf(lowGoal));
+        btnLowGoal.setText("(+)Low Goal: " + String.valueOf(lowGoal));
     }
     public void decLowScrore(View v){
         if(lowGoal > 0) {
             btnLowGoal = (Button) findViewById(R.id.btnLow);
             --lowGoal;
-            btnLowGoal.setText("Low Goal: " + String.valueOf(lowGoal));
+            btnLowGoal.setText("(+)Low Goal: " + String.valueOf(lowGoal));
         }
     }
     public void humanYes(View v){
         Button humanY = (Button)findViewById(R.id.btnYes);
         ++humanYes;
-        humanY.setText("Yes: " + String.valueOf(humanYes));
+        humanY.setText("(+)Yes: " + String.valueOf(humanYes));
     }
     public void humanYesSub(View v){
         if(humanYes > 0){
             Button humanY = (Button)findViewById(R.id.btnYes);
             --humanYes;
-            humanY.setText("Yes: " + String.valueOf(humanYes));
+            humanY.setText("(+)Yes: " + String.valueOf(humanYes));
+        }
+    }
+    public void Def1(View v){
+        Button score = (Button)findViewById(R.id.def1);
+        ++d1;
+        score.setText("(+)Yes: " + String.valueOf(d1));
+        Log.d("D1", String.valueOf(d1));
+    }
+    public void Def2(View v){
+        Button score = (Button)findViewById(R.id.def2);
+        ++d2;
+        score.setText("(+)Yes: " + String.valueOf(d2));
+    }
+    public void Def3(View v){
+        Button score = (Button)findViewById(R.id.def3);
+        ++d3;
+        score.setText("(+)Yes: " + String.valueOf(d3));
+    }
+    public void Def4(View v){
+        Button score = (Button)findViewById(R.id.def4);
+        ++d4;
+        score.setText("(+)Yes: " + String.valueOf(d4));
+    }
+    public void Def5(View v){
+        Button score = (Button)findViewById(R.id.def5);
+        ++d5;
+        score.setText("(+)Yes: " + String.valueOf(d5));
+    }
+    public void Def1Sub(View v){
+        Button score = (Button)findViewById(R.id.def1);
+        if(d1 > 0) {
+            --d1;
+            score.setText("(+)Yes: " + String.valueOf(d1));
+        }
+        Log.d("D1", String.valueOf(d1));
+    }
+    public void Def2Sub(View v){
+        Button score = (Button)findViewById(R.id.def2);
+        if(d2 > 0) {
+            --d2;
+            score.setText("(+)Yes: " + String.valueOf(d2));
+        }
+    }
+    public void Def3Sub(View v){
+        Button score = (Button)findViewById(R.id.def3);
+        if(d3 > 0) {
+            --d3;
+            score.setText("(+)Yes: " + String.valueOf(d3));
+        }
+    }
+    public void Def4Sub(View v){
+        Button score = (Button)findViewById(R.id.def4);
+        if(d4 > 0) {
+            --d4;
+            score.setText("(+)Yes: " + String.valueOf(d4));
+        }
+    }
+    public void Def5Sub(View v){
+        Button score = (Button)findViewById(R.id.def5);
+        if(d5 > 0) {
+            --d5;
+            score.setText("(+)Yes: " + String.valueOf(d5));
         }
     }
     public void humanNo(View v){
         Button humanN = (Button)findViewById(R.id.btnNo);
         ++humanNo;
-        humanN.setText("No: " + String.valueOf(humanNo));
+        humanN.setText("(+)No: " + String.valueOf(humanNo));
     }
     public void humanNoSub(View v){
         if(humanNo > 0){
             Button humanN = (Button)findViewById(R.id.btnNo);
             --humanNo;
-            humanN.setText("No: " + String.valueOf(humanNo));
+            humanN.setText("(+)No: " + String.valueOf(humanNo));
         }
     }
     public void submitData(View v){
@@ -127,13 +190,6 @@ public class MatchActivity extends FragmentActivity {
         ramp = (CheckBox)TeleFragment.view.findViewById(R.id.ramp);
         scale = (CheckBox)TeleFragment.view.findViewById(R.id.scale);
         cap = (CheckBox)TeleFragment.view.findViewById(R.id.capture);
-        breach = (CheckBox)TeleFragment.view.findViewById(R.id.breach);
-
-        chkCross1 = (CheckBox)DefenseFragment.view.findViewById(R.id.chkDef1);
-        chkCross2 = (CheckBox)DefenseFragment.view.findViewById(R.id.chkDef2);
-        chkCross3 = (CheckBox)DefenseFragment.view.findViewById(R.id.chkDef3);
-        chkCross4 = (CheckBox)DefenseFragment.view.findViewById(R.id.chkDef4);
-        chkCross5 = (CheckBox)DefenseFragment.view.findViewById(R.id.chkDef5);
 
         chkWeak1 = (CheckBox)DefenseFragment.view.findViewById(R.id.chkWeak1);
         chkWeak2 = (CheckBox)DefenseFragment.view.findViewById(R.id.chkWeak2);
@@ -148,6 +204,7 @@ public class MatchActivity extends FragmentActivity {
         spinDef3 = (Spinner)DefenseFragment.view.findViewById(R.id.spinDef3);
         spinDef4 = (Spinner)DefenseFragment.view.findViewById(R.id.spinDef4);
         spinDef5 = (Spinner)DefenseFragment.view.findViewById(R.id.spinDef5);
+
         Log.d("Spinner", textToSymbol(spinAuto.getSelectedItem().toString()));
         autoPos = textToSymbol(spinAuto.getSelectedItem().toString());
         def1 = textToSymbol(spinDef1.getSelectedItem().toString());
@@ -157,12 +214,16 @@ public class MatchActivity extends FragmentActivity {
         def5 = textToSymbol(spinDef5.getSelectedItem().toString());
         Log.d("DEF", def1);
 
-        defense(def1, chkCross1, chkWeak1);
-        defense(def2, chkCross2, chkWeak2);
-        defense(def3, chkCross3, chkWeak3);
-        defense(def4, chkCross4, chkWeak4);
-        defense(def5, chkCross5, chkWeak5);
-
+        defense(def1, d1);
+        defense(def2, d2);
+        defense(def3, d3);
+        defense(def4, d4);
+        defense(def5, d5);
+        weak(def1, chkWeak1);
+        weak(def2, chkWeak2);
+        weak(def3, chkWeak3);
+        weak(def4, chkWeak4);
+        weak(def5, chkWeak5);
         Log.d("Submit", "Alert dialog start");
         new AlertDialog.Builder(this)
                 .setTitle("Return to main Screen")
@@ -180,17 +241,17 @@ public class MatchActivity extends FragmentActivity {
                         strong.setScale(boolToInt(scale.isChecked()));
                         strong.setRamp(boolToInt(ramp.isChecked()));
                         strong.setCapture(boolToInt(cap.isChecked()));
-                        strong.setBreach(boolToInt(breach.isChecked()));
+                        //strong.setBreach(boolToInt(breach.isChecked()));
                         strong.setD1(def1);
                         strong.setD2(def2);
                         strong.setD3(def3);
                         strong.setD4(def4);
                         strong.setD5(def5);
-                        strong.setdCross1(boolToInt(chkCross1.isChecked()));
-                        strong.setdCross2(boolToInt(chkCross2.isChecked()));
-                        strong.setdCross3(boolToInt(chkCross3.isChecked()));
-                        strong.setdCross4(boolToInt(chkCross4.isChecked()));
-                        strong.setdCross5(boolToInt(chkCross5.isChecked()));
+                        strong.setdCross1(d1);
+                        strong.setdCross2(d2);
+                        strong.setdCross3(d3);
+                        strong.setdCross4(d4);
+                        strong.setdCross5(d5);
                         strong.setdWeak1(boolToInt(chkWeak1.isChecked()));
                         strong.setdWeak2(boolToInt(chkWeak2.isChecked()));
                         strong.setdWeak3(boolToInt(chkWeak3.isChecked()));
@@ -218,7 +279,7 @@ public class MatchActivity extends FragmentActivity {
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        dialog.dismiss();
                     }
                 })
                 .show();
@@ -263,34 +324,34 @@ public class MatchActivity extends FragmentActivity {
         }
         return 0;
     }
-    public void defense(String str, CheckBox box1, CheckBox box2){
+    public void defense(String str, int i){
         switch (str){
             case "pt":
-                strong.setPt(strong.getPt() + boolToInt(box1.isChecked()) + boolToInt(box2.isChecked()));
+                strong.setPt(strong.getPt() + i);
                 break;
             case "cdf":
-                strong.setCdf(strong.getCdf() + boolToInt(box1.isChecked()) + boolToInt(box2.isChecked()));
+                strong.setCdf(strong.getCdf() + i);
                 break;
             case "rmp":
-                strong.setRmp(strong.getRmp() + boolToInt(box1.isChecked()) + boolToInt(box2.isChecked()));
+                strong.setRmp(strong.getRmp() + +i);
                 break;
             case "mt":
-                strong.setMt(strong.getMt() + boolToInt(box1.isChecked()) + boolToInt(box2.isChecked()));
+                strong.setMt(strong.getMt() + i);
                 break;
             case "db":
-                strong.setDb(strong.getDb() + boolToInt(box1.isChecked()) + boolToInt(box2.isChecked()));
+                strong.setDb(strong.getDb() + i);
                 break;
             case "sp":
-                strong.setSp(strong.getSp() + boolToInt(box1.isChecked()) + boolToInt(box2.isChecked()));
+                strong.setSp(strong.getSp() + i);
                 break;
             case "rw":
-                strong.setRw(strong.getRw() + boolToInt(box1.isChecked()) + boolToInt(box2.isChecked()));
+                strong.setRw(strong.getRw() + i);
                 break;
             case "rt":
-                strong.setRt(strong.getRt() + boolToInt(box1.isChecked()) + boolToInt(box2.isChecked()));
+                strong.setRt(strong.getRt() + i);
                 break;
             case "lb":
-                strong.setLb(strong.getLb() + boolToInt(box1.isChecked()) + boolToInt(box2.isChecked()));
+                strong.setLb(strong.getLb() + i);
                 break;
         }
     }
@@ -299,6 +360,37 @@ public class MatchActivity extends FragmentActivity {
             return 1;
         }
         return 0;
+    }
+    public void weak(String str, CheckBox box){
+        switch (str){
+            case "pt":
+                strong.setPt(strong.getPt() + boolToInt(box.isChecked()));
+                break;
+            case "cdf":
+                strong.setCdf(strong.getCdf() + boolToInt(box.isChecked()));
+                break;
+            case "rmp":
+                strong.setRmp(strong.getRmp() + boolToInt(box.isChecked()));
+                break;
+            case "mt":
+                strong.setMt(strong.getMt() + boolToInt(box.isChecked()));
+                break;
+            case "db":
+                strong.setDb(strong.getDb() + boolToInt(box.isChecked()));
+                break;
+            case "sp":
+                strong.setSp(strong.getSp() + boolToInt(box.isChecked()));
+                break;
+            case "rw":
+                strong.setRw(strong.getRw() + boolToInt(box.isChecked()));
+                break;
+            case "rt":
+                strong.setRt(strong.getRt() + boolToInt(box.isChecked()));
+                break;
+            case "lb":
+                strong.setLb(strong.getLb() + boolToInt(box.isChecked()));
+                break;
+        }
     }
 
     }

@@ -14,7 +14,7 @@ import java.util.List;
 public class DatabaseHandler extends SQLiteOpenHelper {
     private static String DB_name = "strongholdDB";
     private static String DB_Table = "strongholdData";
-    private static int DB_VERSION = 9;
+    private static int DB_VERSION = 11;
 
     private static String KEY_TEAM ="teamNum";
     private static String KEY_MATCH = "matchNum";
@@ -27,7 +27,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static String KEY_HIGHGOAL = "highGoal";
     private static String KEY_LOWGOAL = "lowGoal";
     private static String KEY_SCALE = "roboScale";
-    private static String KEY_BREACH = "roboBreach";
     private static String KEY_CAPTURE = "roboCap";
     private static String KEY_RAMP = "roboRamp";
     private static String KEY_D1 = "defOne";
@@ -84,7 +83,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                               KEY_HIGHGOAL + " INTEGER," +
                               KEY_LOWGOAL + " INTEGER," +
                               KEY_SCALE + " INTEGER," +
-                              KEY_BREACH + " INTEGER," +
                               KEY_CAPTURE + " INTEGER," +
                               KEY_RAMP + " INTEGER," +
                               KEY_D1 + " TEXT," +
@@ -139,7 +137,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_HIGHGOAL, strong.getHighGoal());
         values.put(KEY_LOWGOAL, strong.getLowGoal());
         values.put(KEY_SCALE, strong.getScale());
-        values.put(KEY_BREACH, strong.getBreach());
         values.put(KEY_CAPTURE, strong.getCapture());
         values.put(KEY_RAMP, strong.getRamp());
         values.put(KEY_D1, strong.getD1());
@@ -199,7 +196,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 tmp.setHighGoal(cursor.getInt(cursor.getColumnIndex(KEY_HIGHGOAL)));
                 tmp.setLowGoal(cursor.getInt(cursor.getColumnIndex(KEY_LOWGOAL)));
                 tmp.setScale(cursor.getInt(cursor.getColumnIndex(KEY_SCALE)));
-                tmp.setBreach(cursor.getInt(cursor.getColumnIndex(KEY_BREACH)));
                 tmp.setCapture(cursor.getInt(cursor.getColumnIndex(KEY_CAPTURE)));
                 tmp.setRamp(cursor.getInt(cursor.getColumnIndex(KEY_RAMP)));
                 tmp.setD1(cursor.getString(cursor.getColumnIndex(KEY_D1)));

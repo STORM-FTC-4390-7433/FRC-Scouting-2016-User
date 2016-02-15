@@ -26,7 +26,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="High Goal: 0"
+        android:text="(+)High Goal: 0"
         android:id="@+id/btnHigh"
         android:textSize="50dp"
         android:layout_above="@+id/btnDecHigh"
@@ -51,7 +51,7 @@
         <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Low Goal: 0"
+        android:text="(+)Low Goal: 0"
         android:id="@+id/btnLow"
         android:textSize="50dp"
         android:layout_below="@+id/btnDecHigh"
@@ -75,8 +75,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Human Player able to roll ball over secret passage?"
-            android:id="@+id/txt"
+            android:text="Human player rolls ball out of secret passage(into neutral zone)"
+            android:id="@+id/txtHum"
             android:textColor="#fff"
             android:textSize="30dp"
             android:layout_alignParentBottom="true"
@@ -88,7 +88,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Yes: 0"
+            android:text="(+)Yes: 0"
             android:id="@+id/btnYes"
             android:textSize="50dp"
             android:layout_above="@+id/btnDecHigh"
@@ -113,7 +113,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="No: 0"
+            android:text="(+)No: 0"
             android:id="@+id/btnNo"
             android:textSize="50dp"
             android:layout_above="@+id/btnDecHigh"
@@ -131,11 +131,25 @@
             android:textSize="50dp"
             android:layout_centerHorizontal="true"
             android:layout_alignBaseline="@+id/ramp"
-            android:layout_marginBottom="50dp"
             android:layout_alignBottom="@+id/btnHigh"
             android:onClick="humanNoSub" />
 
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="End Game"
+        android:id="@+id/txtEnd"
+        android:textColor="#fff"
+        android:textSize="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -144,7 +158,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/linearLayout">
+        android:id="@+id/linearLayout"
+        android:layout_marginBottom="20dp">
 
         <CheckBox
             android:layout_width="wrap_content"
@@ -193,21 +208,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginBottom="30dp" />
 
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Breach OuterWorks"
-            android:id="@+id/breach"
-            android:button="@drawable/box"
-            android:textSize="25sp"
-            android:paddingLeft="20dp"
-            android:checked="false"
-            android:textColor="@color/white"
-            android:layout_above="@+id/ramp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="30dp" />
-            </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>
 </ScrollView>
