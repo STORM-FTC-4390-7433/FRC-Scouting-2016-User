@@ -13,12 +13,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,12 +28,14 @@ import com.squareup.picasso.Picasso;
 
 import org.lrhsd.storm.user16.TeamNumbers;
 
+import java.util.Arrays;
+
+import adapters.CustomArrayAdapter;
 import database.DatabaseHandler;
 import database.Stronghold;
 import de.greenrobot.event.EventBus;
 
 public class MainActivity extends AppCompatActivity {
-    Bitmap bStorm, bTwit, bGit, bWeb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +52,13 @@ public class MainActivity extends AppCompatActivity {
                 twitTxt = (TextView)findViewById(R.id.twitTxt),
                 gitTxt = (TextView)findViewById(R.id.gitTxt),
                 webTxt = (TextView)findViewById(R.id.webTxt);
+
+        Spinner spinner = (Spinner)findViewById(R.id.spinAuto);
+        CustomArrayAdapter<String> adapt = new CustomArrayAdapter<String>(getApplicationContext(), Arrays.asList(getResources().getStringArray(R.array.defenses)));
+        spinner.setAdapter(adapt);
+
+        TextView text = (TextView)findViewById(R.id.txtHead);
+        text.setTypeface(gill);
 
         Button begin = (Button)findViewById(R.id.btn_begin),
                qr = (Button)findViewById(R.id.start_qr_main);
@@ -201,14 +212,19 @@ public class MainActivity extends AppCompatActivity {
                     txtMatch = (EditText) findViewById(R.id.txtMatch);
             int team = Integer.parseInt(txtTeam.getText().toString()),
                     match = Integer.parseInt(txtMatch.getText().toString());
+            Spinner spinner = (Spinner)findViewById(R.id.spinAuto);
             boolean isRed = red.isChecked();
 
                 if (!TeamNumbers.isATeamNumber(team)) {
                     Toast.makeText(getApplicationContext(), "Team Number does not exist", Toast.LENGTH_SHORT).show();
                 }
+                if(match > 200){
+                    Toast.makeText(getApplicationContext(), "Match number too high", Toast.LENGTH_SHORT).show();
+                }
                 else{
-                    Intent start = new Intent(this, MatchActivity.class);
+                    Intent start = new Intent(this, DefenseActivity.class);
                     Stronghold stronghold = new Stronghold(team, match, boolToInt(isRed));
+                    stronghold.setStartingPos(spinner.getSelectedItem().toString());
                     EventBus.getDefault().postSticky(stronghold);
                     startActivity(start);
                 }

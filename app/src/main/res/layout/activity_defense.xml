@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#000"
+    >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="org.lrhsd.storm.user16.DefenseActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Select Defense #2"
+        android:id="@+id/txtD2"
+        android:textSize="35sp"
+        android:textColor="#fff"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="20dp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spin2"
+        android:popupBackground="#000"
+        android:spinnerMode="dialog"
+        android:background="@drawable/spinner"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/txtD2"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Select Defense #3"
+        android:id="@+id/txtD3"
+        android:textSize="35sp"
+        android:textColor="#fff"
+        android:layout_below="@+id/spin2"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spin3"
+        android:popupBackground="#000"
+        android:spinnerMode="dialog"
+        android:background="@drawable/spinner"
+        android:layout_below="@+id/txtD3"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Select Defense #4"
+        android:id="@+id/txtD4"
+        android:textSize="35sp"
+        android:textColor="#fff"
+        android:layout_below="@+id/spin3"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spin4"
+        android:popupBackground="#000"
+        android:spinnerMode="dialog"
+        android:background="@drawable/spinner"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/txtD4"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Select Defense #5"
+        android:id="@+id/txtD5"
+        android:textSize="35sp"
+        android:textColor="#fff"
+        android:layout_below="@+id/spin4"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spin5"
+        android:popupBackground="#000"
+        android:spinnerMode="dialog"
+        android:background="@drawable/spinner"
+        android:layout_below="@+id/txtD5"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/match"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/background_light"
+        android:onClick="getMatchGoing"
+        android:stateListAnimator="@null"
+        android:text="Begin Match"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="87dp"
+        android:layout_below="@+id/spin5"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="800dp"
+        android:layout_height="800dp"
+        android:id="@+id/imageView3"
+        android:src="@drawable/def"
+        android:paddingBottom="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/match"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="75dp" />
+
+</RelativeLayout>
+</ScrollView>

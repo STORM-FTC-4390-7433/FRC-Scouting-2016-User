@@ -9,22 +9,8 @@
         android:layout_height="fill_parent"
         android:orientation="vertical"
         android:background="@android:color/black">
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reached Defenses"
-        android:id="@+id/chkAutoDef"
-        android:textColor="#ffffff"
-        android:button="@drawable/box"
-        android:textSize="25sp"
-        android:paddingLeft="20dp"
-        android:layout_alignParentTop="false"
-        android:layout_marginBottom="40dp"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="10dp" />
 
-    <CheckBox
+        <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="High goal scored"
@@ -37,7 +23,8 @@
         android:layout_alignLeft="@+id/chkAutoDef"
         android:layout_alignStart="@+id/chkAutoDef"
         android:layout_marginBottom="40dp"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp" />
 
         <CheckBox
             android:layout_width="wrap_content"
@@ -54,199 +41,36 @@
             android:layout_alignStart="@+id/chkAutoHigh"
             android:layout_marginBottom="30dp"
             android:layout_gravity="center_horizontal" />
-
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Starting Position"
-        android:id="@+id/txtStart"
-        android:textColor="#ffffff"
-        android:textIsSelectable="false"
-        android:textSize="35sp"
-        android:layout_below="@+id/chkAutoLow"
-        android:layout_centerHorizontal="true"
-            android:layout_gravity="center_horizontal" />
-
-        <Spinner
+        <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/spinAuto"
-            android:popupBackground="#000"
-            android:layout_below="@+id/txtStart"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="20dp"
-            android:spinnerMode="dialog"
-            />
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="10dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/txtCross"
-            android:textColor="#ffffff"
-            android:textIsSelectable="false"
-            android:textSize="35sp"
-            android:text="Crossed"
-            android:layout_below="@+id/spinAuto"
-            android:layout_alignRight="@+id/chkLb"
-            android:layout_alignEnd="@+id/chkLb"
-            android:layout_gravity="center_horizontal" />
+            <RadioButton
+                android:id="@+id/radOrg"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_weight="1"
+                android:background="@android:color/holo_orange_light"
+                android:gravity="center"
+                android:text="Crossed Defenses"
+                android:textColor="@android:color/black"
+                android:checked="false" />
 
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Portcullis"
-            android:id="@+id/chkPort"
-            android:textColor="#ffffff"
-            android:button="@drawable/box"
-            android:textSize="25sp"
-            android:checked="false"
-            android:paddingLeft="20dp"
-            android:layout_below="@+id/spinAuto"
-            android:layout_alignLeft="@+id/chkAutoLow"
-            android:layout_alignStart="@+id/chkAutoLow"
-            android:layout_marginTop="60dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginRight="3dp" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cheval de Frise"
-            android:id="@+id/chkCdf"
-            android:textColor="#ffffff"
-            android:button="@drawable/box"
-            android:textSize="25sp"
-            android:checked="false"
-            android:paddingLeft="20dp"
-            android:layout_below="@+id/chkPort"
-            android:layout_alignLeft="@+id/chkPort"
-            android:layout_alignStart="@+id/chkPort"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="3dp" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ramparts"
-            android:id="@+id/chkRmp"
-            android:textColor="#ffffff"
-            android:button="@drawable/box"
-            android:textSize="25sp"
-            android:checked="false"
-            android:paddingLeft="20dp"
-            android:layout_below="@+id/chkCdf"
-            android:layout_alignLeft="@+id/chkCdf"
-            android:layout_alignStart="@+id/chkCdf"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginRight="3dp" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="DrawBridge"
-            android:id="@+id/chkDb"
-            android:textColor="#ffffff"
-            android:button="@drawable/box"
-            android:textSize="25sp"
-            android:checked="false"
-            android:paddingLeft="20dp"
-            android:layout_below="@+id/chkRmp"
-            android:layout_alignLeft="@+id/chkRmp"
-            android:layout_alignStart="@+id/chkRmp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="7dp" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rough Terrain"
-            android:id="@+id/chkRt"
-            android:textColor="#ffffff"
-            android:button="@drawable/box"
-            android:textSize="25sp"
-            android:checked="false"
-            android:paddingLeft="20dp"
-            android:layout_below="@+id/chkDb"
-            android:layout_alignLeft="@+id/chkDb"
-            android:layout_alignStart="@+id/chkDb"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="20dp" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rock Wall"
-            android:id="@+id/chkRw"
-            android:textColor="#ffffff"
-            android:button="@drawable/box"
-            android:textSize="25sp"
-            android:checked="false"
-            android:paddingLeft="20dp"
-            android:layout_below="@+id/chkRt"
-            android:layout_alignLeft="@+id/chkRt"
-            android:layout_alignStart="@+id/chkRt"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginRight="3dp" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Low Bar"
-            android:id="@+id/chkLb"
-            android:textColor="#ffffff"
-            android:button="@drawable/box"
-            android:textSize="25sp"
-            android:checked="false"
-            android:paddingLeft="20dp"
-            android:layout_below="@+id/chkRw"
-            android:layout_alignLeft="@+id/chkRw"
-            android:layout_alignStart="@+id/chkRw"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginRight="13dp" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sally Port"
-            android:id="@+id/chkSp"
-            android:textColor="#ffffff"
-            android:button="@drawable/box"
-            android:textSize="25sp"
-            android:checked="false"
-            android:paddingLeft="20dp"
-            android:layout_below="@+id/chkLb"
-            android:layout_alignLeft="@+id/chkLb"
-            android:layout_alignStart="@+id/chkLb"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginRight="5dp" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Moat"
-            android:id="@+id/chkMt"
-            android:textColor="#ffffff"
-            android:button="@drawable/box"
-            android:textSize="25sp"
-            android:checked="false"
-            android:paddingLeft="20dp"
-            android:layout_below="@+id/chkSp"
-            android:layout_alignLeft="@+id/chkSp"
-            android:layout_alignStart="@+id/chkSp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginRight="28dp" />
+            <RadioButton
+                android:id="@+id/radRed"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_weight="1"
+                android:background="@android:color/holo_red_light"
+                android:gravity="center"
+                android:text="Reached Defenses"
+                android:textColor="@android:color/black"
+                android:checked="false" />
+        </RadioGroup>
 
         <ImageView
             android:layout_width="800dp"

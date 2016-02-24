@@ -15,6 +15,21 @@
     android:paddingRight="20dp"
     android:paddingTop="20dp">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="High Goal: 0"
+        android:id="@+id/txtHigh"
+        android:textColor="#fff"
+        android:textSize="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,10 +38,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="113dp"
         android:layout_marginTop="20dp">
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="(+)High Goal: 0"
+        android:orientation="horizontal">
+    <Button
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:text="(+)"
         android:id="@+id/btnHigh"
         android:textSize="50dp"
         android:layout_above="@+id/btnDecHigh"
@@ -36,9 +55,9 @@
         android:layout_marginBottom="20dp" />
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
-            android:text="-"
+            android:text="(-)"
             android:background="@android:color/background_light"
             android:id="@+id/btnDecHigh"
             android:textSize="50dp"
@@ -46,13 +65,34 @@
             android:layout_alignBaseline="@+id/ramp"
             android:layout_marginBottom="50dp"
             android:layout_alignBottom="@+id/btnHigh"
-            android:onClick="decHighScore" />
+            android:onClick="decHighScore"
+            android:layout_marginLeft="80dp" />
+    </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Low Goal: 0"
+            android:id="@+id/txtLow"
+            android:textColor="#fff"
+            android:textSize="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal" />
+
+        <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="horizontal">
         <Button
-        android:layout_width="match_parent"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:text="(+)Low Goal: 0"
-        android:id="@+id/btnLow"
+        android:text="(+)"
+        android:id="@+id/btnDef1"
         android:textSize="50dp"
         android:layout_below="@+id/btnDecHigh"
         android:layout_centerHorizontal="true"
@@ -61,79 +101,121 @@
         android:layout_marginBottom="20dp" />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:text="-"
+        android:text="(-)"
         android:id="@+id/btnDecLow"
         android:textSize="50dp"
-        android:layout_below="@+id/btnLow"
+        android:layout_below="@+id/btnDef1"
         android:layout_centerHorizontal="true"
         android:onClick="decLowScrore"
-        android:background="@android:color/background_light" />
+        android:background="@android:color/background_light"
+        android:layout_marginLeft="80dp" />
+
+    </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Human player rolls ball out of secret passage(into neutral zone)"
-            android:id="@+id/txtHum"
+            android:text="Defenses"
+            android:id="@+id/headDef"
+            android:textSize="45dp"
+            android:textColor="#fff"
+            android:layout_below="@+id/spin2"
+            android:layout_centerHorizontal="true"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Def 1: 0"
+            android:id="@+id/D1Txt"
             android:textColor="#fff"
             android:textSize="30dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="30dp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:layout_gravity="center_horizontal" />
 
-        <Button
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="(+)Yes: 0"
-            android:id="@+id/btnYes"
-            android:textSize="50dp"
-            android:layout_above="@+id/btnDecHigh"
-            android:layout_centerHorizontal="true"
-            android:onClick="humanYes"
-            android:background="@android:color/background_light"
-            android:layout_marginBottom="20dp" />
+            android:orientation="horizontal">
+            <Button
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:text="(+)"
+                android:id="@+id/btnDef1"
+                android:textSize="50dp"
+                android:layout_below="@+id/btnDecHigh"
+                android:layout_centerHorizontal="true"
+                android:onClick="Def1"
+                android:background="@android:color/background_light"
+                android:layout_marginBottom="20dp" />
 
-        <Button
+            <Button
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:text="(-)"
+                android:id="@+id/btnDef1Sub"
+                android:textSize="50dp"
+                android:layout_below="@+id/btnDef1"
+                android:layout_centerHorizontal="true"
+                android:onClick="Def1Sub"
+                android:background="@android:color/background_light"
+                android:layout_marginLeft="80dp" />
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Def 2: 0"
+            android:id="@+id/D2Txt"
+            android:textColor="#fff"
+            android:textSize="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="-"
-            android:background="@android:color/background_light"
-            android:id="@+id/btnYesSub"
-            android:textSize="50dp"
-            android:layout_centerHorizontal="true"
-            android:layout_alignBaseline="@+id/ramp"
-            android:layout_marginBottom="50dp"
-            android:layout_alignBottom="@+id/btnHigh"
-            android:onClick="humanYesSub" />
+            android:orientation="horizontal">
+            <Button
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:text="(+)"
+                android:id="@+id/btnDef2"
+                android:textSize="50dp"
+                android:layout_below="@+id/btnDecHigh"
+                android:layout_centerHorizontal="true"
+                android:onClick="Def2"
+                android:background="@android:color/background_light"
+                android:layout_marginBottom="20dp" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="(+)No: 0"
-            android:id="@+id/btnNo"
-            android:textSize="50dp"
-            android:layout_above="@+id/btnDecHigh"
-            android:layout_centerHorizontal="true"
-            android:onClick="humanNo"
-            android:background="@android:color/background_light"
-            android:layout_marginBottom="20dp" />
+            <Button
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:text="(-)"
+                android:id="@+id/btnDef2Sub"
+                android:textSize="50dp"
+                android:layout_below="@+id/btnDef1"
+                android:layout_centerHorizontal="true"
+                android:onClick="Def2Sub"
+                android:background="@android:color/background_light"
+                android:layout_marginLeft="80dp" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="-"
-            android:background="@android:color/background_light"
-            android:id="@+id/btnNoSub"
-            android:textSize="50dp"
-            android:layout_centerHorizontal="true"
-            android:layout_alignBaseline="@+id/ramp"
-            android:layout_alignBottom="@+id/btnHigh"
-            android:onClick="humanNoSub" />
-
+        </LinearLayout>
     </LinearLayout>
 
     <TextView

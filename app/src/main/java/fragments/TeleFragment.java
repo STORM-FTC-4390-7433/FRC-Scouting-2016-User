@@ -1,23 +1,16 @@
 package fragments;
 
-import android.content.Context;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import org.lrhsd.storm.user16.R;
-import org.w3c.dom.Text;
 
 public class TeleFragment extends Fragment {
     public static View view;
@@ -35,15 +28,23 @@ public class TeleFragment extends Fragment {
         Typeface gill = Typeface.createFromAsset(getActivity().getAssets(), "Gill Sans.ttf");
         Button btnHighGoal = (Button) view.findViewById(R.id.btnHigh),
                btnHighGoalSub = (Button) view.findViewById(R.id.btnDecHigh),
-               btnLowGoal = (Button) view.findViewById(R.id.btnLow),
+               btnLowGoal = (Button) view.findViewById(R.id.btnDef1),
                btnLowGoalSub = (Button) view.findViewById(R.id.btnDecLow),
-               humYes = (Button) view.findViewById(R.id.btnYes),
-               humYesSub = (Button) view.findViewById(R.id.btnYesSub),
-               humNo = (Button) view.findViewById(R.id.btnNo),
-               humNoSub = (Button) view.findViewById(R.id.btnNoSub);
+               btnDef1 = (Button)view.findViewById(R.id.btnDef1),
+               btnDef1Sub = (Button)view.findViewById(R.id.btnDef1Sub),
+               btnDef2 = (Button)view.findViewById(R.id.btnDef1),
+                btnDef2Sub = (Button)view.findViewById(R.id.btnDef1Sub);
 
-        TextView hum = (TextView)view.findViewById(R.id.txtHum),
-                 end = (TextView)view.findViewById(R.id.txtEnd);
+        TextView end = (TextView)view.findViewById(R.id.txtEnd);
+
+        Bundle args = getArguments();
+
+        TextView def1 = (TextView)view.findViewById(R.id.D1Txt),
+                 def2 = (TextView)view.findViewById(R.id.D2Txt);
+
+        def1.setText(args.getString("D1") + ": 0");
+        def2.setText(args.getString("D2") + ": 0");
+
 
         CheckBox ramp = (CheckBox)view.findViewById(R.id.ramp),
         scale = (CheckBox)view.findViewById(R.id.scale),
@@ -52,11 +53,6 @@ public class TeleFragment extends Fragment {
         btnHighGoalSub.setTypeface(gill);
         btnLowGoal.setTypeface(gill);
         btnLowGoalSub.setTypeface(gill);
-        humYes.setTypeface(gill);
-        humNo.setTypeface(gill);
-        humYesSub.setTypeface(gill);
-        humNoSub.setTypeface(gill);
-        hum.setTypeface(gill);
         end.setTypeface(gill);
         ramp.setTypeface(gill);
         scale.setTypeface(gill);

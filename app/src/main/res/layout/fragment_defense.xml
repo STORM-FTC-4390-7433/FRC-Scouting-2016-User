@@ -20,19 +20,6 @@
             android:textColor="#fff"
             android:layout_marginBottom="20sp" />
 
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinDef1"
-            android:popupBackground="#000"
-            android:layout_below="@+id/txtStart"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="20dp"
-            android:spinnerMode="dialog"
-            android:background="@drawable/spinner"
-            android:layout_gravity="center_horizontal" />
-
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,45 +40,6 @@
             android:layout_marginTop="20dp"
             android:background="@android:color/white"
             android:onClick="Def1Sub" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cross and Damaged(No lights)"
-            android:id="@+id/chkWeak1"
-            android:textColor="#ffffff"
-            android:button="@drawable/box"
-            android:textSize="25sp"
-            android:paddingLeft="20dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="40dp"
-            android:layout_marginTop="30dp"
-            android:layout_gravity="center_horizontal"
-            android:checked="false" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Defense #2"
-            android:id="@+id/txtD2"
-            android:textSize="35sp"
-            android:textColor="#fff"
-            android:layout_marginBottom="20sp" />
-
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinDef2"
-            android:popupBackground="#000"
-            android:layout_below="@+id/txtStart"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="20dp"
-            android:spinnerMode="dialog"
-            android:background="@drawable/spinner"
-            android:layout_gravity="center_horizontal" />
 
         <Button
             android:layout_width="match_parent"
@@ -129,28 +77,6 @@
             android:layout_gravity="center_horizontal"
             android:checked="false" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Defense #3"
-            android:id="@+id/txtD3"
-            android:textSize="35sp"
-            android:textColor="#fff"
-            android:layout_marginBottom="20sp" />
-
-                <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/spinDef3"
-                    android:popupBackground="#000"
-                    android:layout_below="@+id/txtStart"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginBottom="20dp"
-                    android:spinnerMode="dialog"
-                    android:background="@drawable/spinner" />
-
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -187,29 +113,6 @@
                     android:layout_gravity="center_horizontal"
                     android:checked="false" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Defense #4"
-                    android:id="@+id/txtD4"
-                    android:textSize="35sp"
-                    android:textColor="#fff"
-                    android:layout_marginBottom="20sp" />
-
-                <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/spinDef4"
-                    android:popupBackground="#000"
-                    android:layout_below="@+id/txtStart"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginBottom="20dp"
-                    android:spinnerMode="dialog"
-                    android:background="@drawable/spinner"
-                    android:layout_gravity="center_horizontal" />
-
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -245,28 +148,6 @@
                     android:layout_marginTop="30dp"
                     android:layout_gravity="center_horizontal"
                     android:checked="false" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Defense #5"
-                    android:id="@+id/txtD5"
-                    android:textSize="35sp"
-                    android:textColor="#fff"
-                    android:layout_marginBottom="20sp" />
-
-                <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/spinDef5"
-                    android:popupBackground="#000"
-                    android:layout_below="@+id/txtStart"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginBottom="20dp"
-                    android:spinnerMode="dialog"
-                    android:background="@drawable/spinner" />
 
         <Button
             android:layout_width="match_parent"

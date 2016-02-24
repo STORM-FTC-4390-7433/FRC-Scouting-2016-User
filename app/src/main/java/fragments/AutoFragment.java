@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -33,43 +35,43 @@ public class AutoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_auto, container, false);
-        Spinner spinner = (Spinner)view.findViewById(R.id.spinAuto);
-        ArrayAdapter<CharSequence> adapt = ArrayAdapter.createFromResource(getActivity().getBaseContext(), R.array.autoDefenses, R.layout.spinner_item);
-        adapt.setDropDownViewResource(R.layout.spinner_dropdown_item);
-        spinner.setAdapter(adapt);
+
 
         Typeface gill = Typeface.createFromAsset(getActivity().getAssets(), "Gill Sans.ttf");
-        
-        CheckBox port = (CheckBox)view.findViewById(R.id.chkPort),
-                cdf = (CheckBox)view.findViewById(R.id.chkCdf),
-                rt = (CheckBox)view.findViewById(R.id.chkRt),
-                rw = (CheckBox)view.findViewById(R.id.chkRw),
-                db = (CheckBox)view.findViewById(R.id.chkDb),
-                sp = (CheckBox)view.findViewById(R.id.chkSp),
-                mt = (CheckBox)view.findViewById(R.id.chkMt),
-                rmp = (CheckBox)view.findViewById(R.id.chkRmp),
-                lb = (CheckBox)view.findViewById(R.id.chkLb),
-        autoDef = (CheckBox)view.findViewById(R.id.chkAutoDef),
-        autoHigh = (CheckBox)view.findViewById(R.id.chkAutoHigh),
+
+        final RadioButton red = (RadioButton)view.findViewById(R.id.radRed),
+                org = (RadioButton)view.findViewById(R.id.radOrg);
+
+        red.setButtonDrawable(R.drawable.chkbox_off);
+        org.setButtonDrawable(R.drawable.chkbox_off);
+
+        red.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (red.isChecked()) {
+                    red.setBackgroundResource(R.drawable.red_chk);
+                } else {
+                    red.setBackgroundResource(R.drawable.red_reg);
+                }
+            }
+        });
+        org.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (org.isChecked()) {
+                    org.setBackgroundResource(R.drawable.orange_chk);
+                } else {
+                    org.setBackgroundResource(R.drawable.orange_reg);
+                }
+            }
+        });
+
+        CheckBox autoHigh = (CheckBox)view.findViewById(R.id.chkAutoHigh),
         autoLow = (CheckBox)view.findViewById(R.id.chkAutoLow);
         
-        TextView start = (TextView)view.findViewById(R.id.txtStart),
-                 cross = (TextView)view.findViewById(R.id.txtCross);
-        
-        port.setTypeface(gill);
-        cdf.setTypeface(gill);
-        rt.setTypeface(gill);
-        rw.setTypeface(gill);
-        db.setTypeface(gill);
-        sp.setTypeface(gill);
-        mt.setTypeface(gill);
-        rmp.setTypeface(gill);
-        lb.setTypeface(gill);
-        autoDef.setTypeface(gill);
+
         autoHigh.setTypeface(gill);
         autoLow.setTypeface(gill);
-        start.setTypeface(gill);
-        cross.setTypeface(gill);
         return view;
     }
 

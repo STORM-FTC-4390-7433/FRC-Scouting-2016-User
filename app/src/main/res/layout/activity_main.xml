@@ -81,6 +81,30 @@
                 android:textColor="@android:color/black" />
         </RadioGroup>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Select Starting Position"
+            android:id="@+id/txtHead"
+            android:textColor="#ffffff"
+            android:textIsSelectable="false"
+            android:textSize="35sp"
+            android:layout_below="@+id/chkAutoLow"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinAuto"
+            android:popupBackground="#000"
+            android:layout_below="@+id/txtStart"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="20dp"
+            android:spinnerMode="dialog" />
+
         <Button
             android:id="@+id/btn_begin"
             android:layout_width="match_parent"

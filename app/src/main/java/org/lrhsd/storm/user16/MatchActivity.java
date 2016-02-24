@@ -21,6 +21,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -50,10 +51,10 @@ public class MatchActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match);
 
-
+        strong = EventBus.getDefault().removeStickyEvent(Stronghold.class);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mViewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        mViewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), strong);
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
@@ -61,55 +62,43 @@ public class MatchActivity extends FragmentActivity {
 
         TabLayout tabs = (TabLayout)findViewById(R.id.tabs);
         tabs.setupWithViewPager(mViewPager);
-        strong = EventBus.getDefault().removeStickyEvent(Stronghold.class);
+
     }
 
     public void highScore(View v){
-        btnHighGoal = (Button)findViewById(R.id.btnHigh);
+        TextView textHigh = (TextView)findViewById(R.id.txtHigh);
         ++highGoal;
-        btnHighGoal.setText("(+)High Goal: " + String.valueOf(highGoal));
+        textHigh.setText("High Goal: " + String.valueOf(highGoal));
     }
     public void decHighScore(View v){
         if(highGoal  > 0) {
-            btnHighGoal = (Button) findViewById(R.id.btnHigh);
+            TextView textHigh = (TextView)findViewById(R.id.txtHigh);
             --highGoal;
-            btnHighGoal.setText("(+)High Goal: " + String.valueOf(highGoal));
+            textHigh.setText("High Goal: " + String.valueOf(highGoal));
         }
     }
     public void lowScrore(View v){
-        btnLowGoal = (Button)findViewById(R.id.btnLow);
+        TextView low = (TextView)findViewById(R.id.txtLow);
         ++lowGoal;
-        btnLowGoal.setText("(+)Low Goal: " + String.valueOf(lowGoal));
+        low.setText("Low Goal: " + String.valueOf(lowGoal));
     }
     public void decLowScrore(View v){
         if(lowGoal > 0) {
-            btnLowGoal = (Button) findViewById(R.id.btnLow);
+            TextView low = (TextView)findViewById(R.id.txtLow);
             --lowGoal;
-            btnLowGoal.setText("(+)Low Goal: " + String.valueOf(lowGoal));
-        }
-    }
-    public void humanYes(View v){
-        Button humanY = (Button)findViewById(R.id.btnYes);
-        ++humanYes;
-        humanY.setText("(+)Yes: " + String.valueOf(humanYes));
-    }
-    public void humanYesSub(View v){
-        if(humanYes > 0){
-            Button humanY = (Button)findViewById(R.id.btnYes);
-            --humanYes;
-            humanY.setText("(+)Yes: " + String.valueOf(humanYes));
+            low.setText("Low Goal: " + String.valueOf(lowGoal));
         }
     }
     public void Def1(View v){
-        Button score = (Button)findViewById(R.id.def1);
+        TextView de1 = (TextView)findViewById(R.id.D1Txt);
         ++d1;
-        score.setText("(+)Yes: " + String.valueOf(d1));
+        de1.setText(strong.getD1() + ": " + String.valueOf(d1));
         Log.d("D1", String.valueOf(d1));
     }
     public void Def2(View v){
-        Button score = (Button)findViewById(R.id.def2);
+       TextView score = (TextView)findViewById(R.id.D2Txt);
         ++d2;
-        score.setText("(+)Yes: " + String.valueOf(d2));
+        score.setText(strong.getD2() + ": " + String.valueOf(d2));
     }
     public void Def3(View v){
         Button score = (Button)findViewById(R.id.def3);
@@ -127,18 +116,18 @@ public class MatchActivity extends FragmentActivity {
         score.setText("(+)Yes: " + String.valueOf(d5));
     }
     public void Def1Sub(View v){
-        Button score = (Button)findViewById(R.id.def1);
+        TextView de1 = (TextView)findViewById(R.id.D1Txt);
         if(d1 > 0) {
             --d1;
-            score.setText("(+)Yes: " + String.valueOf(d1));
+            de1.setText(strong.getD1() + ": " + String.valueOf(d1));
         }
         Log.d("D1", String.valueOf(d1));
     }
     public void Def2Sub(View v){
-        Button score = (Button)findViewById(R.id.def2);
+        TextView score = (TextView)findViewById(R.id.D2Txt);
         if(d2 > 0) {
             --d2;
-            score.setText("(+)Yes: " + String.valueOf(d2));
+            score.setText(strong.getD2() + ": " + String.valueOf(d2));
         }
     }
     public void Def3Sub(View v){
@@ -162,28 +151,7 @@ public class MatchActivity extends FragmentActivity {
             score.setText("(+)Yes: " + String.valueOf(d5));
         }
     }
-    public void humanNo(View v){
-        Button humanN = (Button)findViewById(R.id.btnNo);
-        ++humanNo;
-        humanN.setText("(+)No: " + String.valueOf(humanNo));
-    }
-    public void humanNoSub(View v){
-        if(humanNo > 0){
-            Button humanN = (Button)findViewById(R.id.btnNo);
-            --humanNo;
-            humanN.setText("(+)No: " + String.valueOf(humanNo));
-        }
-    }
     public void submitData(View v){
-        final CheckBox port = (CheckBox)AutoFragment.view.findViewById(R.id.chkPort),
-        cdf = (CheckBox)AutoFragment.view.findViewById(R.id.chkCdf),
-        rt = (CheckBox)AutoFragment.view.findViewById(R.id.chkRt),
-        rw = (CheckBox)AutoFragment.view.findViewById(R.id.chkRw),
-        db = (CheckBox)AutoFragment.view.findViewById(R.id.chkDb),
-        sp = (CheckBox)AutoFragment.view.findViewById(R.id.chkSp),
-        mt = (CheckBox)AutoFragment.view.findViewById(R.id.chkMt),
-        rmp = (CheckBox)AutoFragment.view.findViewById(R.id.chkRmp),
-        lb = (CheckBox)AutoFragment.view.findViewById(R.id.chkLb);
         autoDef = (CheckBox)AutoFragment.view.findViewById(R.id.chkAutoDef);
         autoHigh = (CheckBox)AutoFragment.view.findViewById(R.id.chkAutoHigh);
         autoLow = (CheckBox)AutoFragment.view.findViewById(R.id.chkAutoLow);
@@ -191,39 +159,20 @@ public class MatchActivity extends FragmentActivity {
         scale = (CheckBox)TeleFragment.view.findViewById(R.id.scale);
         cap = (CheckBox)TeleFragment.view.findViewById(R.id.capture);
 
-        chkWeak1 = (CheckBox)DefenseFragment.view.findViewById(R.id.chkWeak1);
-        chkWeak2 = (CheckBox)DefenseFragment.view.findViewById(R.id.chkWeak2);
-        chkWeak3 = (CheckBox)DefenseFragment.view.findViewById(R.id.chkWeak3);
-        chkWeak4 = (CheckBox)DefenseFragment.view.findViewById(R.id.chkWeak4);
-        chkWeak5 = (CheckBox)DefenseFragment.view.findViewById(R.id.chkWeak5);
-
         final EditText notes = (EditText) SubmitFragment.view.findViewById(R.id.editText);
-        spinAuto = (Spinner)AutoFragment.view.findViewById(R.id.spinAuto);
-        spinDef1 = (Spinner)DefenseFragment.view.findViewById(R.id.spinDef1);
-        spinDef2 = (Spinner)DefenseFragment.view.findViewById(R.id.spinDef2);
-        spinDef3 = (Spinner)DefenseFragment.view.findViewById(R.id.spinDef3);
-        spinDef4 = (Spinner)DefenseFragment.view.findViewById(R.id.spinDef4);
-        spinDef5 = (Spinner)DefenseFragment.view.findViewById(R.id.spinDef5);
 
-        Log.d("Spinner", textToSymbol(spinAuto.getSelectedItem().toString()));
-        autoPos = textToSymbol(spinAuto.getSelectedItem().toString());
-        def1 = textToSymbol(spinDef1.getSelectedItem().toString());
-        def2 = textToSymbol(spinDef2.getSelectedItem().toString());
-        def3 = textToSymbol(spinDef3.getSelectedItem().toString());
-        def4 = textToSymbol(spinDef4.getSelectedItem().toString());
-        def5 = textToSymbol(spinDef5.getSelectedItem().toString());
+        strong.setD1(textToSymbol(strong.getD1()));
+        strong.setD2(textToSymbol(strong.getD2()));
+        strong.setD3(textToSymbol(strong.getD3()));
+        strong.setD4(textToSymbol(strong.getD4()));
+        strong.setD5(textToSymbol(strong.getD5()));
         Log.d("DEF", def1);
 
-        defense(def1, d1);
-        defense(def2, d2);
-        defense(def3, d3);
-        defense(def4, d4);
-        defense(def5, d5);
-        weak(def1, chkWeak1);
-        weak(def2, chkWeak2);
-        weak(def3, chkWeak3);
-        weak(def4, chkWeak4);
-        weak(def5, chkWeak5);
+        defense(strong.getD1(), d1);
+        defense(strong.getD2(), d2);
+        defense(strong.getD3(), d3);
+        defense(strong.getD4(), d4);
+        defense(strong.getD5(), d5);
         Log.d("Submit", "Alert dialog start");
         new AlertDialog.Builder(this)
                 .setTitle("Return to main Screen")
@@ -233,44 +182,25 @@ public class MatchActivity extends FragmentActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         strong.setAutoHigh(boolToInt(autoHigh.isChecked()));
                         strong.setAutoLow(boolToInt(autoLow.isChecked()));
-                        strong.setAutoCross(defense(port, cdf, rw, rt, db, sp, mt, rmp,lb));
+                        //strong.setAutoCross(defense(port, cdf, rw, rt, db, sp, mt, rmp,lb));
                         strong.setStartingPos(autoPos);
-                        strong.setAutoDef(boolToInt(autoDef.isChecked()));
+                        //strong.setAutoDef(boolToInt(autoDef.isChecked()));
                         strong.setHighGoal(highGoal);
                         strong.setLowGoal(lowGoal);
                         strong.setScale(boolToInt(scale.isChecked()));
                         strong.setRamp(boolToInt(ramp.isChecked()));
                         strong.setCapture(boolToInt(cap.isChecked()));
                         //strong.setBreach(boolToInt(breach.isChecked()));
-                        strong.setD1(def1);
-                        strong.setD2(def2);
-                        strong.setD3(def3);
-                        strong.setD4(def4);
-                        strong.setD5(def5);
                         strong.setdCross1(d1);
                         strong.setdCross2(d2);
                         strong.setdCross3(d3);
                         strong.setdCross4(d4);
                         strong.setdCross5(d5);
-                        strong.setdWeak1(boolToInt(chkWeak1.isChecked()));
-                        strong.setdWeak2(boolToInt(chkWeak2.isChecked()));
-                        strong.setdWeak3(boolToInt(chkWeak3.isChecked()));
-                        strong.setdWeak4(boolToInt(chkWeak4.isChecked()));
-                        strong.setdWeak5(boolToInt(chkWeak5.isChecked()));
                         strong.setNotes(notes.getText().toString());
-                        strong.setPt(strong.getPt() + boolToInt(port.isChecked()));
-                        strong.setCdf(strong.getCdf() + boolToInt(cdf.isChecked()));
-                        strong.setRt(strong.getRt() + boolToInt(rt.isChecked()));
-                        strong.setRw(strong.getRw() + boolToInt(rw.isChecked()));
-                        strong.setLb(strong.getLb() + boolToInt(lb.isChecked()));
-                        strong.setMt(strong.getMt() + boolToInt(mt.isChecked()));
-                        strong.setRmp(strong.getRmp() + boolToInt(rmp.isChecked()));
-                        strong.setSp(strong.getSp() + boolToInt(sp.isChecked()));
-                        strong.setDb(strong.getDb() + boolToInt(db.isChecked()));
-                        strong.setHuman(humanYes);
-                        strong.setHumanNo(humanNo);
+
                         DatabaseHandler.getInstance(getApplicationContext()).addAllData(strong);
                         Toast.makeText(getApplicationContext(), "Data added", Toast.LENGTH_SHORT).show();
+
                         Intent returnAction = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(returnAction);
 

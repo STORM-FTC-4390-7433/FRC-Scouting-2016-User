@@ -1,8 +1,10 @@
 package fragments;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import database.Stronghold;
 import fragments.AutoFragment;
 import fragments.SubmitFragment;
 import fragments.TeleFragment;
@@ -12,9 +14,10 @@ import fragments.TeleFragment;
  * one of the sections/tabs/pages.
  */
 public class ViewPagerAdapter extends FragmentPagerAdapter {
-
-    public ViewPagerAdapter(FragmentManager fm) {
+    Stronghold strong;
+    public ViewPagerAdapter(FragmentManager fm, Stronghold strong) {
         super(fm);
+        this.strong = strong;
     }
 
     @Override
@@ -25,13 +28,19 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
                 return fragment1;
             case 1:
                 TeleFragment fragment2 = new TeleFragment();
+
+                Bundle args = new Bundle();
+                args.putString("D1", strong.getD1());
+                args.putString("D2", strong.getD2());
+                args.putString("D3", strong.getD3());
+                args.putString("D4", strong.getD4());
+                args.putString("D5", strong.getD5());
+
+                fragment2.setArguments(args);
                 return fragment2;
             case 2:
-                DefenseFragment fragment3 = new DefenseFragment();
+                SubmitFragment fragment3 = new SubmitFragment();
                 return fragment3;
-            case 3:
-                SubmitFragment fragment4 = new SubmitFragment();
-                return fragment4;
         }
         return null;
     }
@@ -39,7 +48,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         // Show 3 total pages.
-        return 4;
+        return 3;
     }
 
     @Override
@@ -50,8 +59,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             case 1:
                 return "Tele";
             case 2:
-                return "Defense";
-            case 3:
                 return "Submit";
         }
         return null;

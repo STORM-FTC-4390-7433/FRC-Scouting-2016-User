@@ -1,15 +1,12 @@
 package fragments;
 
-import android.content.Context;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Spinner;
@@ -18,7 +15,6 @@ import android.widget.Toast;
 
 import org.lrhsd.storm.user16.R;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import adapters.CustomArrayAdapter;
@@ -38,19 +34,9 @@ public class DefenseFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_defense, container, false);
-        spin1 = (Spinner)view.findViewById(R.id.spinDef1);
-        spin2 = (Spinner)view.findViewById(R.id.spinDef2);
-        spin3 = (Spinner)view.findViewById(R.id.spinDef3);
-        spin4 = (Spinner)view.findViewById(R.id.spinDef4);
-        spin5 = (Spinner)view.findViewById(R.id.spinDef5);
 
         Typeface gill = Typeface.createFromAsset(getActivity().getAssets(), "Gill Sans.ttf");
 
-        CheckBox chkWeak1 = (CheckBox)view.findViewById(R.id.chkWeak1),
-        chkWeak2 = (CheckBox)view.findViewById(R.id.chkWeak2),
-        chkWeak3 = (CheckBox)view.findViewById(R.id.chkWeak3),
-        chkWeak4 = (CheckBox)view.findViewById(R.id.chkWeak4),
-        chkWeak5 = (CheckBox)view.findViewById(R.id.chkWeak5);
 
         Button def1 = (Button)view.findViewById(R.id.def1),
                def2 =  (Button)view.findViewById(R.id.def2),
@@ -65,29 +51,13 @@ public class DefenseFragment extends Fragment {
 
         TextView d1 = (TextView)view.findViewById(R.id.txtD1),
                  d2 = (TextView)view.findViewById(R.id.txtD2),
-                 d3 = (TextView)view.findViewById(R.id.txtD3),
+                 d3 = (TextView)view.findViewById(R.id.txtD2),
                  d4 = (TextView)view.findViewById(R.id.txtD4),
                  d5 = (TextView)view.findViewById(R.id.txtD5);
         CustomArrayAdapter<String> lowbar = new CustomArrayAdapter<>(getActivity().getBaseContext(), Arrays.asList(getResources().getStringArray(R.array.low)));
 
         CustomArrayAdapter<String> adapt = new CustomArrayAdapter<>(getActivity().getBaseContext(), Arrays.asList(getResources().getStringArray(R.array.defenses)));
 
-        spin1.setAdapter(lowbar);
-        spin1.setEnabled(false);
-        spin2.setAdapter(adapt);
-        spin2.setSelection(1, false);
-        spin3.setAdapter(adapt);
-        spin3.setSelection(2, false);
-        spin4.setAdapter(adapt);
-        spin4.setSelection(3, false);
-        spin5.setAdapter(adapt);
-        spin5.setSelection(4, false);
-
-        chkWeak1.setTypeface(gill);
-        chkWeak2.setTypeface(gill);
-        chkWeak3.setTypeface(gill);
-        chkWeak4.setTypeface(gill);
-        chkWeak5.setTypeface(gill);
 
         def1.setTypeface(gill);
         def2.setTypeface(gill);
