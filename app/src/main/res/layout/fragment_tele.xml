@@ -216,80 +216,139 @@
                 android:layout_marginLeft="80dp" />
 
         </LinearLayout>
-    </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="End Game"
-        android:id="@+id/txtEnd"
-        android:textColor="#fff"
-        android:textSize="30dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
-        android:gravity="center"
-        android:layout_gravity="center_horizontal" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/linearLayout"
-        android:layout_marginBottom="20dp">
-
-        <CheckBox
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Move onto ramp"
-            android:id="@+id/ramp"
-            android:button="@drawable/box"
-            android:textSize="25sp"
-            android:paddingLeft="20dp"
-            android:checked="false"
-            android:textColor="@color/white"
-            android:layout_above="@+id/scale"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="30dp"
-            android:layout_gravity="center_vertical" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Scale the Castle"
-            android:id="@+id/scale"
-
-            android:button="@drawable/box"
-            android:textSize="25sp"
-            android:paddingLeft="20dp"
-            android:checked="false"
-            android:layout_above="@+id/scale"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="30dp"
-            android:textColor="@color/white"/>
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Capture the Castle"
-            android:id="@+id/capture"
-            android:textColor="#ffffff"
-            android:button="@drawable/box"
-            android:textSize="25sp"
-            android:paddingLeft="20dp"
-            android:checked="false"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Def 3: 0"
+            android:id="@+id/D3Txt"
+            android:textColor="#fff"
+            android:textSize="30dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="30dp" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:text="(+)"
+                android:id="@+id/btnDef3"
+                android:textSize="50dp"
+                android:layout_below="@+id/btnDecHigh"
+                android:layout_centerHorizontal="true"
+                android:onClick="Def3"
+                android:background="@android:color/background_light"
+                android:layout_marginBottom="20dp" />
+
+            <Button
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:text="(-)"
+                android:id="@+id/btnDef3Sub"
+                android:textSize="50dp"
+                android:layout_below="@+id/btnDef1"
+                android:layout_centerHorizontal="true"
+                android:onClick="Def3Sub"
+                android:background="@android:color/background_light"
+                android:layout_marginLeft="80dp" />
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Def 4: 0"
+            android:id="@+id/D4Txt"
+            android:textColor="#fff"
+            android:textSize="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:text="(+)"
+                android:id="@+id/btnDef4"
+                android:textSize="50dp"
+                android:layout_below="@+id/btnDecHigh"
+                android:layout_centerHorizontal="true"
+                android:onClick="Def4"
+                android:background="@android:color/background_light"
+                android:layout_marginBottom="20dp" />
+
+            <Button
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:text="(-)"
+                android:id="@+id/btnDef4Sub"
+                android:textSize="50dp"
+                android:layout_below="@+id/btnDef1"
+                android:layout_centerHorizontal="true"
+                android:onClick="Def4Sub"
+                android:background="@android:color/background_light"
+                android:layout_marginLeft="80dp" />
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Def 5: 0"
+            android:id="@+id/D5Txt"
+            android:textColor="#fff"
+            android:textSize="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:text="(+)"
+                android:id="@+id/btnDef5"
+                android:textSize="50dp"
+                android:layout_below="@+id/btnDecHigh"
+                android:layout_centerHorizontal="true"
+                android:onClick="Def5"
+                android:background="@android:color/background_light"
+                android:layout_marginBottom="20dp" />
+
+            <Button
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:text="(-)"
+                android:id="@+id/btnDef5Sub"
+                android:textSize="50dp"
+                android:layout_below="@+id/btnDef1"
+                android:layout_centerHorizontal="true"
+                android:onClick="Def5Sub"
+                android:background="@android:color/background_light"
+                android:layout_marginLeft="80dp" />
+
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

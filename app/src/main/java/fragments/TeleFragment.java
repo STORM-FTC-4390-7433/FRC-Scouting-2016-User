@@ -32,31 +32,36 @@ public class TeleFragment extends Fragment {
                btnLowGoalSub = (Button) view.findViewById(R.id.btnDecLow),
                btnDef1 = (Button)view.findViewById(R.id.btnDef1),
                btnDef1Sub = (Button)view.findViewById(R.id.btnDef1Sub),
-               btnDef2 = (Button)view.findViewById(R.id.btnDef1),
-                btnDef2Sub = (Button)view.findViewById(R.id.btnDef1Sub);
+               btnDef2 = (Button)view.findViewById(R.id.btnDef2),
+               btnDef2Sub = (Button)view.findViewById(R.id.btnDef2Sub),
+               btnDef3 = (Button)view.findViewById(R.id.btnDef3),
+               btnDef3Sub = (Button)view.findViewById(R.id.btnDef3Sub),
+               btnDef4 = (Button)view.findViewById(R.id.btnDef4),
+               btnDef4Sub = (Button)view.findViewById(R.id.btnDef4Sub),
+               btnDef5 = (Button)view.findViewById(R.id.btnDef5),
+               btnDef5Sub = (Button)view.findViewById(R.id.btnDef5Sub);
 
-        TextView end = (TextView)view.findViewById(R.id.txtEnd);
 
         Bundle args = getArguments();
 
         TextView def1 = (TextView)view.findViewById(R.id.D1Txt),
-                 def2 = (TextView)view.findViewById(R.id.D2Txt);
+                 def2 = (TextView)view.findViewById(R.id.D2Txt),
+                 def3 = (TextView)view.findViewById(R.id.D3Txt),
+                 def4 = (TextView)view.findViewById(R.id.D4Txt),
+                 def5 = (TextView)view.findViewById(R.id.D5Txt);
 
         def1.setText(args.getString("D1") + ": 0");
         def2.setText(args.getString("D2") + ": 0");
+        def3.setText(args.getString("D3") + ": 0");
+        def4.setText(args.getString("D4") + ": 0");
+        def5.setText(args.getString("D5") + ": 0");
 
 
-        CheckBox ramp = (CheckBox)view.findViewById(R.id.ramp),
-        scale = (CheckBox)view.findViewById(R.id.scale),
-        cap = (CheckBox)view.findViewById(R.id.capture);
+
         btnHighGoal.setTypeface(gill);
         btnHighGoalSub.setTypeface(gill);
         btnLowGoal.setTypeface(gill);
         btnLowGoalSub.setTypeface(gill);
-        end.setTypeface(gill);
-        ramp.setTypeface(gill);
-        scale.setTypeface(gill);
-        cap.setTypeface(gill);
         return view;
     }
 

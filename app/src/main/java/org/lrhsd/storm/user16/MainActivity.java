@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 webTxt = (TextView)findViewById(R.id.webTxt);
 
         Spinner spinner = (Spinner)findViewById(R.id.spinAuto);
-        CustomArrayAdapter<String> adapt = new CustomArrayAdapter<String>(getApplicationContext(), Arrays.asList(getResources().getStringArray(R.array.defenses)));
+        CustomArrayAdapter<String> adapt = new CustomArrayAdapter<String>(getApplicationContext(), Arrays.asList(getResources().getStringArray(R.array.autoDefenses)));
         spinner.setAdapter(adapt);
 
         TextView text = (TextView)findViewById(R.id.txtHead);
@@ -246,19 +246,39 @@ public class MainActivity extends AppCompatActivity {
         String data = "@stormscouting";
         for(Stronghold strong : DatabaseHandler.getInstance(getApplicationContext()).getAllTeams()){
             if(strong.getNotes().equals("")){strong.setNotes("No Notes");}
-            data += strong.getTeamNum() + "," + strong.getMatchNum() + "," + strong.getAlliance() + "," +
-                    strong.getAutoDef() + "," + strong.getAutoHigh() + "," + strong.getAutoLow() + "," +
-                    strong.getStartingPos() + "," + strong.getAutoCross() + "," + strong.getHighGoal() +  "," +
-                    strong.getLowGoal() + "," + strong.getRamp() + "," + strong.getScale() + "," +
-                    strong.getCapture() + "," + strong.getD1() +
-                    "," + strong.getD2() + "," + strong.getD3()  + "," + strong.getD4() +
-                    "," + strong.getD5() + "," + strong.getdCross1() + "," + strong.getdCross2() + "," + strong.getdCross3() + "," +
-                    strong.getdCross4() + "," + strong.getdCross5() + "," + strong.getdWeak1() + "," + strong.getdWeak2() +
-                    "," + strong.getdWeak3() + "," + strong.getdWeak4() + "," + strong.getdWeak5() +
-                    "," + strong.getNotes() + "," + strong.getPt() + "," + strong.getCdf() +
-                    "," + strong.getRmp() + "," + strong.getMt() + "," + strong.getDb() +
-                    "," + strong.getSp() + "," + strong.getRw() + "," + strong.getRt() +
-                    "," + strong.getLb() + "," + strong.getHumanYes() + "," + strong.getHumanNo() + ":";
+            data += strong.getTeamNum() +
+                    "," + strong.getMatchNum() +
+                    "," + strong.getAlliance() +
+                    "," + strong.getAutoDef() +
+                    "," + strong.getAutoHigh() +
+                    "," + strong.getAutoLow() +
+                    "," + strong.getStartingPos() +
+                    "," + strong.getAutoCross() +
+                    "," + strong.getHighGoal() +
+                    "," + strong.getLowGoal() +
+                    "," + strong.getRamp() +
+                    "," + strong.getScale() +
+                    "," + strong.getCapture() +
+                    "," + strong.getD1() +
+                    "," + strong.getD2() +
+                    "," + strong.getD3()  +
+                    "," + strong.getD4() +
+                    "," + strong.getD5() +
+                    "," + strong.getdCross1() +
+                    "," + strong.getdCross2() +
+                    "," + strong.getdCross3() +
+                    "," + strong.getdCross4() +
+                    "," + strong.getdCross5() +
+                    "," + strong.getNotes() +
+                    "," + strong.getPt() +
+                    "," + strong.getCdf() +
+                    "," + strong.getRmp() +
+                    "," + strong.getMt() +
+                    "," + strong.getDb() +
+                    "," + strong.getSp() +
+                    "," + strong.getRw() +
+                    "," + strong.getRt() +
+                    "," + strong.getLb() + ":";
         }
         return data;
     }

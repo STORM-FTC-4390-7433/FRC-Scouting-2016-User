@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +33,7 @@ import database.Stronghold;
 import de.greenrobot.event.EventBus;
 import fragments.AutoFragment;
 import fragments.DefenseFragment;
+import fragments.EndFragment;
 import fragments.SubmitFragment;
 import fragments.TeleFragment;
 import fragments.ViewPagerAdapter;
@@ -101,19 +103,19 @@ public class MatchActivity extends FragmentActivity {
         score.setText(strong.getD2() + ": " + String.valueOf(d2));
     }
     public void Def3(View v){
-        Button score = (Button)findViewById(R.id.def3);
+        TextView de3 = (TextView)findViewById(R.id.D3Txt);
         ++d3;
-        score.setText("(+)Yes: " + String.valueOf(d3));
+        de3.setText(strong.getD3() + ": " + String.valueOf(d3));
     }
     public void Def4(View v){
-        Button score = (Button)findViewById(R.id.def4);
+        TextView de4 = (TextView)findViewById(R.id.D4Txt);
         ++d4;
-        score.setText("(+)Yes: " + String.valueOf(d4));
+        de4.setText(strong.getD4() + ": " + String.valueOf(d4));
     }
     public void Def5(View v){
-        Button score = (Button)findViewById(R.id.def5);
+        TextView de5 = (TextView)findViewById(R.id.D5Txt);
         ++d5;
-        score.setText("(+)Yes: " + String.valueOf(d5));
+        de5.setText(strong.getD5() + ": " + String.valueOf(d5));
     }
     public void Def1Sub(View v){
         TextView de1 = (TextView)findViewById(R.id.D1Txt);
@@ -131,48 +133,39 @@ public class MatchActivity extends FragmentActivity {
         }
     }
     public void Def3Sub(View v){
-        Button score = (Button)findViewById(R.id.def3);
+        TextView de3 = (TextView)findViewById(R.id.D3Txt);
         if(d3 > 0) {
             --d3;
-            score.setText("(+)Yes: " + String.valueOf(d3));
+            de3.setText(strong.getD3() + ": " + String.valueOf(d3));
         }
     }
     public void Def4Sub(View v){
-        Button score = (Button)findViewById(R.id.def4);
+        TextView de4 = (TextView)findViewById(R.id.D4Txt);
         if(d4 > 0) {
             --d4;
-            score.setText("(+)Yes: " + String.valueOf(d4));
+            de4.setText(strong.getD4() + ": " + String.valueOf(d4));
         }
     }
     public void Def5Sub(View v){
-        Button score = (Button)findViewById(R.id.def5);
+        TextView de5 = (TextView)findViewById(R.id.D5Txt);
         if(d5 > 0) {
             --d5;
-            score.setText("(+)Yes: " + String.valueOf(d5));
+            de5.setText(strong.getD5() + ": " + String.valueOf(d5));
         }
     }
     public void submitData(View v){
-        autoDef = (CheckBox)AutoFragment.view.findViewById(R.id.chkAutoDef);
         autoHigh = (CheckBox)AutoFragment.view.findViewById(R.id.chkAutoHigh);
         autoLow = (CheckBox)AutoFragment.view.findViewById(R.id.chkAutoLow);
-        ramp = (CheckBox)TeleFragment.view.findViewById(R.id.ramp);
-        scale = (CheckBox)TeleFragment.view.findViewById(R.id.scale);
-        cap = (CheckBox)TeleFragment.view.findViewById(R.id.capture);
+        ramp = (CheckBox) EndFragment.view.findViewById(R.id.ramp);
+        scale = (CheckBox)EndFragment.view.findViewById(R.id.scale);
+        cap = (CheckBox)EndFragment.view.findViewById(R.id.cap);
+
+        final RadioButton cross = (RadioButton)AutoFragment.view.findViewById(R.id.radOrg),
+                          start = (RadioButton)AutoFragment.view.findViewById(R.id.radRed);
 
         final EditText notes = (EditText) SubmitFragment.view.findViewById(R.id.editText);
 
-        strong.setD1(textToSymbol(strong.getD1()));
-        strong.setD2(textToSymbol(strong.getD2()));
-        strong.setD3(textToSymbol(strong.getD3()));
-        strong.setD4(textToSymbol(strong.getD4()));
-        strong.setD5(textToSymbol(strong.getD5()));
-        Log.d("DEF", def1);
 
-        defense(strong.getD1(), d1);
-        defense(strong.getD2(), d2);
-        defense(strong.getD3(), d3);
-        defense(strong.getD4(), d4);
-        defense(strong.getD5(), d5);
         Log.d("Submit", "Alert dialog start");
         new AlertDialog.Builder(this)
                 .setTitle("Return to main Screen")
@@ -180,11 +173,24 @@ public class MatchActivity extends FragmentActivity {
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        strong.setStartingPos(textToSymbol(strong.getStartingPos()));
+                        strong.setD1(textToSymbol(strong.getD1()));
+                        strong.setD2(textToSymbol(strong.getD2()));
+                        strong.setD3(textToSymbol(strong.getD3()));
+                        strong.setD4(textToSymbol(strong.getD4()));
+                        strong.setD5(textToSymbol(strong.getD5()));
+                        Log.d("DEF", def1);
+
+                        defense(strong.getD1(), d1);
+                        defense(strong.getD2(), d2);
+                        defense(strong.getD3(), d3);
+                        defense(strong.getD4(), d4);
+                        defense(strong.getD5(), d5);
+
                         strong.setAutoHigh(boolToInt(autoHigh.isChecked()));
                         strong.setAutoLow(boolToInt(autoLow.isChecked()));
-                        //strong.setAutoCross(defense(port, cdf, rw, rt, db, sp, mt, rmp,lb));
-                        strong.setStartingPos(autoPos);
-                        //strong.setAutoDef(boolToInt(autoDef.isChecked()));
+                        strong.setAutoCross(boolToInt(cross.isChecked()));
+                        strong.setAutoDef(boolToInt(start.isChecked()));
                         strong.setHighGoal(highGoal);
                         strong.setLowGoal(lowGoal);
                         strong.setScale(boolToInt(scale.isChecked()));
@@ -291,37 +297,4 @@ public class MatchActivity extends FragmentActivity {
         }
         return 0;
     }
-    public void weak(String str, CheckBox box){
-        switch (str){
-            case "pt":
-                strong.setPt(strong.getPt() + boolToInt(box.isChecked()));
-                break;
-            case "cdf":
-                strong.setCdf(strong.getCdf() + boolToInt(box.isChecked()));
-                break;
-            case "rmp":
-                strong.setRmp(strong.getRmp() + boolToInt(box.isChecked()));
-                break;
-            case "mt":
-                strong.setMt(strong.getMt() + boolToInt(box.isChecked()));
-                break;
-            case "db":
-                strong.setDb(strong.getDb() + boolToInt(box.isChecked()));
-                break;
-            case "sp":
-                strong.setSp(strong.getSp() + boolToInt(box.isChecked()));
-                break;
-            case "rw":
-                strong.setRw(strong.getRw() + boolToInt(box.isChecked()));
-                break;
-            case "rt":
-                strong.setRt(strong.getRt() + boolToInt(box.isChecked()));
-                break;
-            case "lb":
-                strong.setLb(strong.getLb() + boolToInt(box.isChecked()));
-                break;
-        }
     }
-
-    }
-

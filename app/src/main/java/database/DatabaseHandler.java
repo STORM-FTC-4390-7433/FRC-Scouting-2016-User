@@ -14,7 +14,7 @@ import java.util.List;
 public class DatabaseHandler extends SQLiteOpenHelper {
     private static String DB_name = "strongholdDB";
     private static String DB_Table = "strongholdData";
-    private static int DB_VERSION = 11;
+    private static int DB_VERSION = 12;
 
     private static String KEY_TEAM ="teamNum";
     private static String KEY_MATCH = "matchNum";
@@ -39,11 +39,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static String KEY_DC3 = "defCrossThree";
     private static String KEY_DC4 = "defCrossFour";
     private static String KEY_DC5 = "defCrossFive";
-    private static String KEY_DW1 = "defWeakOne";
-    private static String KEY_DW2 = "defWeakTwo";
-    private static String KEY_DW3 = "defWeakThree";
-    private static String KEY_DW4 = "defWeakFour";
-    private static String KEY_DW5 = "defWeakFive";
     private static String KEY_NOTES = "notes";
     private static String KEY_PT = "portcullis";
     private static String KEY_CDF = "cheval";
@@ -54,8 +49,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static String KEY_RW = "rockwall";
     private static String KEY_RT = "roughtTerrain";
     private static String KEY_LB = "lowBar";
-    private static String KEY_HUM = "human";
-    private static String KEY_HUMNO = "humanNo";
     private static DatabaseHandler dbH = null;
     private Context ctx;
 
@@ -95,11 +88,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                               KEY_DC3 + " INTEGER," +
                               KEY_DC4 + " INTEGER," +
                               KEY_DC5 + " INTEGER," +
-                              KEY_DW1 + " INTEGER," +
-                              KEY_DW2 + " INTEGER," +
-                              KEY_DW3 + " INTEGER," +
-                              KEY_DW4 + " INTEGER," +
-                              KEY_DW5 + " INTEGER," +
                               KEY_NOTES + " TEXT," +
                               KEY_PT + " INTEGER," +
                               KEY_CDF + " INTEGER," +
@@ -109,9 +97,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                               KEY_SP + " INTEGER," +
                               KEY_RW + " INTEGER," +
                               KEY_RT + " INTEGER," +
-                              KEY_LB + " INTEGER," +
-                              KEY_HUM + " INTEGER," +
-                              KEY_HUMNO + " INTEGER" +
+                              KEY_LB + " INTEGER" +
                               ")";
         db.execSQL(CREATE_TEAM);
     }
@@ -149,11 +135,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_DC3, strong.getdCross3());
         values.put(KEY_DC4, strong.getdCross4());
         values.put(KEY_DC5, strong.getdCross5());
-        values.put(KEY_DW1, strong.getdWeak1());
-        values.put(KEY_DW2, strong.getdWeak2());
-        values.put(KEY_DW3, strong.getdWeak3());
-        values.put(KEY_DW4, strong.getdWeak4());
-        values.put(KEY_DW5, strong.getdWeak5());
         values.put(KEY_NOTES, strong.getNotes());
         values.put(KEY_PT, strong.getPt());
         values.put(KEY_CDF, strong.getCdf());
@@ -164,8 +145,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_RW, strong.getRw());
         values.put(KEY_RT, strong.getRt());
         values.put(KEY_LB, strong.getLb());
-        values.put(KEY_HUM, strong.getHumanYes());
-        values.put(KEY_HUMNO, strong.getHumanNo());
         return values;
 
     }
@@ -208,11 +187,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 tmp.setdCross3(cursor.getInt(cursor.getColumnIndex(KEY_DC3)));
                 tmp.setdCross4(cursor.getInt(cursor.getColumnIndex(KEY_DC4)));
                 tmp.setdCross5(cursor.getInt(cursor.getColumnIndex(KEY_DC5)));
-                tmp.setdWeak1(cursor.getInt(cursor.getColumnIndex(KEY_DW1)));
-                tmp.setdWeak2(cursor.getInt(cursor.getColumnIndex(KEY_DW2)));
-                tmp.setdWeak3(cursor.getInt(cursor.getColumnIndex(KEY_DW3)));
-                tmp.setdWeak4(cursor.getInt(cursor.getColumnIndex(KEY_DW4)));
-                tmp.setdWeak5(cursor.getInt(cursor.getColumnIndex(KEY_DW5)));
                 tmp.setNotes(cursor.getString(cursor.getColumnIndex(KEY_NOTES)));
                 tmp.setPt(cursor.getInt(cursor.getColumnIndex(KEY_PT)));
                 tmp.setCdf(cursor.getInt(cursor.getColumnIndex(KEY_CDF)));
@@ -223,8 +197,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 tmp.setRw(cursor.getInt(cursor.getColumnIndex(KEY_RW)));
                 tmp.setRt(cursor.getInt(cursor.getColumnIndex(KEY_RT)));
                 tmp.setLb(cursor.getInt(cursor.getColumnIndex(KEY_LB)));
-                tmp.setHuman(cursor.getInt(cursor.getColumnIndex(KEY_HUM)));
-                tmp.setHumanNo(cursor.getInt(cursor.getColumnIndex(KEY_HUMNO)));
                 list.add(tmp);
 
             } while (cursor.moveToNext());
