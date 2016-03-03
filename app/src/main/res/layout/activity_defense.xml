@@ -129,7 +129,7 @@
     <ImageView
         android:layout_width="800dp"
         android:layout_height="800dp"
-        android:id="@+id/imageView3"
+        android:id="@+id/img"
         android:src="@drawable/def"
         android:paddingBottom="20dp"
         android:layout_gravity="center_horizontal"

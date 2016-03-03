@@ -8,7 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import org.lrhsd.storm.user16.R;
 
@@ -43,6 +46,7 @@ public class TeleFragment extends Fragment {
 
 
         Bundle args = getArguments();
+
 
         TextView def1 = (TextView)view.findViewById(R.id.D1Txt),
                  def2 = (TextView)view.findViewById(R.id.D2Txt),

@@ -12,9 +12,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import org.lrhsd.storm.user16.R;
 
@@ -44,6 +47,12 @@ public class AutoFragment extends Fragment {
 
         red.setButtonDrawable(R.drawable.chkbox_off);
         org.setButtonDrawable(R.drawable.chkbox_off);
+
+        Picasso.with(getActivity().getApplicationContext())
+                .load(R.drawable.def)
+                .resize(2000, 3000)
+                .into((ImageView) view.findViewById(R.id.img));
+
 
         red.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

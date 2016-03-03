@@ -22,12 +22,13 @@ import adapters.CustomArrayAdapter;
 
 public class DefenseFragment extends Fragment {
 
-   public static View view;
-   public static Spinner spin1, spin2, spin3, spin4, spin5;
+    public static View view;
+    public static Spinner spin1, spin2, spin3, spin4, spin5;
+    boolean isStart = true;
 
-   public DefenseFragment(){
+    public DefenseFragment() {
 
-   }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,22 +39,22 @@ public class DefenseFragment extends Fragment {
         Typeface gill = Typeface.createFromAsset(getActivity().getAssets(), "Gill Sans.ttf");
 
 
-        Button def1 = (Button)view.findViewById(R.id.def1),
-               def2 =  (Button)view.findViewById(R.id.def2),
-               def3 = (Button)view.findViewById(R.id.def3),
-               def4 = (Button)view.findViewById(R.id.def4),
-               def5 = (Button)view.findViewById(R.id.def5),
-               def1Sub = (Button)view.findViewById(R.id.def1Sub),
-               def2Sub = (Button)view.findViewById(R.id.def2Sub),
-               def3Sub = (Button)view.findViewById(R.id.def3Sub),
-               def4Sub = (Button)view.findViewById(R.id.def4Sub),
-               def5Sub = (Button)view.findViewById(R.id.def5Sub);
+        Button def1 = (Button) view.findViewById(R.id.def1),
+                def2 = (Button) view.findViewById(R.id.def2),
+                def3 = (Button) view.findViewById(R.id.def3),
+                def4 = (Button) view.findViewById(R.id.def4),
+                def5 = (Button) view.findViewById(R.id.def5),
+                def1Sub = (Button) view.findViewById(R.id.def1Sub),
+                def2Sub = (Button) view.findViewById(R.id.def2Sub),
+                def3Sub = (Button) view.findViewById(R.id.def3Sub),
+                def4Sub = (Button) view.findViewById(R.id.def4Sub),
+                def5Sub = (Button) view.findViewById(R.id.def5Sub);
 
-        TextView d1 = (TextView)view.findViewById(R.id.txtD1),
-                 d2 = (TextView)view.findViewById(R.id.txtD2),
-                 d3 = (TextView)view.findViewById(R.id.txtD2),
-                 d4 = (TextView)view.findViewById(R.id.txtD4),
-                 d5 = (TextView)view.findViewById(R.id.txtD5);
+        TextView d1 = (TextView) view.findViewById(R.id.txtD1),
+                d2 = (TextView) view.findViewById(R.id.txtD2),
+                d3 = (TextView) view.findViewById(R.id.txtD2),
+                d4 = (TextView) view.findViewById(R.id.txtD4),
+                d5 = (TextView) view.findViewById(R.id.txtD5);
         CustomArrayAdapter<String> lowbar = new CustomArrayAdapter<>(getActivity().getBaseContext(), Arrays.asList(getResources().getStringArray(R.array.low)));
 
         CustomArrayAdapter<String> adapt = new CustomArrayAdapter<>(getActivity().getBaseContext(), Arrays.asList(getResources().getStringArray(R.array.defenses)));
@@ -80,16 +81,20 @@ public class DefenseFragment extends Fragment {
         spin5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (spin5.getSelectedItem().toString().equals(spin2.getSelectedItem().toString()) || spin5.getSelectedItem().toString().equals(spin3.getSelectedItem().toString()) ||
-                        spin5.getSelectedItem().toString().equals(spin4.getSelectedItem().toString())) {
-                    Toast.makeText(getActivity().getBaseContext(), "Cannot choose that defense. It has already been chosen", Toast.LENGTH_LONG).show();
-                    if (position < Arrays.asList(getResources().getStringArray(R.array.defenses)).size() - 1) {
-                        spin5.setSelection(position + 1, false);
-                    } else {
-                        spin5.setSelection(position - 1);
+                if (isStart) {
+                    isStart = false;
+                } else {
+                    if (spin5.getSelectedItem().toString().equals(spin2.getSelectedItem().toString()) || spin5.getSelectedItem().toString().equals(spin3.getSelectedItem().toString()) ||
+                            spin5.getSelectedItem().toString().equals(spin4.getSelectedItem().toString())) {
+                        Toast.makeText(getActivity().getBaseContext(), "Cannot choose that defense. It has already been chosen", Toast.LENGTH_LONG).show();
+                        if (position < Arrays.asList(getResources().getStringArray(R.array.defenses)).size() - 1) {
+                            spin5.setSelection(position + 1, false);
+                        } else {
+                            spin5.setSelection(position - 1);
+                        }
                     }
-                }
 
+                }
             }
 
             @Override
@@ -100,17 +105,20 @@ public class DefenseFragment extends Fragment {
         spin2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (spin2.getSelectedItem().toString().equals(spin3.getSelectedItem().toString()) ||
-                        spin2.getSelectedItem().toString().equals(spin4.getSelectedItem().toString()) || spin2.getSelectedItem().toString().equals(spin5.getSelectedItem().toString())) {
-                    Toast.makeText(getActivity().getBaseContext(), "Cannot choose that defense. It has already been chosen", Toast.LENGTH_LONG).show();
-                    if ( position < Arrays.asList(getResources().getStringArray(R.array.defenses)).size() -1){
-                        spin2.setSelection(position + 1, false);
+                if (isStart) {
+                    isStart = false;
+                } else {
+                    if (spin2.getSelectedItem().toString().equals(spin3.getSelectedItem().toString()) ||
+                            spin2.getSelectedItem().toString().equals(spin4.getSelectedItem().toString()) || spin2.getSelectedItem().toString().equals(spin5.getSelectedItem().toString())) {
+                        Toast.makeText(getActivity().getBaseContext(), "Cannot choose that defense. It has already been chosen", Toast.LENGTH_LONG).show();
+                        if (position < Arrays.asList(getResources().getStringArray(R.array.defenses)).size() - 1) {
+                            spin2.setSelection(position + 1, false);
+                        } else {
+                            spin2.setSelection(position - 1);
+                        }
                     }
-                    else{
-                        spin2.setSelection(position - 1);
-                    }
-                }
 
+                }
             }
 
             @Override
@@ -121,17 +129,20 @@ public class DefenseFragment extends Fragment {
         spin3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (spin3.getSelectedItem().toString().equals(spin2.getSelectedItem().toString()) ||
-                        spin3.getSelectedItem().toString().equals(spin4.getSelectedItem().toString()) || spin1.getSelectedItem().toString().equals(spin5.getSelectedItem().toString())) {
-                    Toast.makeText(getActivity().getBaseContext(), "Cannot choose that defense. It has already been chosen", Toast.LENGTH_LONG).show();
-                    if ( position < Arrays.asList(getResources().getStringArray(R.array.defenses)).size() -1){
-                        spin3.setSelection(position + 1, false);
+                if (isStart) {
+                    isStart = false;
+                } else {
+                    if (spin3.getSelectedItem().toString().equals(spin2.getSelectedItem().toString()) ||
+                            spin3.getSelectedItem().toString().equals(spin4.getSelectedItem().toString()) || spin1.getSelectedItem().toString().equals(spin5.getSelectedItem().toString())) {
+                        Toast.makeText(getActivity().getBaseContext(), "Cannot choose that defense. It has already been chosen", Toast.LENGTH_LONG).show();
+                        if (position < Arrays.asList(getResources().getStringArray(R.array.defenses)).size() - 1) {
+                            spin3.setSelection(position + 1, false);
+                        } else {
+                            spin3.setSelection(position - 1);
+                        }
                     }
-                    else{
-                        spin3.setSelection(position - 1);
-                    }
-                }
 
+                }
             }
 
             @Override
@@ -139,9 +150,13 @@ public class DefenseFragment extends Fragment {
 
             }
         });
-        spin4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        /*spin4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(isStart){
+                    isStart = false;
+                }
+                else{
                 if (spin4.getSelectedItem().toString().equals(spin2.getSelectedItem().toString()) ||
                         spin4.getSelectedItem().toString().equals(spin3.getSelectedItem().toString()) || spin4.getSelectedItem().toString().equals(spin5.getSelectedItem().toString())) {
                     Toast.makeText(getActivity().getBaseContext(), "Cannot choose that defense. It has already been chosen", Toast.LENGTH_LONG).show();
@@ -155,6 +170,7 @@ public class DefenseFragment extends Fragment {
 
             }
 
+
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
@@ -163,5 +179,8 @@ public class DefenseFragment extends Fragment {
         return view;
     }
 
-
+    }
+    */
+        return view;
+    }
 }

@@ -75,7 +75,7 @@
         <ImageView
             android:layout_width="800dp"
             android:layout_height="800dp"
-            android:id="@+id/imageView"
+            android:id="@+id/img"
             android:src="@drawable/def"
             android:layout_below="@+id/chkMt"
             android:layout_centerHorizontal="true"

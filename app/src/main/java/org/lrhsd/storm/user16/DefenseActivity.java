@@ -7,9 +7,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.Arrays;
 
@@ -32,16 +35,14 @@ public class DefenseActivity extends AppCompatActivity {
                 spin4 = (Spinner)findViewById(R.id.spin4),
                 spin5 = (Spinner)findViewById(R.id.spin5);
         CustomArrayAdapter<String> adapter = new CustomArrayAdapter<>(getApplicationContext(), Arrays.asList(getResources().getStringArray(R.array.defenses)));
-
+        Picasso.with(getApplicationContext())
+                .load(R.drawable.def)
+                .resize(2000, 3000)
+                .into((ImageView)findViewById(R.id.img));
         spin2.setAdapter(adapter);
         spin3.setAdapter(adapter);
         spin4.setAdapter(adapter);
         spin5.setAdapter(adapter);
-
-        spin2.setSelection(2);
-        spin3.setSelection(3);
-        spin4.setSelection(4);
-        spin5.setSelection(5);
 
         TextView head1 = (TextView)findViewById(R.id.txtD2),
                  head2 = (TextView)findViewById(R.id.txtD3),
@@ -56,17 +57,18 @@ public class DefenseActivity extends AppCompatActivity {
         spin5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (spin5.getSelectedItem().toString().equals(spin2.getSelectedItem().toString()) || spin5.getSelectedItem().toString().equals(spin3.getSelectedItem().toString()) ||
-                        spin5.getSelectedItem().toString().equals(spin4.getSelectedItem().toString())) {
-                    Toast.makeText(getApplicationContext(), "Cannot choose that defense. It has already been chosen", Toast.LENGTH_LONG).show();
-                    if (position < Arrays.asList(getResources().getStringArray(R.array.defenses)).size() - 1) {
-                        spin5.setSelection(position + 1, false);
-                    } else {
-                        spin5.setSelection(position - 1);
+                    if (position > 0 && (spin5.getSelectedItem().toString().equals(spin2.getSelectedItem().toString()) || spin5.getSelectedItem().toString().equals(spin3.getSelectedItem().toString()) ||
+                            spin5.getSelectedItem().toString().equals(spin4.getSelectedItem().toString()))) {
+                        Toast.makeText(getApplicationContext(), "Cannot choose that defense. It has already been chosen", Toast.LENGTH_LONG).show();
+                        if (position < Arrays.asList(getResources().getStringArray(R.array.defenses)).size() - 1) {
+                            spin5.setSelection(position + 1, false);
+                        } else {
+                            spin5.setSelection(position - 1);
+                        }
                     }
+
                 }
 
-            }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -76,17 +78,17 @@ public class DefenseActivity extends AppCompatActivity {
         spin2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (spin2.getSelectedItem().toString().equals(spin3.getSelectedItem().toString()) ||
-                        spin2.getSelectedItem().toString().equals(spin4.getSelectedItem().toString()) || spin2.getSelectedItem().toString().equals(spin5.getSelectedItem().toString())) {
-                    Toast.makeText(getApplicationContext(), "Cannot choose that defense. It has already been chosen", Toast.LENGTH_LONG).show();
-                    if (position < Arrays.asList(getResources().getStringArray(R.array.defenses)).size() - 1) {
-                        spin2.setSelection(position + 1, false);
-                    } else {
-                        spin2.setSelection(position - 1);
+                    if (position > 0 && (spin2.getSelectedItem().toString().equals(spin3.getSelectedItem().toString()) ||
+                            spin2.getSelectedItem().toString().equals(spin4.getSelectedItem().toString()) || spin2.getSelectedItem().toString().equals(spin5.getSelectedItem().toString()))) {
+                        Toast.makeText(getApplicationContext(), "Cannot choose that defense. It has already been chosen", Toast.LENGTH_LONG).show();
+                        if (position < Arrays.asList(getResources().getStringArray(R.array.defenses)).size() - 1) {
+                            spin2.setSelection(position + 1, false);
+                        } else {
+                            spin2.setSelection(position - 1);
+                        }
                     }
-                }
 
-            }
+                }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -94,10 +96,11 @@ public class DefenseActivity extends AppCompatActivity {
             }
         });
         spin3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (spin3.getSelectedItem().toString().equals(spin2.getSelectedItem().toString()) ||
-                        spin3.getSelectedItem().toString().equals(spin4.getSelectedItem().toString())) {
+                if (position > 0 && (spin3.getSelectedItem().toString().equals(spin2.getSelectedItem().toString()) ||
+                        spin3.getSelectedItem().toString().equals(spin4.getSelectedItem().toString()))) {
                     Toast.makeText(getApplicationContext(), "Cannot choose that defense. It has already been chosen", Toast.LENGTH_LONG).show();
                     if (position < Arrays.asList(getResources().getStringArray(R.array.defenses)).size() - 1) {
                         spin3.setSelection(position + 1, false);
@@ -116,8 +119,8 @@ public class DefenseActivity extends AppCompatActivity {
         spin4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (spin4.getSelectedItem().toString().equals(spin2.getSelectedItem().toString()) ||
-                        spin4.getSelectedItem().toString().equals(spin3.getSelectedItem().toString()) || spin4.getSelectedItem().toString().equals(spin5.getSelectedItem().toString())) {
+                if (position > 0 && (spin4.getSelectedItem().toString().equals(spin2.getSelectedItem().toString()) ||
+                        spin4.getSelectedItem().toString().equals(spin3.getSelectedItem().toString()) || spin4.getSelectedItem().toString().equals(spin5.getSelectedItem().toString()))) {
                     Toast.makeText(getApplicationContext(), "Cannot choose that defense. It has already been chosen", Toast.LENGTH_LONG).show();
                     if (position < Arrays.asList(getResources().getStringArray(R.array.defenses)).size() - 1) {
                         spin4.setSelection(position + 1, false);
