@@ -175,26 +175,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
-        ImageView imgLogo = (ImageView)findViewById(R.id.imgLogo),
-                  imgStorm = (ImageView)findViewById(R.id.imgStorm),
-                  imgTwit = (ImageView)findViewById(R.id.imgTwit),
-                  imgGit = (ImageView)findViewById(R.id.imgGit),
-                  imgWeb = (ImageView)findViewById(R.id.imgWeb);
+        ImageView imgLogo = (ImageView)findViewById(R.id.imgLogo);
 
         imgLogo.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.logo, 200, 200));
-        Picasso.with(MainActivity.this)
-                .load(R.drawable.logo)
-                .into(imgStorm);
-        Picasso.with(MainActivity.this)
-                .load(R.drawable.twitterimg)
-                .into(imgTwit);
-        Picasso.with(MainActivity.this)
-                .load(R.drawable.github)
-                .into(imgGit);
-        Picasso.with(MainActivity.this)
-                .load(R.drawable.web)
-                .into(imgWeb);
-    }
+       }
     public boolean dataEntered(){
         RadioButton red = (RadioButton)findViewById(R.id.radRed),
                 blue = (RadioButton)findViewById(R.id.radBlue);

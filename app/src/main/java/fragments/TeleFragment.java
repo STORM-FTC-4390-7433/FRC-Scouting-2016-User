@@ -7,11 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.squareup.picasso.Picasso;
 
 import org.lrhsd.storm.user16.R;
 
@@ -31,9 +27,9 @@ public class TeleFragment extends Fragment {
         Typeface gill = Typeface.createFromAsset(getActivity().getAssets(), "Gill Sans.ttf");
         Button btnHighGoal = (Button) view.findViewById(R.id.btnHigh),
                btnHighGoalSub = (Button) view.findViewById(R.id.btnDecHigh),
-               btnLowGoal = (Button) view.findViewById(R.id.btnDef1),
+               btnLowGoal = (Button) view.findViewById(R.id.btnDefense1),
                btnLowGoalSub = (Button) view.findViewById(R.id.btnDecLow),
-               btnDef1 = (Button)view.findViewById(R.id.btnDef1),
+               btnDef1 = (Button)view.findViewById(R.id.btnDefense1),
                btnDef1Sub = (Button)view.findViewById(R.id.btnDef1Sub),
                btnDef2 = (Button)view.findViewById(R.id.btnDef2),
                btnDef2Sub = (Button)view.findViewById(R.id.btnDef2Sub),

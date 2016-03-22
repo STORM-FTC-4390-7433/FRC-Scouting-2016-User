@@ -141,10 +141,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:id="@+id/storm">
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:id="@+id/imgStorm" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -160,10 +157,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:id="@+id/twitter">
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:id="@+id/imgTwit" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -179,10 +173,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:id="@+id/git">
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:id="@+id/imgGit" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -198,10 +189,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:id="@+id/web">
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:id="@+id/imgWeb" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
