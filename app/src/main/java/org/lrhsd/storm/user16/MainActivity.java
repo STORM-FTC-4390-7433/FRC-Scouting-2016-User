@@ -1,3 +1,4 @@
+
 package org.lrhsd.storm.user16;
 
 import android.app.Activity;
@@ -35,25 +36,42 @@ import database.DatabaseHandler;
 import database.Stronghold;
 import de.greenrobot.event.EventBus;
 
+ /**
+  * <p>Main activity, starting code for the app</p>
+  * @author Tom Orth
+  *
+  *
+  */
 public class MainActivity extends AppCompatActivity {
+    /**
+     * <p>OnCreate runs at the begininning of the app displaying
+     * See <b>http://developer.android.com/intl/ru/reference/android/app/Activity.html#ActivityLifecycle</b> for the total life cycle of an activity</p>
+     * @param savedInstanceState - instance for activity parceable arguments
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /**
+         * Needed objects and method calls
+         * super.oncreate calls the original super method from the activity class
+         * setContentView sets XML layout and setRequestedOrientation locks screen orientation. IDs are stored in the objects in the layout files
+         */
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         final RadioButton red = (RadioButton)findViewById(R.id.radRed),
                     blue = (RadioButton)findViewById(R.id.radBlue);
-
+        //Font objects
         Typeface mist = Typeface.createFromAsset(getAssets(), "Mistral.ttf"),
                 gill = Typeface.createFromAsset(getAssets(), "Gill Sans.ttf");
-
+        //TextView are labels
         TextView stormTxt = (TextView)findViewById(R.id.stormTxt),
                 twitTxt = (TextView)findViewById(R.id.twitTxt),
                 gitTxt = (TextView)findViewById(R.id.gitTxt),
                 webTxt = (TextView)findViewById(R.id.webTxt);
-
+        //Dropdown
         Spinner spinner = (Spinner)findViewById(R.id.spinAuto);
+        //Adapter sets up choices for the spinner(dropdown)
         CustomArrayAdapter<String> adapt = new CustomArrayAdapter<String>(getApplicationContext(), Arrays.asList(getResources().getStringArray(R.array.autoDefenses)));
         spinner.setAdapter(adapt);
 
@@ -62,17 +80,18 @@ public class MainActivity extends AppCompatActivity {
 
         Button begin = (Button)findViewById(R.id.btn_begin),
                qr = (Button)findViewById(R.id.start_qr_main);
-
+        //LinearLayout is a type of layout used.  Items displayed in a linear order
         LinearLayout twitter = (LinearLayout)findViewById(R.id.twitter),
                 git = (LinearLayout)findViewById(R.id.git),
                 web = (LinearLayout)findViewById(R.id.web);
-
+        //Text boxes
         EditText team = (EditText)findViewById(R.id.txtTeam),
                  match = (EditText)findViewById(R.id.txtMatch);
-
+        //gets rid of the circle of the radiobutton
         red.setButtonDrawable(R.drawable.chkbox_off);
         blue.setButtonDrawable(R.drawable.chkbox_off);
 
+        //sets the fonts
         red.setTypeface(gill);
         blue.setTypeface(gill);
 
@@ -81,10 +100,12 @@ public class MainActivity extends AppCompatActivity {
 
         begin.setTypeface(gill);
         qr.setTypeface(gill);
-
+        //these are actions for the layouts to do when clicked
         twitter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Intents are actions you intend to do
+                //This specific one is to view an external app/action with the URI being a website
                 Intent intent = new Intent(Intent.ACTION_VIEW,
                         Uri.parse("http://www.twitter.com/stormroboticsnj"));
                 startActivity(intent);
@@ -112,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         gitTxt.setTypeface(gill);
         webTxt.setTypeface(gill);
 
-
+        //OnCheckedChange executes when the button is constantly clicked, changing bg resource
         red.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -133,8 +154,19 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        /**
+         * @see TeamNumbers
+         */
       new TeamNumbers(this);
     }
+
+    /**
+     *
+     * @param options - Bitmap options
+     * @param reqWidth - width of the image
+     * @param reqHeight - height of the image
+     * @return new sample size
+     */
     public static int calculateInSampleSize(
             BitmapFactory.Options options, int reqWidth, int reqHeight) {
         // Raw height and width of image
@@ -157,6 +189,15 @@ public class MainActivity extends AppCompatActivity {
 
         return inSampleSize;
     }
+
+    /**
+     *
+     * @param res - Resource object
+     * @param resId - resource id
+     * @param reqWidth - desired width
+     * @param reqHeight - desired height
+     * @return new image final height
+     */
     public static Bitmap decodeSampledBitmapFromResource(Resources res, int resId,
                                                          int reqWidth, int reqHeight) {
 
@@ -172,6 +213,10 @@ public class MainActivity extends AppCompatActivity {
         options.inJustDecodeBounds = false;
         return BitmapFactory.decodeResource(res, resId, options);
     }
+
+    /**
+     * <p>OnResume runs when app is paused. Does not run when app is created, less strenous on the thread</p>
+     */
     @Override
     public void onResume(){
         super.onResume();
@@ -179,6 +224,11 @@ public class MainActivity extends AppCompatActivity {
 
         imgLogo.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.logo, 200, 200));
        }
+
+    /**
+     * <p>State method</p>
+     * @return true if data is entered, false if form is empty
+     */
     public boolean dataEntered(){
         RadioButton red = (RadioButton)findViewById(R.id.radRed),
                 blue = (RadioButton)findViewById(R.id.radBlue);
@@ -189,6 +239,12 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
+
+    /**<p>
+     * Runs when a specific button in the layout is pressed. see the layout file for the appropriate button with the android:click
+     * </p>
+     * @param v - View being passed when pressed
+     */
     public void startMatch(View v){
         if(this.dataEntered()) {
             RadioButton red = (RadioButton) findViewById(R.id.radRed);
@@ -198,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
                     match = Integer.parseInt(txtMatch.getText().toString());
             Spinner spinner = (Spinner)findViewById(R.id.spinAuto);
             boolean isRed = red.isChecked();
-
+                //Toast are short term messages passing context of the app, the message, and the length
                 if (!TeamNumbers.isATeamNumber(team)) {
                     Toast.makeText(getApplicationContext(), "Team Number does not exist", Toast.LENGTH_SHORT).show();
                 }
