@@ -9,10 +9,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+/**
+ * <p>Class to validate team numbers</p>
+ */
 public class TeamNumbers {
 
     private static String total;
 
+    /**
+     * Constructor to build
+     * @param context - Activity context
+     */
     public TeamNumbers(Context context) {
 
         try {
@@ -29,6 +36,11 @@ public class TeamNumbers {
 
     }
 
+    /**
+     * Checks if team exists
+     * @param team - integer of a team number
+     * @return true if team number exists, false if it doesn't
+     */
     public static boolean isATeamNumber(int team) {
         String teamNum = "," + team + ",";
 

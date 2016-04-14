@@ -22,13 +22,18 @@ import java.io.ByteArrayOutputStream;
 import database.DatabaseHandler;
 import de.greenrobot.event.EventBus;
 
+/**
+ * <p>Generates QR Code</p>
+ */
 public class QrActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr);
+        //Gets string
         String output = EventBus.getDefault().removeStickyEvent(String.class);
+        //Assests for qr code
         Display disp = getWindowManager().getDefaultDisplay();
         Point size = new Point();
         disp.getSize(size);
@@ -44,6 +49,11 @@ public class QrActivity extends AppCompatActivity {
         myImage.setImageBitmap(bmp);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
+
+    /**
+     * Action to return to main page and delete database
+     * @param v - View to pass to method
+     */
     public void deleteAndExit(View v){
         new AlertDialog.Builder(this)
                 .setTitle("Return to Main screen")

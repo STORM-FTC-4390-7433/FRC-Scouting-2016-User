@@ -1,7 +1,10 @@
 package database;
 
-
+/**
+ * Stronghold data object class used
+ */
 public class Stronghold {
+    //stronghold variables
     private int teamNum = 0;
     private int matchNum = 0;
     private int alliance = 0;
@@ -21,26 +24,58 @@ public class Stronghold {
     private String startingPos = "", d1 = "", d2 = "", d3 = "", d4 = "", d5 = "", notes = "";
     private int humanYes = 0, humanNo = 0;
     private int pt = 0, cdf = 0, rt = 0, sp = 0, lb = 0, rmp = 0, mt = 0, db = 0, rw = 0;
+    /**
+     * <p>Empty Constructor</p>
+     */
     public Stronghold(){}
+    /**
+     * <p>Used in the main activity for the intial object</p>
+     * @param teamNum - team number
+     * @param matchNum - match number
+     * @param alliance - alliance(1 for red, 0 for blue)
+     */
     public Stronghold(int teamNum, int matchNum, int alliance) {
         this.teamNum = teamNum;
         this.matchNum = matchNum;
         this.alliance = alliance;
     }
+
+    /**
+     * <p>Getter for the autoDef</p>
+     * @return 1 if def was reached, 0 if they were not reached at all or if they were crossed
+     */
     public int getAutoDef() {
         return autoDef;
     }
 
+    /**
+     * <p>sets autoDef value</p>
+     * @param autoDef - new autoDef value
+     */
     public void setAutoDef(int autoDef) {
         this.autoDef = autoDef;
     }
+
+    /**
+     * <p>Getter for the autoCross</p>
+     * @return 1 if def was crossed, 0 if they were not crossed, meaning they were reached or not even that
+     */
     public int getAutoCross() {
         return autoCross;
     }
+
+    /**
+     * <p>Getter for the high goal score</p>
+     * @return high goal score
+     */
     public int getHighGoal() {
         return highGoal;
     }
 
+    /**
+     * <p>Sets high goal score</p>
+     * @param highGoal - new high goal value
+     */
     public void setHighGoal(int highGoal) {
         this.highGoal = highGoal;
     }
@@ -181,25 +216,6 @@ public class Stronghold {
         return d5;
     }
 
-    public int getdWeak1() {
-        return dWeak1;
-    }
-
-    public int getdWeak2() {
-        return dWeak2;
-    }
-
-    public int getdWeak3() {
-        return dWeak3;
-    }
-
-    public int getdWeak4() {
-        return dWeak4;
-    }
-
-    public int getdWeak5() {
-        return dWeak5;
-    }
     public int getRamp() {
         return ramp;
     }
@@ -326,20 +342,5 @@ public class Stronghold {
 
     public void setRw(int rw) {
         this.rw = rw;
-    }
-
-    public int getHumanYes() {
-        return humanYes;
-    }
-
-    public void setHuman(int human) {
-        this.humanYes = human;
-    }
-    public int getHumanNo() {
-        return humanNo;
-    }
-
-    public void setHumanNo(int human) {
-        this.humanNo = human;
     }
 }

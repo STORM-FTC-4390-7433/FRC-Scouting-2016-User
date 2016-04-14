@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        /**
+        /*
          * Needed objects and method calls
          * super.oncreate calls the original super method from the activity class
          * setContentView sets XML layout and setRequestedOrientation locks screen orientation. IDs are stored in the objects in the layout files

@@ -26,21 +26,27 @@ import java.util.Arrays;
 
 import adapters.CustomArrayAdapter;
 
+/**
+ * <p>Autonomous fragment</p>
+ */
 public class AutoFragment extends Fragment {
     public static View view;
     public AutoFragment() {
         // Required empty public constructor
     }
 
-
+    /**
+     * <p>Method that generates fragment UI</p>
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_auto, container, false);
 
-
+        //fonts
         Typeface gill = Typeface.createFromAsset(getActivity().getAssets(), "Gill Sans.ttf");
+
 
         final RadioButton red = (RadioButton)view.findViewById(R.id.radRed),
                 org = (RadioButton)view.findViewById(R.id.radOrg);
@@ -48,6 +54,7 @@ public class AutoFragment extends Fragment {
         red.setButtonDrawable(R.drawable.chkbox_off);
         org.setButtonDrawable(R.drawable.chkbox_off);
 
+        //Picasso is a image loading library
         Picasso.with(getActivity().getApplicationContext())
                 .load(R.drawable.def)
                 .resize(2000, 3000)

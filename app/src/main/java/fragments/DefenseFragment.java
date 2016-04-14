@@ -27,9 +27,12 @@ public class DefenseFragment extends Fragment {
     boolean isStart = true;
 
     public DefenseFragment() {
+        //required default constructor
 
     }
-
+    /**
+     * <p>Method that generates fragment UI</p>
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -38,7 +41,7 @@ public class DefenseFragment extends Fragment {
 
         Typeface gill = Typeface.createFromAsset(getActivity().getAssets(), "Gill Sans.ttf");
 
-
+        //Collection of UI components
         Button def1 = (Button) view.findViewById(R.id.def1),
                 def2 = (Button) view.findViewById(R.id.def2),
                 def3 = (Button) view.findViewById(R.id.def3),
@@ -77,7 +80,7 @@ public class DefenseFragment extends Fragment {
         d4.setTypeface(gill);
         d5.setTypeface(gill);
 
-
+        //spinner logic
         spin5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -150,7 +153,7 @@ public class DefenseFragment extends Fragment {
 
             }
         });
-        /*spin4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spin4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(isStart){
@@ -171,16 +174,15 @@ public class DefenseFragment extends Fragment {
             }
 
 
+
+    }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
         });
         return view;
-    }
 
     }
-    */
-        return view;
-    }
+
 }

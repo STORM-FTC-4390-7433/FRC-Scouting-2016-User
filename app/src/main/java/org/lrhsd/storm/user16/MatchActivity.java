@@ -39,8 +39,11 @@ import fragments.SubmitFragment;
 import fragments.TeleFragment;
 import fragments.ViewPagerAdapter;
 
+/**
+ *
+ */
 public class MatchActivity extends FragmentActivity {
-
+    //Main objects
     private ViewPagerAdapter mViewPagerAdapter;
     ViewPager mViewPager;
     int highGoal = 0, lowGoal = 0, humanYes = 0, humanNo = 0, d1 = 0, d2 = 0, d3 = 0, d4 = 0, d5 = 0;
@@ -49,8 +52,18 @@ public class MatchActivity extends FragmentActivity {
     CheckBox autoDef, autoHigh, autoLow, autoCross, ramp, scale, cap, breach, chkCross1, chkCross2, chkCross3, chkCross4, chkCross5, chkWeak1, chkWeak2, chkWeak3, chkWeak4, chkWeak5;
     Spinner spinAuto, spinDef1, spinDef2, spinDef3, spinDef4, spinDef5;
     String autoPos = "", def1 = "", def2 = "", def3 = "", def4 = "", def5 = "";
+    /**
+     * <p>OnCreate runs at the begininning of the app displaying
+     * See <b>http://developer.android.com/intl/ru/reference/android/app/Activity.html#ActivityLifecycle</b> for the total life cycle of an activity</p>
+     * @param savedInstanceState - instance for activity parceable arguments
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /*
+         * Needed objects and method calls
+         * super.oncreate calls the original super method from the activity class
+         * setContentView sets XML layout and setRequestedOrientation locks screen orientation. IDs are stored in the objects in the layout files
+         */
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -68,11 +81,19 @@ public class MatchActivity extends FragmentActivity {
 
     }
 
+    /**
+     * <p>Increment high goal score</p>
+     * @param v - view being passed for the action
+     */
     public void highScore(View v){
         TextView textHigh = (TextView)findViewById(R.id.txtHigh);
         ++highGoal;
         textHigh.setText("High Goal: " + String.valueOf(highGoal));
     }
+    /**
+     * <p>Decrement high goal score</p>
+     * @param v - view being passed for the action
+     */
     public void decHighScore(View v){
         if(highGoal  > 0) {
             TextView textHigh = (TextView)findViewById(R.id.txtHigh);
@@ -80,11 +101,19 @@ public class MatchActivity extends FragmentActivity {
             textHigh.setText("High Goal: " + String.valueOf(highGoal));
         }
     }
+    /**
+     * <p>Increment low goal score</p>
+     * @param v - view being passed for the action
+     */
     public void lowScrore(View v){
         TextView low = (TextView)findViewById(R.id.txtLow);
         ++lowGoal;
         low.setText("Low Goal: " + String.valueOf(lowGoal));
     }
+    /**
+     * <p>Decrement low goal score</p>
+     * @param v - view being passed for the action
+     */
     public void decLowScrore(View v){
         if(lowGoal > 0) {
             TextView low = (TextView)findViewById(R.id.txtLow);
@@ -92,32 +121,56 @@ public class MatchActivity extends FragmentActivity {
             low.setText("Low Goal: " + String.valueOf(lowGoal));
         }
     }
+    /**
+     * <p>Increment defense 1 score</p>
+     * @param v - view being passed for the action
+     */
     public void Def1(View v){
         TextView de1 = (TextView)findViewById(R.id.D1Txt);
         ++d1;
         de1.setText(strong.getD1() + ": " + String.valueOf(d1));
         Log.d("D1", String.valueOf(d1));
     }
+    /**
+     * <p>Increment defense 2 score</p>
+     * @param v - view being passed for the action
+     */
     public void Def2(View v){
        TextView score = (TextView)findViewById(R.id.D2Txt);
         ++d2;
         score.setText(strong.getD2() + ": " + String.valueOf(d2));
     }
+    /**
+     * <p>Increment defense 3 score</p>
+     * @param v - view being passed for the action
+     */
     public void Def3(View v){
         TextView de3 = (TextView)findViewById(R.id.D3Txt);
         ++d3;
         de3.setText(strong.getD3() + ": " + String.valueOf(d3));
     }
+    /**
+     * <p>Increment defense 4 score</p>
+     * @param v - view being passed for the action
+     */
     public void Def4(View v){
         TextView de4 = (TextView)findViewById(R.id.D4Txt);
         ++d4;
         de4.setText(strong.getD4() + ": " + String.valueOf(d4));
     }
+    /**
+     * <p>Increment defense 5 score</p>
+     * @param v - view being passed for the action
+     */
     public void Def5(View v){
         TextView de5 = (TextView)findViewById(R.id.D5Txt);
         ++d5;
         de5.setText(strong.getD5() + ": " + String.valueOf(d5));
     }
+    /**
+     * <p>Decrement defense 1 score</p>
+     * @param v - view being passed for the action
+     */
     public void Def1Sub(View v){
         TextView de1 = (TextView)findViewById(R.id.D1Txt);
         if(d1 > 0) {
@@ -126,6 +179,10 @@ public class MatchActivity extends FragmentActivity {
         }
         Log.d("D1", String.valueOf(d1));
     }
+    /**
+     * <p>Decrement defense 2 score</p>
+     * @param v - view being passed for the action
+     */
     public void Def2Sub(View v){
         TextView score = (TextView)findViewById(R.id.D2Txt);
         if(d2 > 0) {
@@ -133,6 +190,10 @@ public class MatchActivity extends FragmentActivity {
             score.setText(strong.getD2() + ": " + String.valueOf(d2));
         }
     }
+    /**
+     * <p>Decrement defense 3 score</p>
+     * @param v - view being passed for the action
+     */
     public void Def3Sub(View v){
         TextView de3 = (TextView)findViewById(R.id.D3Txt);
         if(d3 > 0) {
@@ -140,6 +201,10 @@ public class MatchActivity extends FragmentActivity {
             de3.setText(strong.getD3() + ": " + String.valueOf(d3));
         }
     }
+    /**
+     * <p>Decrement defense 4 score</p>
+     * @param v - view being passed for the action
+     */
     public void Def4Sub(View v){
         TextView de4 = (TextView)findViewById(R.id.D4Txt);
         if(d4 > 0) {
@@ -147,6 +212,10 @@ public class MatchActivity extends FragmentActivity {
             de4.setText(strong.getD4() + ": " + String.valueOf(d4));
         }
     }
+    /**
+     * <p>Decrement defense 5 score</p>
+     * @param v - view being passed for the action
+     */
     public void Def5Sub(View v){
         TextView de5 = (TextView)findViewById(R.id.D5Txt);
         if(d5 > 0) {
@@ -154,7 +223,12 @@ public class MatchActivity extends FragmentActivity {
             de5.setText(strong.getD5() + ": " + String.valueOf(d5));
         }
     }
+    /**
+     * <p>Prepares data to be submitted to the database</p>
+     * @param v - view being passed for the action
+     */
     public void submitData(View v){
+        //views stored in the fragment
         autoHigh = (CheckBox)AutoFragment.view.findViewById(R.id.chkAutoHigh);
         autoLow = (CheckBox)AutoFragment.view.findViewById(R.id.chkAutoLow);
         ramp = (CheckBox) EndFragment.view.findViewById(R.id.ramp);
@@ -168,12 +242,14 @@ public class MatchActivity extends FragmentActivity {
 
 
         Log.d("Submit", "Alert dialog start");
+        //Message box builder
         new AlertDialog.Builder(this)
                 .setTitle("Return to main Screen")
                 .setMessage("Are you sure? This action cannot be undone")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        //sets data for the qr code
                         strong.setStartingPos(textToSymbol(strong.getStartingPos()));
                         strong.setD1(textToSymbol(strong.getD1()));
                         strong.setD2(textToSymbol(strong.getD2()));
@@ -197,7 +273,7 @@ public class MatchActivity extends FragmentActivity {
                         strong.setScale(boolToInt(scale.isChecked()));
                         strong.setRamp(boolToInt(ramp.isChecked()));
                         strong.setCapture(boolToInt(cap.isChecked()));
-                        //strong.setBreach(boolToInt(breach.isChecked()));
+
                         strong.setdCross1(d1);
                         strong.setdCross2(d2);
                         strong.setdCross3(d3);
@@ -205,9 +281,11 @@ public class MatchActivity extends FragmentActivity {
                         strong.setdCross5(d5);
                         strong.setNotes(notes.getText().toString());
 
+                        //Submits data to database
                         DatabaseHandler.getInstance(getApplicationContext()).addAllData(strong);
                         Toast.makeText(getApplicationContext(), "Data added", Toast.LENGTH_SHORT).show();
 
+                        //return to main screen
                         Intent returnAction = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(returnAction);
 
@@ -222,6 +300,12 @@ public class MatchActivity extends FragmentActivity {
                 .show();
 
     }
+
+    /**
+     * Converts the long defense names to shorter symbols
+     * @param text - defense name
+     * @return shorter symbol of the defense, null if invalid
+     */
     public String textToSymbol(String text){
         if(text.equals("Portcullis")){
             return "pt";
@@ -255,12 +339,24 @@ public class MatchActivity extends FragmentActivity {
         }
         return null;
     }
+
+    /**
+     * converts boolean value to int
+     * @param a - boolean value
+     * @return 1 if true, 0 if false
+     */
     public int boolToInt(boolean a){
         if(a){
             return 1;
         }
         return 0;
     }
+
+    /**
+     * sets specific defense values in the stronghold objects
+     * @param str - defense symbol to use as reference
+     * @param i - amount to increment the defense value by
+     */
     public void defense(String str, int i){
         switch (str){
             case "pt":
@@ -292,10 +388,4 @@ public class MatchActivity extends FragmentActivity {
                 break;
         }
     }
-    public int defense(CheckBox b1, CheckBox b2, CheckBox b3, CheckBox b4, CheckBox b5, CheckBox b6, CheckBox b7, CheckBox b8, CheckBox b9){
-        if(b1.isChecked() || b2.isChecked() || b3.isChecked() || b4.isChecked() || b5.isChecked() || b6.isChecked() || b7.isChecked() || b8.isChecked() || b9.isChecked()){
-            return 1;
-        }
-        return 0;
-    }
-    }
+}

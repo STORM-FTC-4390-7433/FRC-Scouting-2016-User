@@ -21,13 +21,16 @@ public class EndFragment extends Fragment {
         // Required empty public constructor
     }
 
-
+    /**
+     * <p>Method that generates fragment UI</p>
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_end, container, false);
 
+        //fonts
         Typeface gill = Typeface.createFromAsset(getActivity().getAssets(), "Gill Sans.ttf");
 
         CheckBox ramp = (CheckBox)view.findViewById(R.id.ramp),

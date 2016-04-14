@@ -25,8 +25,10 @@ public class SubmitFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_submit, container, false);
+
         Button submit = (Button)view.findViewById(R.id.submit);
         EditText text = (EditText)view.findViewById(R.id.editText);
+        //Again setting fonts
         Typeface gill = Typeface.createFromAsset(getActivity().getAssets(), "Gill Sans.ttf");
 
         submit.setTypeface(gill);

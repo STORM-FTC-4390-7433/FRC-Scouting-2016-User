@@ -15,11 +15,24 @@ import fragments.TeleFragment;
  */
 public class ViewPagerAdapter extends FragmentPagerAdapter {
     Stronghold strong;
+
+    /**
+     * Default constructor
+     * @param fm - fragment manager
+     * @param strong - stronghold data object
+     */
     public ViewPagerAdapter(FragmentManager fm, Stronghold strong) {
+        //calls original super method
         super(fm);
+        //stronghold variable
         this.strong = strong;
     }
 
+    /**
+     * Iterates through fragments to return current page
+     * @param position - position of the tab
+     * @return Fragment being displayed
+     */
     @Override
     public Fragment getItem(int position) {
         switch(position) {
@@ -48,12 +61,21 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         return null;
     }
 
+    /**
+     *
+     * @return total number of tabs
+     */
     @Override
     public int getCount() {
         // Show 4 total pages.
         return 4;
     }
 
+    /**
+     * Sets tab titles
+     * @param position - used to select fragment from a position
+     * @return title
+     */
     @Override
     public CharSequence getPageTitle(int position) {
         switch (position) {

@@ -24,7 +24,10 @@ public class TeleFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_tele, container, false);
+
+        //Fonts
         Typeface gill = Typeface.createFromAsset(getActivity().getAssets(), "Gill Sans.ttf");
+        //Collection of UI components
         Button btnHighGoal = (Button) view.findViewById(R.id.btnHigh),
                btnHighGoalSub = (Button) view.findViewById(R.id.btnDecHigh),
                btnLowGoal = (Button) view.findViewById(R.id.btnDefense1),
@@ -40,7 +43,8 @@ public class TeleFragment extends Fragment {
                btnDef5 = (Button)view.findViewById(R.id.btnDef5),
                btnDef5Sub = (Button)view.findViewById(R.id.btnDef5Sub);
 
-
+        //Retrieves the arguments that was set for the fragment
+        //See the fragment adapter for the declaration
         Bundle args = getArguments();
 
 
@@ -50,6 +54,7 @@ public class TeleFragment extends Fragment {
                  def4 = (TextView)view.findViewById(R.id.D4Txt),
                  def5 = (TextView)view.findViewById(R.id.D5Txt);
 
+        //sets the text, using fragment arguments
         def1.setText(args.getString("D1") + ": 0");
         def2.setText(args.getString("D2") + ": 0");
         def3.setText(args.getString("D3") + ": 0");
@@ -57,11 +62,19 @@ public class TeleFragment extends Fragment {
         def5.setText(args.getString("D5") + ": 0");
 
 
-
         btnHighGoal.setTypeface(gill);
         btnHighGoalSub.setTypeface(gill);
         btnLowGoal.setTypeface(gill);
-        btnLowGoalSub.setTypeface(gill);
+        btnDef1.setTypeface(gill);
+        btnDef2.setTypeface(gill);
+        btnDef3.setTypeface(gill);
+        btnDef4.setTypeface(gill);
+        btnDef5.setTypeface(gill);
+        btnDef1Sub.setTypeface(gill);
+        btnDef2Sub.setTypeface(gill);
+        btnDef3Sub.setTypeface(gill);
+        btnDef4Sub.setTypeface(gill);
+        btnDef5Sub.setTypeface(gill);
         return view;
     }
 
