@@ -488,38 +488,74 @@ public class Stronghold {
         return lb;
     }
 
+    /**
+     * sets the number of times the low bar was crossed
+     * @param lb - the number of times the low bar was crossed
+     */
     public void setLb(int lb) {
         this.lb = lb;
     }
 
+    /**
+     * returns the number of times the ramparts was crossed
+     * @return the number of times the ramparts was crossed
+     */
     public int getRmp() {
         return rmp;
     }
 
+    /**
+     * sets the number of times the ramparts was crossed
+     * @param rmp - the number of times the low bar was crossed
+     */
     public void setRmp(int rmp) {
         this.rmp = rmp;
     }
 
+    /**
+     * returns the number of times the moat was crossed
+     * @return the number of times the moat was crossed
+     */
     public int getMt() {
         return mt;
     }
 
+    /**
+     * sets the number of times the moat was crossed
+     * @param mt - the number of times the low bar was crossed
+     */
     public void setMt(int mt) {
         this.mt = mt;
     }
 
+    /**
+     * returns the number of times the drawbridge was crossed
+     * @return the number of times the drawbridge was crossed
+     */
     public int getDb() {
         return db;
     }
 
+    /**
+     * sets the number of times the drawbridge was crossed
+     * @param db - the number of times the drawbridge was crossed
+     */
     public void setDb(int db) {
         this.db = db;
     }
 
+    /**
+     * returns the number of times the rockwall was crossed
+     * @return the number of times the rockwall was crossed
+     */
     public int getRw() {
         return rw;
     }
 
+    /**
+     * sets the number of times the rockwall was crossed
+     * @param rw - the number of times the rockwall was crossed
+     */
     public void setRw(int rw) {
         this.rw = rw;
     }

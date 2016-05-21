@@ -40,7 +40,7 @@ import fragments.TeleFragment;
 import fragments.ViewPagerAdapter;
 
 /**
- *
+ *<p>Match Page containing the tabs for the tabular layout.  Main match page</p>
  */
 public class MatchActivity extends FragmentActivity {
     //Main objects

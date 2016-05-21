@@ -27,14 +27,17 @@ public class DefenseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_defense);
 
+        //Gets current stronghold obj
         strong = EventBus.getDefault().removeStickyEvent(Stronghold.class);
 
+        //Fonts and spinners resources made
         Typeface gill = Typeface.createFromAsset(getAssets(), "Gill Sans.ttf");
          final Spinner spin2 = (Spinner)findViewById(R.id.spin2),
                 spin3 = (Spinner)findViewById(R.id.spin3),
                 spin4 = (Spinner)findViewById(R.id.spin4),
                 spin5 = (Spinner)findViewById(R.id.spin5);
         CustomArrayAdapter<String> adapter = new CustomArrayAdapter<>(getApplicationContext(), Arrays.asList(getResources().getStringArray(R.array.defenses)));
+        //Loads the image needed
         Picasso.with(getApplicationContext())
                 .load(R.drawable.def)
                 .resize(2000, 3000)
@@ -44,6 +47,7 @@ public class DefenseActivity extends AppCompatActivity {
         spin4.setAdapter(adapter);
         spin5.setAdapter(adapter);
 
+        //Sets up Text Views and fonts for them
         TextView head1 = (TextView)findViewById(R.id.txtD2),
                  head2 = (TextView)findViewById(R.id.txtD3),
                  head3 = (TextView)findViewById(R.id.txtD4),
@@ -54,6 +58,7 @@ public class DefenseActivity extends AppCompatActivity {
         head3.setTypeface(gill);
         head4.setTypeface(gill);
 
+        //Spinner "dumby proof code" - makes sure only one defense can be opened
         spin5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -138,11 +143,18 @@ public class DefenseActivity extends AppCompatActivity {
         });  
 
     }
+
+    /**
+     * Method to run new activity
+     * @param v
+     */
     public void getMatchGoing(View v){
         final Spinner spin2 = (Spinner)findViewById(R.id.spin2),
                 spin3 = (Spinner)findViewById(R.id.spin3),
                 spin4 = (Spinner)findViewById(R.id.spin4),
                 spin5 = (Spinner)findViewById(R.id.spin5);
+
+        //Update stronghold values
         strong.setD1("Low Bar");
         Log.d("D1", spin2.getSelectedItem().toString());
         strong.setD2(spin2.getSelectedItem().toString());
@@ -150,6 +162,7 @@ public class DefenseActivity extends AppCompatActivity {
         strong.setD4(spin4.getSelectedItem().toString());
         strong.setD5(spin5.getSelectedItem().toString());
 
+        //New page
         Intent begin = new Intent(getApplicationContext(), MatchActivity.class);
         EventBus.getDefault().postSticky(strong);
 

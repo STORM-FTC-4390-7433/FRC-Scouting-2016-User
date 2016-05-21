@@ -23,7 +23,7 @@ import database.DatabaseHandler;
 import de.greenrobot.event.EventBus;
 
 /**
- * <p>Generates QR Code</p>
+ * <p>Generates QR Code.  Copy and paste each year as there usually is no change</p>
  */
 public class QrActivity extends AppCompatActivity {
 

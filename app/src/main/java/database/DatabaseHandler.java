@@ -10,15 +10,19 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * <p>Utility file for accessing our sqlite database</p>
+ */
 public class DatabaseHandler extends SQLiteOpenHelper {
-    private static String DB_name = "strongholdDB";
-    private static String DB_Table = "strongholdData";
+    //Utility values
+    private static String DB_NAME = "strongholdDB";
+    private static String DB_TABLE = "strongholdData";
     private static int DB_VERSION = 12;
 
+    //Columns
     private static String KEY_TEAM ="teamNum";
     private static String KEY_MATCH = "matchNum";
-    private static String KEY_Alliance = "alliance";
+    private static String KEY_ALLIANCE = "alliance";
     private static String KEY_AUTODEF = "autoDef";
     private static String KEY_AUTOHIGH = "autoHigh";
     private static String KEY_AUTOLOW = "autoLow";
@@ -49,12 +53,24 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static String KEY_RW = "rockwall";
     private static String KEY_RT = "roughtTerrain";
     private static String KEY_LB = "lowBar";
+
+    //needed for getinstance()
     private static DatabaseHandler dbH = null;
     private Context ctx;
 
+    /**
+     * <p>Default constructor</p>
+     * @param context - Context for the app
+     */
     public DatabaseHandler(Context context) {
-        super(context, DB_name, null, DB_VERSION);
+        super(context, DB_NAME, null, DB_VERSION);
     }
+
+    /**
+     * <p>Used so that we only use one instance of the database as oppose to many</p>
+     * @param context - Context for the app
+     * @return Database Handler instance
+     */
     public static DatabaseHandler getInstance(Context context){
         if(dbH == null){
             dbH = new DatabaseHandler(context.getApplicationContext());
@@ -62,12 +78,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return dbH;
     }
 
+    /**
+     * <p>Auto-Generated method.  Creates the database structure</p>
+     * @param db - SQLITEDatabase instance
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_TEAM = "CREATE TABLE " + DB_Table + "(" +
+        //SQL command to create table
+        String CREATE_TEAM = "CREATE TABLE " + DB_TABLE + "(" +
                               KEY_TEAM + " INTEGER," +
                               KEY_MATCH + " INTEGER," +
-                              KEY_Alliance + " INTEGER," +
+                              KEY_ALLIANCE + " INTEGER," +
                               KEY_AUTODEF + " INTEGER," +
                               KEY_AUTOHIGH + " INTEGER," +
                               KEY_AUTOLOW + " INTEGER," +
@@ -99,22 +120,40 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                               KEY_RT + " INTEGER," +
                               KEY_LB + " INTEGER" +
                               ")";
+        //executes SQL command
         db.execSQL(CREATE_TEAM);
     }
+
+    /**
+     * <p>Auto-Generated.  Updates the database when the structure gets changed</p>
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + DB_Table);
+        db.execSQL("DROP TABLE IF EXISTS " + DB_TABLE);
         onCreate(db);
     }
+
+    /**
+     * <p>Clears the table to be empty</p>
+     */
     public void clearTable(){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(DB_Table, null, null);
+        db.delete(DB_TABLE, null, null);
     }
+
+    /**
+     * <p>Prepares ContentValues to be created for new data entries</p>
+     * @param strong - Data to be added
+     * @return ContentValues to be added
+     */
     public ContentValues addData(Stronghold strong){
+        /* Creates a map data structure to add data
+         * Key is the column and the value is the data for the column
+         */
         ContentValues values = new ContentValues();
         values.put(KEY_TEAM, strong.getTeamNum());
         values.put(KEY_MATCH, strong.getMatchNum());
-        values.put(KEY_Alliance, strong.getAlliance());
+        values.put(KEY_ALLIANCE, strong.getAlliance());
         values.put(KEY_AUTODEF, strong.getAutoDef());
         values.put(KEY_AUTOHIGH, strong.getAutoHigh());
         values.put(KEY_AUTOLOW, strong.getAutoLow());
@@ -148,25 +187,41 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return values;
 
     }
+
+    /**
+     * Takes the values from the above method and adds it to table
+     * @param strong - data set to be added
+     */
     public void addAllData(Stronghold strong){
+        //Database instance
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = addData(strong);
-        db.insert(DB_Table, null, values);
+        //inserts data into table
+        db.insert(DB_TABLE, null, values);
         Log.d("DB", "Data added");
+        //closes the database resource to be freed
         db.close();
     }
+
+    /**
+     * Get all data entries from the given table
+     * @return List of Stronghold objects of the data
+     */
     public List<Stronghold> getAllTeams(){
         List<Stronghold> list = new ArrayList<Stronghold>();
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT * FROM " + DB_Table;
+        String query = "SELECT * FROM " + DB_TABLE;
+        //Cursor executes queries
         Cursor cursor = db.rawQuery(query, null);
 
+        //Makes sure that cursor can start at the dataset
         if(cursor.moveToFirst()) {
             do {
                 Stronghold tmp = new Stronghold();
+                //cursor.getint/getstring gets the value as the datatype from a column index
                 tmp.setTeamNum(cursor.getInt(cursor.getColumnIndex(KEY_TEAM)));
                 tmp.setMatchNum(cursor.getInt(cursor.getColumnIndex(KEY_MATCH)));
-                tmp.setAlliance(cursor.getInt(cursor.getColumnIndex(KEY_Alliance)));
+                tmp.setAlliance(cursor.getInt(cursor.getColumnIndex(KEY_ALLIANCE)));
                 tmp.setAutoDef(cursor.getInt(cursor.getColumnIndex(KEY_AUTODEF)));
                 tmp.setAutoHigh(cursor.getInt(cursor.getColumnIndex(KEY_AUTOHIGH)));
                 tmp.setAutoLow(cursor.getInt(cursor.getColumnIndex(KEY_AUTOLOW)));
@@ -198,7 +253,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 tmp.setRt(cursor.getInt(cursor.getColumnIndex(KEY_RT)));
                 tmp.setLb(cursor.getInt(cursor.getColumnIndex(KEY_LB)));
                 list.add(tmp);
-
+              //makes sure it executes so long as there is new entries to look at
             } while (cursor.moveToNext());
         }
         return list;
